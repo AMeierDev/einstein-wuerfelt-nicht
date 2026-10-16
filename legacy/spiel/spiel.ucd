@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<editmodel:ClassDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" xmlns:options="options.xmi" size="1619,1407" id="spiel" metadata="uml2-1.0" initialized="true" scrolledY="835" tag="1000" key="32303037303533312D313030302045696E737465696E5775657266656C744E696368742046696E616C2F4269676D616D61">
+  <children xsi:type="editmodel:ClassEditModel" name="EingabeThread" location="470,1086" size="139,121" id="spiel/EingabeThread" runTimeClassModel="run(),EingabeThread(LInterfaces.Bildschirmanzeige;Lclient.NetzwerkSchnittstelle;),stopAbfrage(),startAbfrage()">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="102,72">
+      <children xsi:type="editmodel:MethodEditModel" name="EingabeThread" id="spiel/EingabeThread#EingabeThread(LInterfaces.Bildschirmanzeige;Lclient.NetzwerkSchnittstelle;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="run" id="spiel/EingabeThread#run()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="startAbfrage" id="spiel/EingabeThread#startAbfrage()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="stopAbfrage" id="spiel/EingabeThread#stopAbfrage()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="Spiellogik" location="50,1086" size="182,301" id="spiel/Spiellogik" runTimeClassModel="pruefeStein(I[I),loescheStein([I[I),setzemoeglicheZuege(I[IIIIIII),gibIntFeld(Ljava.lang.String;I),pruefeGegnerZug(I[II[I),konvertiereZugStringZuInt(Ljava.lang.String;II),konvertiereStringZuInt(Ljava.lang.String;II),pruefeGegnerInitialisierung([I),bewegeStein([I[I),siegBedingungen([I),setzeSieger(I),gibmoeglicheSpielzuege(II[I),benutzerAuswahlInZug([II),gibSieger()">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="159,252">
+      <children xsi:type="editmodel:MethodEditModel" name="benutzerAuswahlInZug" id="spiel/Spiellogik#benutzerAuswahlInZug([II)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="bewegeStein" id="spiel/Spiellogik#bewegeStein([I[I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="gibIntFeld" id="spiel/Spiellogik#gibIntFeld(Ljava.lang.String;I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="gibSieger" id="spiel/Spiellogik#gibSieger()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="gibmoeglicheSpielzuege" id="spiel/Spiellogik#gibmoeglicheSpielzuege(II[I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="konvertiereStringZuInt" id="spiel/Spiellogik#konvertiereStringZuInt(Ljava.lang.String;II)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="konvertiereZugStringZuInt" id="spiel/Spiellogik#konvertiereZugStringZuInt(Ljava.lang.String;II)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="loescheStein" id="spiel/Spiellogik#loescheStein([I[I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="pruefeGegnerInitialisierung" id="spiel/Spiellogik#pruefeGegnerInitialisierung([I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="pruefeGegnerZug" id="spiel/Spiellogik#pruefeGegnerZug(I[II[I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="pruefeStein" id="spiel/Spiellogik#pruefeStein(I[I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setzeSieger" id="spiel/Spiellogik#setzeSieger(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setzemoeglicheZuege" id="spiel/Spiellogik#setzemoeglicheZuege(I[IIIIIII)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="siegBedingungen" id="spiel/Spiellogik#siegBedingungen([I)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="SpielMain" location="819,1086" size="106,67" id="spiel/SpielMain" runTimeClassModel="main([Ljava.lang.String;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="52,18">
+      <children xsi:type="editmodel:MethodEditModel" name="main" id="spiel/SpielMain#main([Ljava.lang.String;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="SpielMenu" location="659,1086" size="110,67" id="spiel/SpielMenu" runTimeClassModel="SpielMenu()">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="79,18">
+      <children xsi:type="editmodel:MethodEditModel" name="SpielMenu" id="spiel/SpielMenu#SpielMenu()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="Stein" location="282,1086" size="138,139" id="spiel/Stein" runTimeClassModel="gibSpalte(),gibZugehoerigkeit(),Stein(IIII),gibZeile(),gibNummer()">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="115,90">
+      <children xsi:type="editmodel:MethodEditModel" name="Stein" id="spiel/Stein#Stein(IIII)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="gibNummer" id="spiel/Stein#gibNummer()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="gibSpalte" id="spiel/Stein#gibSpalte()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="gibZeile" id="spiel/Stein#gibZeile()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="gibZugehoerigkeit" id="spiel/Stein#gibZugehoerigkeit()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.6/@sourceConnections.0" name="AntwortEmpfaenger" location="918,50" size="168,113" id="Interfaces/AntwortEmpfaenger" runTimeClassModel="nachrichtEmpangen(Ljava.lang.String;),verbindungVerloren(Ljava.lang.String;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="126,36">
+      <children xsi:type="editmodel:MethodEditModel" name="nachrichtEmpangen" id="Interfaces/AntwortEmpfaenger#nachrichtEmpangen(Ljava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="verbindungVerloren" id="Interfaces/AntwortEmpfaenger#verbindungVerloren(Ljava.lang.String;)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="Steuerung" location="901,213" size="202,481" id="spiel/Steuerung" runTimeClassModel="logdatei,spielArt,nachrichtEmpangen(Ljava.lang.String;),netzwerkBeginn(),wuerfelZahlZaehler,spielEndeNetzwerk(Ljava.lang.String;),zug,zugAuswahl,moeglicheSpielzuege,gegnerSchummelReaktion(),ausgabeForm(I),siegbedingungPrüfenNetzwerk(),istKI,wirSchummelnReaktion(),ausgabeForm,intWuerfel,spielerSteinPos,verbindungVerloren(Ljava.lang.String;),heute,spielen(I),spielmenue(),einzelSpieler(),zugehoerigkeit,spieler2Name">
+    <children xsi:type="editmodel:CompartmentEditModel" size="168,234">
+      <children xsi:type="editmodel:AttributeEditModel" name="ausgabeForm" id="spiel/Steuerung#ausgabeForm"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="heute" id="spiel/Steuerung#heute"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="intWuerfel" id="spiel/Steuerung#intWuerfel"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="istKI" id="spiel/Steuerung#istKI"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="logdatei" id="spiel/Steuerung#logdatei"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="moeglicheSpielzuege" id="spiel/Steuerung#moeglicheSpielzuege"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="spielArt" id="spiel/Steuerung#spielArt"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="spieler2Name" id="spiel/Steuerung#spieler2Name"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="spielerSteinPos" id="spiel/Steuerung#spielerSteinPos"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="wuerfelZahlZaehler" id="spiel/Steuerung#wuerfelZahlZaehler"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="zug" id="spiel/Steuerung#zug"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="zugAuswahl" id="spiel/Steuerung#zugAuswahl"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="zugehoerigkeit" id="spiel/Steuerung#zugehoerigkeit"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="179,198">
+      <children xsi:type="editmodel:MethodEditModel" name="ausgabeForm" id="spiel/Steuerung#ausgabeForm(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="einzelSpieler" id="spiel/Steuerung#einzelSpieler()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="gegnerSchummelReaktion" id="spiel/Steuerung#gegnerSchummelReaktion()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="nachrichtEmpangen" id="spiel/Steuerung#nachrichtEmpangen(Ljava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="netzwerkBeginn" id="spiel/Steuerung#netzwerkBeginn()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="siegbedingungPrüfenNetzwerk" id="spiel/Steuerung#siegbedingungPrüfenNetzwerk()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="spielEndeNetzwerk" id="spiel/Steuerung#spielEndeNetzwerk(Ljava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="spielen" id="spiel/Steuerung#spielen(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="spielmenue" id="spiel/Steuerung#spielmenue()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="verbindungVerloren" id="spiel/Steuerung#verbindungVerloren(Ljava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="wirSchummelnReaktion" id="spiel/Steuerung#wirSchummelnReaktion()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="Interfaces/AntwortEmpfaenger&lt;-spiel/Steuerung" source="//@children.6" target="//@children.5" targetEnd="//@children.6/@sourceConnections.0/@children.1" sourceEnd="//@children.6/@sourceConnections.0/@children.0" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="101,0" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="84,113"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="SpielGui" location="242,357" size="169,679" id="spiel/SpielGui" runTimeClassModel="nachrichtenAnzeige(Ljava.lang.String;),wuerfel(I),temploeschenSteine(),wuerfel,mouseEntered(Ljava.awt.event.MouseEvent;),eingabe(),eingabe,spielAufbau(),erzeugeMenu(),ausgabeNachricht(Ljava.lang.String;),auswahlMenue(),brettinitialisierung([ILjava.lang.String;Ljava.lang.String;I),mouseReleased(Ljava.awt.event.MouseEvent;),mausKlickKonvertierung([I),gibAuswahlStein(),spieler2EingabeName(),gibspielerName(),steinInitialisierung(),spielerEingabeMenue(),initPanelSpieler1(Ljava.lang.String;I),aendereSpieler1(I),neuerSpielerName(),mouseClicked(Ljava.awt.event.MouseEvent;),aendereSpieler2(I),mouseExited(Ljava.awt.event.MouseEvent;),wuerfelInit(),actionPerformed(Ljava.awt.event.ActionEvent;),brettinit(),mousePressed(Ljava.awt.event.MouseEvent;),eingabeIP(),textValueChanged(Ljava.awt.event.TextEvent;),initPanelSpieler2(),gibtAuswahlZug(),naechsterZug([II[I),SpielGui()">
+    <children xsi:type="editmodel:CompartmentEditModel" size="94,36">
+      <children xsi:type="editmodel:AttributeEditModel" name="eingabe" id="spiel/SpielGui#eingabe"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="wuerfel" id="spiel/SpielGui#wuerfel"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="146,594">
+      <children xsi:type="editmodel:MethodEditModel" name="SpielGui" id="spiel/SpielGui#SpielGui()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="actionPerformed" id="spiel/SpielGui#actionPerformed(Ljava.awt.event.ActionEvent;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="aendereSpieler1" id="spiel/SpielGui#aendereSpieler1(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="aendereSpieler2" id="spiel/SpielGui#aendereSpieler2(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="ausgabeNachricht" id="spiel/SpielGui#ausgabeNachricht(Ljava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="auswahlMenue" id="spiel/SpielGui#auswahlMenue()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="brettinit" id="spiel/SpielGui#brettinit()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="brettinitialisierung" id="spiel/SpielGui#brettinitialisierung([ILjava.lang.String;Ljava.lang.String;I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="eingabe" id="spiel/SpielGui#eingabe()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="eingabeIP" id="spiel/SpielGui#eingabeIP()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="erzeugeMenu" id="spiel/SpielGui#erzeugeMenu()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="gibAuswahlStein" id="spiel/SpielGui#gibAuswahlStein()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="gibspielerName" id="spiel/SpielGui#gibspielerName()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="gibtAuswahlZug" id="spiel/SpielGui#gibtAuswahlZug()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="initPanelSpieler1" id="spiel/SpielGui#initPanelSpieler1(Ljava.lang.String;I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="initPanelSpieler2" id="spiel/SpielGui#initPanelSpieler2()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="mausKlickKonvertierung" id="spiel/SpielGui#mausKlickKonvertierung([I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="mouseClicked" id="spiel/SpielGui#mouseClicked(Ljava.awt.event.MouseEvent;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="mouseEntered" id="spiel/SpielGui#mouseEntered(Ljava.awt.event.MouseEvent;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="mouseExited" id="spiel/SpielGui#mouseExited(Ljava.awt.event.MouseEvent;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="mousePressed" id="spiel/SpielGui#mousePressed(Ljava.awt.event.MouseEvent;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="mouseReleased" id="spiel/SpielGui#mouseReleased(Ljava.awt.event.MouseEvent;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="nachrichtenAnzeige" id="spiel/SpielGui#nachrichtenAnzeige(Ljava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="naechsterZug" id="spiel/SpielGui#naechsterZug([II[I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="neuerSpielerName" id="spiel/SpielGui#neuerSpielerName()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="spielAufbau" id="spiel/SpielGui#spielAufbau()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="spieler2EingabeName" id="spiel/SpielGui#spieler2EingabeName()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="spielerEingabeMenue" id="spiel/SpielGui#spielerEingabeMenue()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="steinInitialisierung" id="spiel/SpielGui#steinInitialisierung()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="temploeschenSteine" id="spiel/SpielGui#temploeschenSteine()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="textValueChanged" id="spiel/SpielGui#textValueChanged(Ljava.awt.event.TextEvent;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="wuerfel" id="spiel/SpielGui#wuerfel(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="wuerfelInit" id="spiel/SpielGui#wuerfelInit()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="Interfaces/Bildschirmanzeige&lt;-spiel/SpielGui" source="//@children.7" target="//@children.8/@sourceConnections.0" targetEnd="//@children.7/@sourceConnections.0/@children.1" sourceEnd="//@children.7/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="84,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="Konsole" location="50,357" size="162,265" id="spiel/Konsole" runTimeClassModel="gibspielerName(),spielerEingabeMenue(),ausgabeNachricht(Ljava.lang.String;),auswahlMenue(),neuerSpielerName(),konsolenHilfeEinleitung(),eingabeIP(),brettinitialisierung([ILjava.lang.String;Ljava.lang.String;I),eingabe(),naechsterZug([II[I),ausgabeSpielBrett([[Ljava.lang.String;Ljava.lang.String;Ljava.lang.String;I),spieler2EingabeName()">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="139,216">
+      <children xsi:type="editmodel:MethodEditModel" name="ausgabeNachricht" id="spiel/Konsole#ausgabeNachricht(Ljava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="ausgabeSpielBrett" id="spiel/Konsole#ausgabeSpielBrett([[Ljava.lang.String;Ljava.lang.String;Ljava.lang.String;I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="auswahlMenue" id="spiel/Konsole#auswahlMenue()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="brettinitialisierung" id="spiel/Konsole#brettinitialisierung([ILjava.lang.String;Ljava.lang.String;I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="eingabe" id="spiel/Konsole#eingabe()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="eingabeIP" id="spiel/Konsole#eingabeIP()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="gibspielerName" id="spiel/Konsole#gibspielerName()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="konsolenHilfeEinleitung" id="spiel/Konsole#konsolenHilfeEinleitung()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="naechsterZug" id="spiel/Konsole#naechsterZug([II[I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="neuerSpielerName" id="spiel/Konsole#neuerSpielerName()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="spieler2EingabeName" id="spiel/Konsole#spieler2EingabeName()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="spielerEingabeMenue" id="spiel/Konsole#spielerEingabeMenue()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" targetConnections="//@children.7/@sourceConnections.0" autoLocated="true" id="Interfaces/Bildschirmanzeige&lt;-spiel/Konsole" source="//@children.8" target="//@children.9" targetEnd="//@children.8/@sourceConnections.0/@children.1" sourceEnd="//@children.8/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="81,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="80,257" anchorKind="FixedAtEdge"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.8/@sourceConnections.0" name="Bildschirmanzeige" location="148,50" size="160,257" id="Interfaces/Bildschirmanzeige" runTimeClassModel="gibspielerName(),spielerEingabeMenue(),ausgabeNachricht(Ljava.lang.String;),auswahlMenue(),neuerSpielerName(),eingabeIP(),brettinitialisierung([ILjava.lang.String;Ljava.lang.String;I),eingabe(),spieler2EingabeName(),naechsterZug([II[I)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="133,180">
+      <children xsi:type="editmodel:MethodEditModel" name="ausgabeNachricht" id="Interfaces/Bildschirmanzeige#ausgabeNachricht(Ljava.lang.String;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="auswahlMenue" id="Interfaces/Bildschirmanzeige#auswahlMenue()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="brettinitialisierung" id="Interfaces/Bildschirmanzeige#brettinitialisierung([ILjava.lang.String;Ljava.lang.String;I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="eingabe" id="Interfaces/Bildschirmanzeige#eingabe()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="eingabeIP" id="Interfaces/Bildschirmanzeige#eingabeIP()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="gibspielerName" id="Interfaces/Bildschirmanzeige#gibspielerName()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="naechsterZug" id="Interfaces/Bildschirmanzeige#naechsterZug([II[I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="neuerSpielerName" id="Interfaces/Bildschirmanzeige#neuerSpielerName()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="spieler2EingabeName" id="Interfaces/Bildschirmanzeige#spieler2EingabeName()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="spielerEingabeMenue" id="Interfaces/Bildschirmanzeige#spielerEingabeMenue()"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="Spieler" location="671,303" size="180,193" id="spiel/Spieler" runTimeClassModel="initSteinPos(I),gibSteinEigenschaftenFeld([Lspiel.Stein;[Lspiel.Stein;),spieler2InitSteinPos([I),gibZugehoerigkeit(),Spieler(ILjava.lang.String;LInterfaces.Bildschirmanzeige;),setzeZug([I[II),gibName(),gibInitialString([Lspiel.Stein;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="157,144">
+      <children xsi:type="editmodel:MethodEditModel" name="Spieler" id="spiel/Spieler#Spieler(ILjava.lang.String;LInterfaces.Bildschirmanzeige;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="gibInitialString" id="spiel/Spieler#gibInitialString([Lspiel.Stein;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="gibName" id="spiel/Spieler#gibName()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="gibSteinEigenschaftenFeld" id="spiel/Spieler#gibSteinEigenschaftenFeld([Lspiel.Stein;[Lspiel.Stein;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="gibZugehoerigkeit" id="spiel/Spieler#gibZugehoerigkeit()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="initSteinPos" id="spiel/Spieler#initSteinPos(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setzeZug" id="spiel/Spieler#setzeZug([I[II)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="spieler2InitSteinPos" id="spiel/Spieler#spieler2InitSteinPos([I)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" autoLocated="true" id="Interfaces/SpielerInterface&lt;-spiel/Spieler" source="//@children.10" target="//@children.11/@sourceConnections.0" targetEnd="//@children.10/@sourceConnections.0/@children.1" sourceEnd="//@children.10/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="90,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="KI" location="461,303" size="180,193" id="spiel/KI" runTimeClassModel="gibSteinEigenschaftenFeld([Lspiel.Stein;[Lspiel.Stein;),initSteinPos(I),spieler2InitSteinPos([I),gibZugehoerigkeit(),setzeZug([I[II),gibName(),KI(ILjava.lang.String;LInterfaces.Bildschirmanzeige;),gibInitialString([Lspiel.Stein;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="157,144">
+      <children xsi:type="editmodel:MethodEditModel" name="KI" id="spiel/KI#KI(ILjava.lang.String;LInterfaces.Bildschirmanzeige;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="gibInitialString" id="spiel/KI#gibInitialString([Lspiel.Stein;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="gibName" id="spiel/KI#gibName()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="gibSteinEigenschaftenFeld" id="spiel/KI#gibSteinEigenschaftenFeld([Lspiel.Stein;[Lspiel.Stein;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="gibZugehoerigkeit" id="spiel/KI#gibZugehoerigkeit()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="initSteinPos" id="spiel/KI#initSteinPos(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setzeZug" id="spiel/KI#setzeZug([I[II)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="spieler2InitSteinPos" id="spiel/KI#spieler2InitSteinPos([I)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <sourceConnections xsi:type="editmodel:GeneralizationEditModel" targetConnections="//@children.10/@sourceConnections.0" autoLocated="true" id="Interfaces/SpielerInterface&lt;-spiel/KI" source="//@children.11" target="//@children.12" targetEnd="//@children.11/@sourceConnections.0/@children.1" sourceEnd="//@children.11/@sourceConnections.0/@children.0" connectionRouterKind="GeneralizationManhattan">
+      <children xsi:type="editmodel:AssociationEndEditModel" location="90,0" anchorKind="FixedAtEdge" attachSource="true"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" location="90,203" anchorKind="FixedAtEdge"/>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <children xsi:type="editmodel:InterfaceEditModel" targetConnections="//@children.11/@sourceConnections.0" name="SpielerInterface" location="566,50" size="180,203" id="Interfaces/SpielerInterface" runTimeClassModel="gibSteinEigenschaftenFeld([Lspiel.Stein;[Lspiel.Stein;),initSteinPos(I),spieler2InitSteinPos([I),gibZugehoerigkeit(),setzeZug([I[II),gibName(),gibInitialString([Lspiel.Stein;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <children xsi:type="editmodel:CompartmentEditModel" size="157,126">
+      <children xsi:type="editmodel:MethodEditModel" name="gibInitialString" id="Interfaces/SpielerInterface#gibInitialString([Lspiel.Stein;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="gibName" id="Interfaces/SpielerInterface#gibName()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="gibSteinEigenschaftenFeld" id="Interfaces/SpielerInterface#gibSteinEigenschaftenFeld([Lspiel.Stein;[Lspiel.Stein;)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="gibZugehoerigkeit" id="Interfaces/SpielerInterface#gibZugehoerigkeit()"/>
+      <children xsi:type="editmodel:MethodEditModel" name="initSteinPos" id="Interfaces/SpielerInterface#initSteinPos(I)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="setzeZug" id="Interfaces/SpielerInterface#setzeZug([I[II)"/>
+      <children xsi:type="editmodel:MethodEditModel" name="spieler2InitSteinPos" id="Interfaces/SpielerInterface#spieler2InitSteinPos([I)"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" showStereotype="true" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+  </children>
+  <diagramOptions xsi:type="options:ClassDiagramOptions" properties="wireOptions=1;Product=eUML2" autoName="false"/>
+  <boardSetting snapToGeometry="true" gridEnabled="true" gridSpacing="15,15" gridOrigin="0,0" rulerUnit="pixel" gridVisibility="false">
+    <leftRuler/>
+    <topRuler/>
+  </boardSetting>
+  <classDiagramPreferences xsi:type="editmodel:UMLClassDiagramPreference" showPopupBars="true" showConnectionHandles="true" attributeSorter="Natural" methodSorter="Natural" showClassStereotype="true" showPackageStereotype="true" showDependencyStereotype="true" showInterfaceStereotype="true" innerClassSorter="Natural" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showPublicMethods="true" showPackageMethods="true" showStaticMethods="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showStaticInnerClasses="true" packageIndication="3" showAttributeProperty="true"/>
+</editmodel:ClassDiagramEditModel>
