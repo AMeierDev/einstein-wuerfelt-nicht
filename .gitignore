@@ -1,2 +1,4 @@
 target/
 Logdatei*.txt
+.idea/
+*.iml
