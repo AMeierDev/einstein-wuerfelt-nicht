@@ -12,10 +12,10 @@ import Interfaces.Bildschirmanzeige;
  *
  * Aenderungen:
  * 26.11.2005, Arne Meier, Maria Pidiktaki: kleine Veraenderungen des Aufbaus
- * 12.12.2005, Patrick Schwarzer, Arne Meier: Hinzufügung von JavaDocs 
+ * 12.12.2005, Patrick Schwarzer, Arne Meier: HinzufÃ¼gung von JavaDocs 
  * 17.12.2005, Patrick Schwarzer, Sebastian Horchler: neue Methoden: initSteinPost, gibSteinEigenschaftenArray
  * 													  loeschen einiger alter Methoden, da uneffizient und sinnlos
- * 07.01.2006, Patrick Schwarzer, Arne Meier: Hinzfügen der Methode setzeZug
+ * 07.01.2006, Patrick Schwarzer, Arne Meier: HinzfÃ¼gen der Methode setzeZug
  */
 
 /**
@@ -41,8 +41,8 @@ public class Spieler implements SpielerInterface {
 	 * Methode, die je Spieler, die Anfangsposition der Steine, auf dem Spielbrett,
 	 * initialisiert
 	 * @param zugehoerigkeit = int Wert, der die Spielerzugehoerigkeit der Steine darstellt
-	 * @return = int Array, welches für einen Spieler die Steineigenschaften (zugehoerigkeit,
-	 * 			 nummer,zeile,spalte) enthält
+	 * @return = int Array, welches fÃ¼r einen Spieler die Steineigenschaften (zugehoerigkeit,
+	 * 			 nummer,zeile,spalte) enthÃ¤lt
 	 */
 	public Stein[] initSteinPos(int zugehoerigkeit){
 		int feldgroesse = 6;
@@ -103,7 +103,7 @@ public class Spieler implements SpielerInterface {
 			steinArray[i+3] = initSteinPosSpieler2[j].gibSpalte();
 			j++;
 			}
-		//Array mit allen Eigenschaften der Steine beider Spieler zurückgeben
+		//Array mit allen Eigenschaften der Steine beider Spieler zurÃ¼ckgeben
 		return steinArray;
 	}//gibSteinEigenschaftenArray
 /*-----------------------------------------------------------------------------------------------------------------*/
@@ -162,15 +162,15 @@ public class Spieler implements SpielerInterface {
 
 /*-----------------------------------------------------------------------------------------------------------------*/			
 	/**
-	 * Methode, die den Spielernamen zurückgibt
-	 * @return name = String, der den jeweiligen Namen des Spielers zurückgibt
+	 * Methode, die den Spielernamen zurÃ¼ckgibt
+	 * @return name = String, der den jeweiligen Namen des Spielers zurÃ¼ckgibt
 	 */
 	public String gibName(){
 	 	return name;
 	 } 	
 /*-----------------------------------------------------------------------------------------------------------------*/		
 	 /**
-	 * Methode, die die Spielerzugehoerigkeit (brettseite) zurückgibt
+	 * Methode, die die Spielerzugehoerigkeit (brettseite) zurÃ¼ckgibt
 	 * @return brettSeite = int Wert, der die Brettseite des Spielers charakterisiert
 	 */
 	public int gibZugehoerigkeit(){

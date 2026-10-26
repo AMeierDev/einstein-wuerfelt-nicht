@@ -1,0 +1,1 @@
+Fehler: Klasse nicht gefunden: legacy/spiel/Spiellogik.class

@@ -8,12 +8,12 @@ import java.util.*;
  * 
  * Regelt Spielablaufsfunktionen
  * 
- * Änderungen: 
+ * Ã„nderungen: 
  * 17.12.2005, Sebastian Horchler, Patrick Schwarzer: Hinzufuegung der Methode bewegeStein,
  * 													  gibmoeglicheSpielzuege, 
  * 20.12.2005, Pidiktaki Maria, Patrik Schwarzer : Methoden pruefeStein,setzemoeglicheZuege 
- * 													hinzugefügt und gibmoeglicheSpielzuege angepasst 
- * 21.12.2005, Pidiktaki Maria, Arne Meier: Methoden pruefeGegnerInitialisierung, pruefeGegnerZug hinzugefügt 	
+ * 													hinzugefÃ¼gt und gibmoeglicheSpielzuege angepasst 
+ * 21.12.2005, Pidiktaki Maria, Arne Meier: Methoden pruefeGegnerInitialisierung, pruefeGegnerZug hinzugefÃ¼gt 	
  * 07.01.2006, Arne Meier, Patrick Schwarzer:     neue Methode: userAuswahlInZug, Funktion ehemals in der Konsole	
  * 											                    in Methode naechsterZug, 
  * 08.01.2006, Pidiktaki Maria, Patrick Schwarzer:neue Methode: setzteSieger, gibSieger
@@ -83,7 +83,7 @@ public class Spiellogik {
 		
 		StringTokenizer GegnerSteinPosBloecke = new StringTokenizer(GegnerSteinPos);
 		int feldgroesse = stringLaenge+1; 	//Laenge des Strings mit der zugehoerigkeit
-		String[] GegnerSteinPosBloecke1 = new String[6];	//in 3'er Blöcke gehackter String
+		String[] GegnerSteinPosBloecke1 = new String[6];	//in 3'er BlÃ¶cke gehackter String
 		String[] GegnerSteinPosStringArray = new String[feldgroesse];	//zerhackte 3'er Bloecke in einzelne Bloecke
 		int[] GegnerSteinStartPosIntWerte = new int[feldgroesse];
 		
@@ -173,7 +173,7 @@ public class Spiellogik {
 		
 		/* ermittle die Position an der die Steinnumer aus Zug[] steht */
 		for (int i = 0; i < feldgroesse; i+=4){
-			if((steinArray[i] == zug[0])&&(steinArray[i+1] == zug[1])) //zugehoerigkeit && nummer müssen ausfindig gemacht werden
+			if((steinArray[i] == zug[0])&&(steinArray[i+1] == zug[1])) //zugehoerigkeit && nummer mÃ¼ssen ausfindig gemacht werden
 				steinPos = i+1; //position merken
 		}
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -185,12 +185,12 @@ public class Spiellogik {
 		steinArray = loescheStein(steinArray, zug); 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		//STEIN BEWEGEN//
-		/* überschreiben der Alten Zeile und Spalte mit der vom neuen Zug */
+		/* Ã¼berschreiben der Alten Zeile und Spalte mit der vom neuen Zug */
 			steinArray[steinPos+1]	= zug[2]; //Spalte aendern
 			//System.out.println(steinPos+1);
 			steinArray[steinPos+2]  = zug[3]; //Zeile aendern
 			//System.out.println(steinPos+2);
-		/* verändertes Array zurückgeben */
+		/* verÃ¤ndertes Array zurÃ¼ckgeben */
 		return steinArray;
 	}//bewegeStein
 /*-----------------------------------------------------------------------------------------------------------------*/		
@@ -212,9 +212,9 @@ public class Spiellogik {
 		int zugehoerigkeit = steinArray[steinPos-1];
 		int mglSteine[] =new int [2];			//enthaelt die Steine, die vor und oder nach dem gewuerfelten Stein existieren
 		int feldgroesse = 48; 					//alle Eigenschaften der Steine 2 Spieler, 4 Eigenschaften, 6 Steine
-		int steinPosTemp=steinPos; // Prüfung für die aktuelle Stein
-		int steinPosTemp1=steinPos;// Prüfung für die nachkomende Steine
-		int steinPosTemp2=steinPos;// Prüfung für die vorherige Steine
+		int steinPosTemp=steinPos; // PrÃ¼fung fÃ¼r die aktuelle Stein
+		int steinPosTemp1=steinPos;// PrÃ¼fung fÃ¼r die nachkomende Steine
+		int steinPosTemp2=steinPos;// PrÃ¼fung fÃ¼r die vorherige Steine
 		
 		if (steinArray[steinPosTemp+1] != 0 && steinArray[steinPosTemp+2] != 0){
 			steinVorher=0;
@@ -224,7 +224,7 @@ public class Spiellogik {
 				do{
 						if (steinArray[steinPosTemp1+1] == 0 && steinArray[steinPosTemp1+2] == 0){
 							if(mglSteinNachher==6)
-								steinNachher = 0; // es gibt keinen höheren Stein der bewegt werden darf
+								steinNachher = 0; // es gibt keinen hÃ¶heren Stein der bewegt werden darf
 							else{							
 									mglSteinNachher = mglSteinNachher + 1;	
 									
@@ -282,8 +282,8 @@ public class Spiellogik {
 	public int[] gibmoeglicheSpielzuege(int zugehoerigkeit, int wuerfelzahl, int steinArray[]){
 		int feldgroesse = 48;	//wie weit gesucht werden muss
 		int steinPos = 0;		//Positionsspeicher	
-		int zeile=0;			//Speicher für Wert an der Stelle 
-		int spalte=0;			//Speicher für Wert an der Stelle
+		int zeile=0;			//Speicher fÃ¼r Wert an der Stelle 
+		int spalte=0;			//Speicher fÃ¼r Wert an der Stelle
 		int [] moeglicheZuege = new int [24];	//speichert am Ende alle machbaren Zuege	
 		int mglSteine[] = new int [2];			//enthaelt die Steine, die vor und oder nach dem gewuerfelten Stein existieren
 		
@@ -297,7 +297,7 @@ public class Spiellogik {
 		/*pruefe ob es den gefundenen Stein an der Stelle noch gibt, wenn nicht gibt es die daneben existierenden Steine (2 int Werte) zurueck */
 		mglSteine = pruefeStein(steinPos, steinArray);
 		
-		//Fall 1 gewürfelter Stein existiert
+		//Fall 1 gewÃ¼rfelter Stein existiert
 		if (mglSteine[0]==0 && mglSteine[1]==0){
 			zeile = steinArray[steinPos+1]; 
 			spalte = steinArray[steinPos+2];
@@ -322,7 +322,7 @@ public class Spiellogik {
 		}//ENDE FALL 3
 		
 		
-		//Fall 4 2 Steine dürfen bewegt werden
+		//Fall 4 2 Steine dÃ¼rfen bewegt werden
 		if (mglSteine[0]!=0 && mglSteine[1]!=0){
 			zeile = steinArray[mglSteine[0]+1];
 			spalte = steinArray[mglSteine[0]+2];
@@ -432,7 +432,7 @@ public class Spiellogik {
 		}//if(zugehoerigkeit==1)*/		
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-		// Für denn Fall 4, mehrere Steine duerfen bewegt werden
+		// FÃ¼r denn Fall 4, mehrere Steine duerfen bewegt werden
 		if (steinPos!=0 && steinPos1!=0){
 			/* Zuege von Spieler2 = rechts unten = X */
 			if (zugehoerigkeit == 0){	
@@ -502,7 +502,7 @@ public class Spiellogik {
 				else System.out.println("FEHLER");	
 			}//if(zugehoerigkeit==1)			
 			
-		}//Ende If für Fall 4*/	
+		}//Ende If fÃ¼r Fall 4*/	
 		
 	return moeglicheZuege;
 	}//setzemoeglicheZuege
@@ -607,10 +607,10 @@ public class Spiellogik {
 	public boolean pruefeGegnerInitialisierung(int[] spieler2IntArray){
 		boolean initpruefung=false;
 		int  [] richtigeSteine={1,2,3,4,5,6};
-		 /*variable die hochgezählt wird fals eine stein ein mal mit den 
-		  * jeweiligen nummer existiert. Am ende muss rs=6 sein um weiter prüfen zu können*/
+		 /*variable die hochgezÃ¤hlt wird fals eine stein ein mal mit den 
+		  * jeweiligen nummer existiert. Am ende muss rs=6 sein um weiter prÃ¼fen zu kÃ¶nnen*/
 		int rs=0;
-		/*variable die die anzahl der richtige Startposition hochzählt, am ende muss rp=6 sein*/
+		/*variable die die anzahl der richtige Startposition hochzÃ¤hlt, am ende muss rp=6 sein*/
 		int rp=0;
 		
 		int [] initArrayPositionen1Zeile={1,3,2,2,1,1};  //fuer zugehoerigkeit 1
@@ -619,8 +619,8 @@ public class Spiellogik {
 		int [] initArrayPositionen0Zeile={5,3,4,4,5,5};	//fuer zugehoerigkeit 0
 		int [] initArrayPositionen0Spalte={3,5,4,5,4,5};
 		
-		/*prüfen ob die steine richtig 
-		 * sind und keine ungültige bzw. doppelte nummer vorhanden sind*/
+		/*prÃ¼fen ob die steine richtig 
+		 * sind und keine ungÃ¼ltige bzw. doppelte nummer vorhanden sind*/
 		for (int i=1;i<23;i=i+4){
 			for(int j=0;j<6;j++){
 				if(spieler2IntArray[i]==richtigeSteine[j]){
@@ -630,7 +630,7 @@ public class Spiellogik {
 			}
 		}		
 	
-		/*Prüft die Positionen für die Zugehörigkeit 1 des Spielers */
+		/*PrÃ¼ft die Positionen fÃ¼r die ZugehÃ¶rigkeit 1 des Spielers */
 		if (spieler2IntArray[0]==1){
 			for (int z=2,s=3; z<24 && s<24; z=z+4,s=s+4){
 				for(int j=0;j<6;j++){
@@ -643,9 +643,9 @@ public class Spiellogik {
 			}
 		}			
 
-		/*Prüft die Positionen für die Zugehörigkeit 0 des Spielers */	
+		/*PrÃ¼ft die Positionen fÃ¼r die ZugehÃ¶rigkeit 0 des Spielers */	
 		if (spieler2IntArray[0]==0){
-			for (int z=2,s=3; z<24 && s<24; z=z+4,s=s+4){ //zeile und Spalete müssen gleichzeitig hochgezählt werden
+			for (int z=2,s=3; z<24 && s<24; z=z+4,s=s+4){ //zeile und Spalete mÃ¼ssen gleichzeitig hochgezÃ¤hlt werden
 				for(int j=0;j<6;j++){
 					if(spieler2IntArray[z] == initArrayPositionen0Zeile[j]&& spieler2IntArray[s]==initArrayPositionen0Spalte[j]){
 						rp=rp+1;
@@ -674,12 +674,12 @@ public class Spiellogik {
 	public boolean pruefeGegnerZug(int wuerfelZahl,int [] gegnerZug , int zugehoerigkeit, int SpielerSteinPos[] ){
 		boolean gepruefterZug=false;
 		
-		/*hier werden die moegliche Züge des Gegner berechnet und in ein Array geschrieben*/
+		/*hier werden die moegliche ZÃ¼ge des Gegner berechnet und in ein Array geschrieben*/
 		int []moeglichegegenerZuege=gibmoeglicheSpielzuege(zugehoerigkeit,wuerfelZahl,SpielerSteinPos);
 		
 		/*hier wird vergliechen ob der Zug des Gegners in 
-		 * einem seinen möglichen Zugmöglichkeiten befindet.
-		 * Sobald sie gefunden wird, ist der Zug dann gültig und somit gepruefterZug=true*/
+		 * einem seinen mÃ¶glichen ZugmÃ¶glichkeiten befindet.
+		 * Sobald sie gefunden wird, ist der Zug dann gÃ¼ltig und somit gepruefterZug=true*/
 		for(int i=1; i<=24; i=i+4){
 			if (gegnerZug[1]==moeglichegegenerZuege[i] && 
 				gegnerZug[2]==moeglichegegenerZuege[i+1] && 
@@ -700,7 +700,7 @@ public class Spiellogik {
 	public int[] benutzerAuswahlInZug(int[] moeglicheZuege, int auswahl){
 		int[] zug = new int[4];
 		switch (auswahl){
-		case 1: {  /* Zug der ersten auswahl als Rückgabewert*/ 
+		case 1: {  /* Zug der ersten auswahl als RÃ¼ckgabewert*/ 
 					zug[0]=moeglicheZuege[0]; //zugehoerigkeit
 					zug[1]=moeglicheZuege[1]; //steinnummer
 					zug[2]=moeglicheZuege[2]; //zeile

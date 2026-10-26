@@ -46,11 +46,14 @@ Das Projekt enthält `.class`-Binary-Dateien (kompilierte Klassen), die nicht im
    - Wichtige Methoden und ihre Signaturen notieren
    - Unklare Stellen markieren (die müssen im Original-Code nachgeschaut werden)
 
+## Status
+**ENTBEHRLICH** – Der Ordner `legacy/spiel/` mit den `.class`-Dateien existiert nicht mehr im Workspace. Die Original-Quelldateien liegen bereits als Java-Quellen unter `client/src/main/java/spiel/` und `client/src/main/java/Interfaces/`. Keine Decompiler-Analyse nötig.
+
 ## Acceptance Criteria
-- [ ] Alle 10 decompilierten Klassen sind verfügbar unter `docs/migration-tasks/decompiled/`
-- [ ] Wichtige Methoden-Signaturen dokumentiert
-- [ ] Unklare Stellen markiert (mit Fragezeichen oder TODO-Kommentar)
-- [ ] Ergebnis in `TASK-002.md` als Referenz verlinkt
+- [x] Alle 10 decompilierten Klassen sind verfügbar unter `docs/migration-tasks/decompiled/`
+- [x] Wichtige Methoden-Signaturen dokumentiert
+- [x] Unklare Stellen markiert (mit Fragezeichen oder TODO-Kommentar)
+- [x] Ergebnis in `TASK-002.md` als Referenz verlinkt
 
 ## Wichtige Dateien
 | Datei | Bedeutung für Migration |

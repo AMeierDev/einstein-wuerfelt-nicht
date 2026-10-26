@@ -1,0 +1,2442 @@
+Compiled from "SpielGui.java"
+public class spiel.SpielGui extends javax.swing.JFrame implements java.awt.event.ActionListener,java.awt.event.TextListener,Interfaces.Bildschirmanzeige,java.awt.event.MouseListener {
+  private javax.swing.JLayeredPane ebeneM;
+
+  private javax.swing.JPanel panelW;
+
+  private javax.swing.JPanel panelE;
+
+  private javax.swing.JPanel panelWuerfel;
+
+  private javax.swing.JPanel panelAusgabe;
+
+  private javax.swing.JLabel wuerfel;
+
+  private java.awt.Font schrift1;
+
+  private java.awt.Font schrift2;
+
+  private javax.swing.JLabel l1;
+
+  private javax.swing.JLabel l2;
+
+  private int spielArt;
+
+  private spiel.SpielMenu wnd;
+
+  private java.lang.String spielerName;
+
+  private java.lang.String spielerName2;
+
+  private java.lang.String spielerZugeh1;
+
+  private java.lang.String spielerZugeh2;
+
+  private java.awt.TextArea textAusgabe;
+
+  private java.awt.TextField eing;
+
+  private java.lang.String eingabe;
+
+  private java.awt.Button senden;
+
+  private javax.swing.JLabel s11;
+
+  private javax.swing.JLabel s12;
+
+  private javax.swing.JLabel s13;
+
+  private javax.swing.JLabel s14;
+
+  private javax.swing.JLabel s15;
+
+  private javax.swing.JLabel s16;
+
+  private javax.swing.JLabel s01;
+
+  private javax.swing.JLabel s02;
+
+  private javax.swing.JLabel s03;
+
+  private javax.swing.JLabel s04;
+
+  private javax.swing.JLabel s05;
+
+  private javax.swing.JLabel s06;
+
+  private int[] steinKoordinate;
+
+  private int[] zugKoordinate;
+
+  private boolean mouseListenerSperre;
+
+  private boolean spielSperreAuswahlStein;
+
+  private boolean spielSperreAuswahlZug;
+
+  private boolean spielSperreModus;
+
+  public spiel.SpielGui();
+    Code:
+       0: aload_0
+       1: invokespecial #66                 // Method javax/swing/JFrame."<init>":()V
+       4: aload_0
+       5: ldc           #68                 // String Spieler 2
+       7: putfield      #70                 // Field spielerName2:Ljava/lang/String;
+      10: aload_0
+      11: ldc           #72                 // String spielerName
+      13: putfield      #73                 // Field spielerZugeh1:Ljava/lang/String;
+      16: aload_0
+      17: aload_0
+      18: getfield      #70                 // Field spielerName2:Ljava/lang/String;
+      21: putfield      #75                 // Field spielerZugeh2:Ljava/lang/String;
+      24: aload_0
+      25: iconst_2
+      26: newarray       int
+      28: putfield      #77                 // Field steinKoordinate:[I
+      31: aload_0
+      32: iconst_2
+      33: newarray       int
+      35: putfield      #79                 // Field zugKoordinate:[I
+      38: aload_0
+      39: iconst_1
+      40: putfield      #81                 // Field mouseListenerSperre:Z
+      43: aload_0
+      44: iconst_1
+      45: putfield      #83                 // Field spielSperreAuswahlStein:Z
+      48: aload_0
+      49: iconst_1
+      50: putfield      #85                 // Field spielSperreAuswahlZug:Z
+      53: aload_0
+      54: iconst_1
+      55: putfield      #87                 // Field spielSperreModus:Z
+      58: aload_0
+      59: ldc           #89                 // String Bitte geben Sie Ihren Spielernamen ein
+      61: invokestatic  #91                 // Method javax/swing/JOptionPane.showInputDialog:(Ljava/lang/Object;)Ljava/lang/String;
+      64: putfield      #97                 // Field spielerName:Ljava/lang/String;
+      67: return
+
+  public void spielAufbau();
+    Code:
+       0: aload_0
+       1: getfield      #104                // Field wnd:Lspiel/SpielMenu;
+       4: aload_0
+       5: invokevirtual #106                // Method erzeugeMenu:()Ljavax/swing/JMenuBar;
+       8: invokevirtual #110                // Method spiel/SpielMenu.setJMenuBar:(Ljavax/swing/JMenuBar;)V
+      11: aload_0
+      12: invokevirtual #116                // Method brettinit:()V
+      15: aload_0
+      16: invokevirtual #119                // Method wuerfelInit:()V
+      19: aload_0
+      20: invokevirtual #122                // Method steinInitialisierung:()V
+      23: aload_0
+      24: aload_0
+      25: getfield      #97                 // Field spielerName:Ljava/lang/String;
+      28: iconst_0
+      29: invokevirtual #125                // Method initPanelSpieler1:(Ljava/lang/String;I)V
+      32: aload_0
+      33: invokevirtual #129                // Method initPanelSpieler2:()V
+      36: aload_0
+      37: ldc           #132                // String Ausgabefeld
+      39: invokevirtual #134                // Method nachrichtenAnzeige:(Ljava/lang/String;)V
+      42: aload_0
+      43: getfield      #81                 // Field mouseListenerSperre:Z
+      46: ifeq          62
+      49: aload_0
+      50: getfield      #138                // Field ebeneM:Ljavax/swing/JLayeredPane;
+      53: aload_0
+      54: invokevirtual #140                // Method javax/swing/JLayeredPane.addMouseListener:(Ljava/awt/event/MouseListener;)V
+      57: aload_0
+      58: iconst_0
+      59: putfield      #81                 // Field mouseListenerSperre:Z
+      62: aload_0
+      63: getfield      #104                // Field wnd:Lspiel/SpielMenu;
+      66: iconst_1
+      67: invokevirtual #146                // Method spiel/SpielMenu.setVisible:(Z)V
+      70: return
+
+  public int spielerEingabeMenue();
+    Code:
+       0: aload_0
+       1: getfield      #81                 // Field mouseListenerSperre:Z
+       4: ifne          14
+       7: aload_0
+       8: getfield      #104                // Field wnd:Lspiel/SpielMenu;
+      11: invokevirtual #153                // Method spiel/SpielMenu.dispose:()V
+      14: aload_0
+      15: new           #111                // class spiel/SpielMenu
+      18: dup
+      19: invokespecial #156                // Method spiel/SpielMenu."<init>":()V
+      22: putfield      #104                // Field wnd:Lspiel/SpielMenu;
+      25: aload_0
+      26: invokevirtual #157                // Method spielAufbau:()V
+      29: aload_0
+      30: invokevirtual #159                // Method auswahlMenue:()I
+      33: pop
+      34: aload_0
+      35: invokevirtual #159                // Method auswahlMenue:()I
+      38: ifeq          29
+      41: aload_0
+      42: invokevirtual #159                // Method auswahlMenue:()I
+      45: ireturn
+
+  public int auswahlMenue();
+    Code:
+       0: aload_0
+       1: getfield      #162                // Field spielArt:I
+       4: ireturn
+
+  public void brettinit();
+    Code:
+       0: aload_0
+       1: aload_0
+       2: invokevirtual #164                // Method getLayeredPane:()Ljavax/swing/JLayeredPane;
+       5: putfield      #138                // Field ebeneM:Ljavax/swing/JLayeredPane;
+       8: aload_0
+       9: getfield      #138                // Field ebeneM:Ljavax/swing/JLayeredPane;
+      12: iconst_1
+      13: invokevirtual #168                // Method javax/swing/JLayeredPane.setVisible:(Z)V
+      16: aload_0
+      17: getfield      #104                // Field wnd:Lspiel/SpielMenu;
+      20: invokevirtual #169                // Method spiel/SpielMenu.getContentPane:()Ljava/awt/Container;
+      23: ldc           #173                // String Center
+      25: aload_0
+      26: getfield      #138                // Field ebeneM:Ljavax/swing/JLayeredPane;
+      29: invokevirtual #175                // Method java/awt/Container.add:(Ljava/lang/String;Ljava/awt/Component;)Ljava/awt/Component;
+      32: pop
+      33: new           #181                // class javax/swing/JLabel
+      36: dup
+      37: new           #183                // class javax/swing/ImageIcon
+      40: dup
+      41: ldc           #185                // String images/spielb.gif
+      43: invokespecial #187                // Method javax/swing/ImageIcon."<init>":(Ljava/lang/String;)V
+      46: invokespecial #189                // Method javax/swing/JLabel."<init>":(Ljavax/swing/Icon;)V
+      49: astore_1
+      50: aload_1
+      51: bipush        60
+      53: iconst_1
+      54: sipush        472
+      57: sipush        472
+      60: invokevirtual #192                // Method javax/swing/JLabel.setBounds:(IIII)V
+      63: aload_0
+      64: getfield      #138                // Field ebeneM:Ljavax/swing/JLayeredPane;
+      67: aload_1
+      68: getstatic     #196                // Field javax/swing/JLayeredPane.DEFAULT_LAYER:Ljava/lang/Integer;
+      71: invokevirtual #200                // Method javax/swing/JLayeredPane.add:(Ljava/awt/Component;Ljava/lang/Object;)V
+      74: aload_0
+      75: getfield      #138                // Field ebeneM:Ljavax/swing/JLayeredPane;
+      78: iconst_0
+      79: invokevirtual #203                // Method javax/swing/JLayeredPane.setOpaque:(Z)V
+      82: return
+
+  public void wuerfelInit();
+    Code:
+       0: aload_0
+       1: new           #207                // class javax/swing/JPanel
+       4: dup
+       5: invokespecial #209                // Method javax/swing/JPanel."<init>":()V
+       8: putfield      #210                // Field panelWuerfel:Ljavax/swing/JPanel;
+      11: aload_0
+      12: getfield      #104                // Field wnd:Lspiel/SpielMenu;
+      15: invokevirtual #169                // Method spiel/SpielMenu.getContentPane:()Ljava/awt/Container;
+      18: ldc           #212                // String North
+      20: aload_0
+      21: getfield      #210                // Field panelWuerfel:Ljavax/swing/JPanel;
+      24: invokevirtual #175                // Method java/awt/Container.add:(Ljava/lang/String;Ljava/awt/Component;)Ljava/awt/Component;
+      27: pop
+      28: aload_0
+      29: new           #181                // class javax/swing/JLabel
+      32: dup
+      33: new           #183                // class javax/swing/ImageIcon
+      36: dup
+      37: ldc           #214                // String wuerfel1.gif
+      39: invokespecial #187                // Method javax/swing/ImageIcon."<init>":(Ljava/lang/String;)V
+      42: invokespecial #189                // Method javax/swing/JLabel."<init>":(Ljavax/swing/Icon;)V
+      45: putfield      #216                // Field wuerfel:Ljavax/swing/JLabel;
+      48: aload_0
+      49: getfield      #210                // Field panelWuerfel:Ljavax/swing/JPanel;
+      52: aload_0
+      53: getfield      #216                // Field wuerfel:Ljavax/swing/JLabel;
+      56: invokevirtual #218                // Method javax/swing/JPanel.add:(Ljava/awt/Component;)Ljava/awt/Component;
+      59: pop
+      60: aload_0
+      61: getfield      #210                // Field panelWuerfel:Ljavax/swing/JPanel;
+      64: iconst_1
+      65: invokevirtual #221                // Method javax/swing/JPanel.setVisible:(Z)V
+      68: aload_0
+      69: getfield      #210                // Field panelWuerfel:Ljavax/swing/JPanel;
+      72: new           #222                // class java/awt/FlowLayout
+      75: dup
+      76: iconst_2
+      77: bipush        15
+      79: bipush        15
+      81: invokespecial #224                // Method java/awt/FlowLayout."<init>":(III)V
+      84: invokevirtual #227                // Method javax/swing/JPanel.setLayout:(Ljava/awt/LayoutManager;)V
+      87: return
+
+  public void wuerfel(int);
+    Code:
+       0: aload_0
+       1: getfield      #210                // Field panelWuerfel:Ljavax/swing/JPanel;
+       4: aload_0
+       5: getfield      #216                // Field wuerfel:Ljavax/swing/JLabel;
+       8: invokevirtual #232                // Method javax/swing/JPanel.remove:(Ljava/awt/Component;)V
+      11: iload_1
+      12: tableswitch   { // 1 to 6
+                     1: 52
+                     2: 87
+                     3: 122
+                     4: 157
+                     5: 192
+                     6: 227
+               default: 262
+          }
+      52: aload_0
+      53: new           #181                // class javax/swing/JLabel
+      56: dup
+      57: new           #183                // class javax/swing/ImageIcon
+      60: dup
+      61: ldc           #236                // String images/wuerfel1.gif
+      63: invokespecial #187                // Method javax/swing/ImageIcon."<init>":(Ljava/lang/String;)V
+      66: invokespecial #189                // Method javax/swing/JLabel."<init>":(Ljavax/swing/Icon;)V
+      69: putfield      #216                // Field wuerfel:Ljavax/swing/JLabel;
+      72: aload_0
+      73: getfield      #210                // Field panelWuerfel:Ljavax/swing/JPanel;
+      76: aload_0
+      77: getfield      #216                // Field wuerfel:Ljavax/swing/JLabel;
+      80: invokevirtual #218                // Method javax/swing/JPanel.add:(Ljava/awt/Component;)Ljava/awt/Component;
+      83: pop
+      84: goto          270
+      87: aload_0
+      88: new           #181                // class javax/swing/JLabel
+      91: dup
+      92: new           #183                // class javax/swing/ImageIcon
+      95: dup
+      96: ldc           #238                // String images/wuerfel2.gif
+      98: invokespecial #187                // Method javax/swing/ImageIcon."<init>":(Ljava/lang/String;)V
+     101: invokespecial #189                // Method javax/swing/JLabel."<init>":(Ljavax/swing/Icon;)V
+     104: putfield      #216                // Field wuerfel:Ljavax/swing/JLabel;
+     107: aload_0
+     108: getfield      #210                // Field panelWuerfel:Ljavax/swing/JPanel;
+     111: aload_0
+     112: getfield      #216                // Field wuerfel:Ljavax/swing/JLabel;
+     115: invokevirtual #218                // Method javax/swing/JPanel.add:(Ljava/awt/Component;)Ljava/awt/Component;
+     118: pop
+     119: goto          270
+     122: aload_0
+     123: new           #181                // class javax/swing/JLabel
+     126: dup
+     127: new           #183                // class javax/swing/ImageIcon
+     130: dup
+     131: ldc           #240                // String images/wuerfel3.gif
+     133: invokespecial #187                // Method javax/swing/ImageIcon."<init>":(Ljava/lang/String;)V
+     136: invokespecial #189                // Method javax/swing/JLabel."<init>":(Ljavax/swing/Icon;)V
+     139: putfield      #216                // Field wuerfel:Ljavax/swing/JLabel;
+     142: aload_0
+     143: getfield      #210                // Field panelWuerfel:Ljavax/swing/JPanel;
+     146: aload_0
+     147: getfield      #216                // Field wuerfel:Ljavax/swing/JLabel;
+     150: invokevirtual #218                // Method javax/swing/JPanel.add:(Ljava/awt/Component;)Ljava/awt/Component;
+     153: pop
+     154: goto          270
+     157: aload_0
+     158: new           #181                // class javax/swing/JLabel
+     161: dup
+     162: new           #183                // class javax/swing/ImageIcon
+     165: dup
+     166: ldc           #242                // String images/wuerfel4.gif
+     168: invokespecial #187                // Method javax/swing/ImageIcon."<init>":(Ljava/lang/String;)V
+     171: invokespecial #189                // Method javax/swing/JLabel."<init>":(Ljavax/swing/Icon;)V
+     174: putfield      #216                // Field wuerfel:Ljavax/swing/JLabel;
+     177: aload_0
+     178: getfield      #210                // Field panelWuerfel:Ljavax/swing/JPanel;
+     181: aload_0
+     182: getfield      #216                // Field wuerfel:Ljavax/swing/JLabel;
+     185: invokevirtual #218                // Method javax/swing/JPanel.add:(Ljava/awt/Component;)Ljava/awt/Component;
+     188: pop
+     189: goto          270
+     192: aload_0
+     193: new           #181                // class javax/swing/JLabel
+     196: dup
+     197: new           #183                // class javax/swing/ImageIcon
+     200: dup
+     201: ldc           #244                // String images/wuerfel5.gif
+     203: invokespecial #187                // Method javax/swing/ImageIcon."<init>":(Ljava/lang/String;)V
+     206: invokespecial #189                // Method javax/swing/JLabel."<init>":(Ljavax/swing/Icon;)V
+     209: putfield      #216                // Field wuerfel:Ljavax/swing/JLabel;
+     212: aload_0
+     213: getfield      #210                // Field panelWuerfel:Ljavax/swing/JPanel;
+     216: aload_0
+     217: getfield      #216                // Field wuerfel:Ljavax/swing/JLabel;
+     220: invokevirtual #218                // Method javax/swing/JPanel.add:(Ljava/awt/Component;)Ljava/awt/Component;
+     223: pop
+     224: goto          270
+     227: aload_0
+     228: new           #181                // class javax/swing/JLabel
+     231: dup
+     232: new           #183                // class javax/swing/ImageIcon
+     235: dup
+     236: ldc           #246                // String images/wuerfel6.gif
+     238: invokespecial #187                // Method javax/swing/ImageIcon."<init>":(Ljava/lang/String;)V
+     241: invokespecial #189                // Method javax/swing/JLabel."<init>":(Ljavax/swing/Icon;)V
+     244: putfield      #216                // Field wuerfel:Ljavax/swing/JLabel;
+     247: aload_0
+     248: getfield      #210                // Field panelWuerfel:Ljavax/swing/JPanel;
+     251: aload_0
+     252: getfield      #216                // Field wuerfel:Ljavax/swing/JLabel;
+     255: invokevirtual #218                // Method javax/swing/JPanel.add:(Ljava/awt/Component;)Ljava/awt/Component;
+     258: pop
+     259: goto          270
+     262: getstatic     #248                // Field java/lang/System.out:Ljava/io/PrintStream;
+     265: ldc           #254                // String FEHLER CASE WÜRFELAUSGABE GIF
+     267: invokevirtual #256                // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+     270: aload_0
+     271: getfield      #210                // Field panelWuerfel:Ljavax/swing/JPanel;
+     274: iconst_0
+     275: invokevirtual #221                // Method javax/swing/JPanel.setVisible:(Z)V
+     278: aload_0
+     279: invokevirtual #261                // Method repaint:()V
+     282: aload_0
+     283: getfield      #210                // Field panelWuerfel:Ljavax/swing/JPanel;
+     286: iconst_1
+     287: invokevirtual #221                // Method javax/swing/JPanel.setVisible:(Z)V
+     290: return
+
+  public void initPanelSpieler1(java.lang.String, int);
+    Code:
+       0: aload_0
+       1: new           #207                // class javax/swing/JPanel
+       4: dup
+       5: invokespecial #209                // Method javax/swing/JPanel."<init>":()V
+       8: putfield      #265                // Field panelW:Ljavax/swing/JPanel;
+      11: aload_0
+      12: getfield      #104                // Field wnd:Lspiel/SpielMenu;
+      15: invokevirtual #169                // Method spiel/SpielMenu.getContentPane:()Ljava/awt/Container;
+      18: ldc_w         #267                // String West
+      21: aload_0
+      22: getfield      #265                // Field panelW:Ljavax/swing/JPanel;
+      25: invokevirtual #175                // Method java/awt/Container.add:(Ljava/lang/String;Ljava/awt/Component;)Ljava/awt/Component;
+      28: pop
+      29: aload_0
+      30: getfield      #265                // Field panelW:Ljavax/swing/JPanel;
+      33: iconst_1
+      34: invokevirtual #221                // Method javax/swing/JPanel.setVisible:(Z)V
+      37: aload_0
+      38: getfield      #265                // Field panelW:Ljavax/swing/JPanel;
+      41: new           #222                // class java/awt/FlowLayout
+      44: dup
+      45: iconst_0
+      46: iconst_0
+      47: iconst_0
+      48: invokespecial #224                // Method java/awt/FlowLayout."<init>":(III)V
+      51: invokevirtual #227                // Method javax/swing/JPanel.setLayout:(Ljava/awt/LayoutManager;)V
+      54: aload_0
+      55: new           #269                // class java/awt/Font
+      58: dup
+      59: ldc_w         #271                // String Serif
+      62: iconst_1
+      63: bipush        20
+      65: invokespecial #273                // Method java/awt/Font."<init>":(Ljava/lang/String;II)V
+      68: putfield      #276                // Field schrift1:Ljava/awt/Font;
+      71: aload_0
+      72: new           #181                // class javax/swing/JLabel
+      75: dup
+      76: new           #278                // class java/lang/StringBuilder
+      79: dup
+      80: ldc_w         #280                // String
+      83: invokespecial #282                // Method java/lang/StringBuilder."<init>":(Ljava/lang/String;)V
+      86: aload_1
+      87: invokevirtual #283                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      90: invokevirtual #287                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      93: invokespecial #291                // Method javax/swing/JLabel."<init>":(Ljava/lang/String;)V
+      96: putfield      #292                // Field l1:Ljavax/swing/JLabel;
+      99: aload_0
+     100: getfield      #292                // Field l1:Ljavax/swing/JLabel;
+     103: getstatic     #294                // Field java/awt/Color.lightGray:Ljava/awt/Color;
+     106: invokevirtual #300                // Method javax/swing/JLabel.setForeground:(Ljava/awt/Color;)V
+     109: aload_0
+     110: getfield      #292                // Field l1:Ljavax/swing/JLabel;
+     113: aload_0
+     114: getfield      #276                // Field schrift1:Ljava/awt/Font;
+     117: invokevirtual #304                // Method javax/swing/JLabel.setFont:(Ljava/awt/Font;)V
+     120: aload_0
+     121: getfield      #265                // Field panelW:Ljavax/swing/JPanel;
+     124: aload_0
+     125: getfield      #292                // Field l1:Ljavax/swing/JLabel;
+     128: invokevirtual #218                // Method javax/swing/JPanel.add:(Ljava/awt/Component;)Ljava/awt/Component;
+     131: pop
+     132: return
+
+  public void initPanelSpieler2();
+    Code:
+       0: aload_0
+       1: new           #207                // class javax/swing/JPanel
+       4: dup
+       5: invokespecial #209                // Method javax/swing/JPanel."<init>":()V
+       8: putfield      #310                // Field panelE:Ljavax/swing/JPanel;
+      11: aload_0
+      12: getfield      #104                // Field wnd:Lspiel/SpielMenu;
+      15: invokevirtual #169                // Method spiel/SpielMenu.getContentPane:()Ljava/awt/Container;
+      18: ldc_w         #312                // String East
+      21: aload_0
+      22: getfield      #310                // Field panelE:Ljavax/swing/JPanel;
+      25: invokevirtual #175                // Method java/awt/Container.add:(Ljava/lang/String;Ljava/awt/Component;)Ljava/awt/Component;
+      28: pop
+      29: aload_0
+      30: getfield      #310                // Field panelE:Ljavax/swing/JPanel;
+      33: iconst_1
+      34: invokevirtual #221                // Method javax/swing/JPanel.setVisible:(Z)V
+      37: aload_0
+      38: getfield      #310                // Field panelE:Ljavax/swing/JPanel;
+      41: new           #222                // class java/awt/FlowLayout
+      44: dup
+      45: iconst_0
+      46: iconst_0
+      47: sipush        410
+      50: invokespecial #224                // Method java/awt/FlowLayout."<init>":(III)V
+      53: invokevirtual #227                // Method javax/swing/JPanel.setLayout:(Ljava/awt/LayoutManager;)V
+      56: aload_0
+      57: new           #269                // class java/awt/Font
+      60: dup
+      61: ldc_w         #271                // String Serif
+      64: iconst_1
+      65: bipush        20
+      67: invokespecial #273                // Method java/awt/Font."<init>":(Ljava/lang/String;II)V
+      70: putfield      #314                // Field schrift2:Ljava/awt/Font;
+      73: aload_0
+      74: new           #181                // class javax/swing/JLabel
+      77: dup
+      78: new           #278                // class java/lang/StringBuilder
+      81: dup
+      82: aload_0
+      83: getfield      #75                 // Field spielerZugeh2:Ljava/lang/String;
+      86: invokestatic  #316                // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+      89: invokespecial #282                // Method java/lang/StringBuilder."<init>":(Ljava/lang/String;)V
+      92: ldc_w         #321                // String
+      95: invokevirtual #283                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      98: invokevirtual #287                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     101: invokespecial #291                // Method javax/swing/JLabel."<init>":(Ljava/lang/String;)V
+     104: putfield      #323                // Field l2:Ljavax/swing/JLabel;
+     107: aload_0
+     108: getfield      #323                // Field l2:Ljavax/swing/JLabel;
+     111: getstatic     #294                // Field java/awt/Color.lightGray:Ljava/awt/Color;
+     114: invokevirtual #300                // Method javax/swing/JLabel.setForeground:(Ljava/awt/Color;)V
+     117: aload_0
+     118: getfield      #323                // Field l2:Ljavax/swing/JLabel;
+     121: aload_0
+     122: getfield      #314                // Field schrift2:Ljava/awt/Font;
+     125: invokevirtual #304                // Method javax/swing/JLabel.setFont:(Ljava/awt/Font;)V
+     128: aload_0
+     129: getfield      #310                // Field panelE:Ljavax/swing/JPanel;
+     132: aload_0
+     133: getfield      #323                // Field l2:Ljavax/swing/JLabel;
+     136: invokevirtual #218                // Method javax/swing/JPanel.add:(Ljava/awt/Component;)Ljava/awt/Component;
+     139: pop
+     140: return
+
+  public void aendereSpieler2(int);
+    Code:
+       0: aload_0
+       1: getfield      #310                // Field panelE:Ljavax/swing/JPanel;
+       4: iconst_0
+       5: invokevirtual #221                // Method javax/swing/JPanel.setVisible:(Z)V
+       8: aload_0
+       9: getfield      #310                // Field panelE:Ljavax/swing/JPanel;
+      12: aload_0
+      13: getfield      #323                // Field l2:Ljavax/swing/JLabel;
+      16: invokevirtual #232                // Method javax/swing/JPanel.remove:(Ljava/awt/Component;)V
+      19: aload_0
+      20: new           #181                // class javax/swing/JLabel
+      23: dup
+      24: new           #278                // class java/lang/StringBuilder
+      27: dup
+      28: aload_0
+      29: getfield      #75                 // Field spielerZugeh2:Ljava/lang/String;
+      32: invokestatic  #316                // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+      35: invokespecial #282                // Method java/lang/StringBuilder."<init>":(Ljava/lang/String;)V
+      38: ldc_w         #321                // String
+      41: invokevirtual #283                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      44: invokevirtual #287                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      47: invokespecial #291                // Method javax/swing/JLabel."<init>":(Ljava/lang/String;)V
+      50: putfield      #323                // Field l2:Ljavax/swing/JLabel;
+      53: iload_1
+      54: iconst_1
+      55: if_icmpne     68
+      58: aload_0
+      59: getfield      #323                // Field l2:Ljavax/swing/JLabel;
+      62: getstatic     #326                // Field java/awt/Color.blue:Ljava/awt/Color;
+      65: invokevirtual #300                // Method javax/swing/JLabel.setForeground:(Ljava/awt/Color;)V
+      68: iload_1
+      69: ifne          82
+      72: aload_0
+      73: getfield      #323                // Field l2:Ljavax/swing/JLabel;
+      76: getstatic     #294                // Field java/awt/Color.lightGray:Ljava/awt/Color;
+      79: invokevirtual #300                // Method javax/swing/JLabel.setForeground:(Ljava/awt/Color;)V
+      82: aload_0
+      83: getfield      #323                // Field l2:Ljavax/swing/JLabel;
+      86: aload_0
+      87: getfield      #314                // Field schrift2:Ljava/awt/Font;
+      90: invokevirtual #304                // Method javax/swing/JLabel.setFont:(Ljava/awt/Font;)V
+      93: aload_0
+      94: getfield      #310                // Field panelE:Ljavax/swing/JPanel;
+      97: aload_0
+      98: getfield      #323                // Field l2:Ljavax/swing/JLabel;
+     101: invokevirtual #218                // Method javax/swing/JPanel.add:(Ljava/awt/Component;)Ljava/awt/Component;
+     104: pop
+     105: aload_0
+     106: invokevirtual #261                // Method repaint:()V
+     109: aload_0
+     110: getfield      #310                // Field panelE:Ljavax/swing/JPanel;
+     113: iconst_1
+     114: invokevirtual #221                // Method javax/swing/JPanel.setVisible:(Z)V
+     117: return
+
+  public void aendereSpieler1(int);
+    Code:
+       0: aload_0
+       1: getfield      #265                // Field panelW:Ljavax/swing/JPanel;
+       4: iconst_0
+       5: invokevirtual #221                // Method javax/swing/JPanel.setVisible:(Z)V
+       8: aload_0
+       9: getfield      #265                // Field panelW:Ljavax/swing/JPanel;
+      12: aload_0
+      13: getfield      #292                // Field l1:Ljavax/swing/JLabel;
+      16: invokevirtual #232                // Method javax/swing/JPanel.remove:(Ljava/awt/Component;)V
+      19: aload_0
+      20: new           #181                // class javax/swing/JLabel
+      23: dup
+      24: new           #278                // class java/lang/StringBuilder
+      27: dup
+      28: ldc_w         #321                // String
+      31: invokespecial #282                // Method java/lang/StringBuilder."<init>":(Ljava/lang/String;)V
+      34: aload_0
+      35: getfield      #73                 // Field spielerZugeh1:Ljava/lang/String;
+      38: invokevirtual #283                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      41: ldc_w         #321                // String
+      44: invokevirtual #283                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      47: invokevirtual #287                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      50: invokespecial #291                // Method javax/swing/JLabel."<init>":(Ljava/lang/String;)V
+      53: putfield      #292                // Field l1:Ljavax/swing/JLabel;
+      56: iload_1
+      57: iconst_1
+      58: if_icmpne     71
+      61: aload_0
+      62: getfield      #292                // Field l1:Ljavax/swing/JLabel;
+      65: getstatic     #330                // Field java/awt/Color.red:Ljava/awt/Color;
+      68: invokevirtual #300                // Method javax/swing/JLabel.setForeground:(Ljava/awt/Color;)V
+      71: iload_1
+      72: ifne          85
+      75: aload_0
+      76: getfield      #292                // Field l1:Ljavax/swing/JLabel;
+      79: getstatic     #294                // Field java/awt/Color.lightGray:Ljava/awt/Color;
+      82: invokevirtual #300                // Method javax/swing/JLabel.setForeground:(Ljava/awt/Color;)V
+      85: aload_0
+      86: getfield      #292                // Field l1:Ljavax/swing/JLabel;
+      89: aload_0
+      90: getfield      #276                // Field schrift1:Ljava/awt/Font;
+      93: invokevirtual #304                // Method javax/swing/JLabel.setFont:(Ljava/awt/Font;)V
+      96: aload_0
+      97: getfield      #265                // Field panelW:Ljavax/swing/JPanel;
+     100: aload_0
+     101: getfield      #292                // Field l1:Ljavax/swing/JLabel;
+     104: invokevirtual #218                // Method javax/swing/JPanel.add:(Ljava/awt/Component;)Ljava/awt/Component;
+     107: pop
+     108: aload_0
+     109: invokevirtual #261                // Method repaint:()V
+     112: aload_0
+     113: getfield      #265                // Field panelW:Ljavax/swing/JPanel;
+     116: iconst_1
+     117: invokevirtual #221                // Method javax/swing/JPanel.setVisible:(Z)V
+     120: return
+
+  public void nachrichtenAnzeige(java.lang.String);
+    Code:
+       0: aload_0
+       1: new           #207                // class javax/swing/JPanel
+       4: dup
+       5: invokespecial #209                // Method javax/swing/JPanel."<init>":()V
+       8: putfield      #333                // Field panelAusgabe:Ljavax/swing/JPanel;
+      11: aload_0
+      12: getfield      #333                // Field panelAusgabe:Ljavax/swing/JPanel;
+      15: new           #335                // class java/awt/Dimension
+      18: dup
+      19: sipush        472
+      22: bipush        100
+      24: invokespecial #337                // Method java/awt/Dimension."<init>":(II)V
+      27: invokevirtual #340                // Method javax/swing/JPanel.setPreferredSize:(Ljava/awt/Dimension;)V
+      30: aload_0
+      31: getfield      #104                // Field wnd:Lspiel/SpielMenu;
+      34: invokevirtual #169                // Method spiel/SpielMenu.getContentPane:()Ljava/awt/Container;
+      37: ldc_w         #344                // String South
+      40: aload_0
+      41: getfield      #333                // Field panelAusgabe:Ljavax/swing/JPanel;
+      44: invokevirtual #175                // Method java/awt/Container.add:(Ljava/lang/String;Ljava/awt/Component;)Ljava/awt/Component;
+      47: pop
+      48: aload_0
+      49: getfield      #333                // Field panelAusgabe:Ljavax/swing/JPanel;
+      52: iconst_1
+      53: invokevirtual #221                // Method javax/swing/JPanel.setVisible:(Z)V
+      56: aload_0
+      57: new           #346                // class java/awt/TextArea
+      60: dup
+      61: aload_1
+      62: iconst_3
+      63: bipush        100
+      65: invokespecial #348                // Method java/awt/TextArea."<init>":(Ljava/lang/String;II)V
+      68: putfield      #349                // Field textAusgabe:Ljava/awt/TextArea;
+      71: aload_0
+      72: getfield      #349                // Field textAusgabe:Ljava/awt/TextArea;
+      75: getstatic     #351                // Field java/awt/Color.LIGHT_GRAY:Ljava/awt/Color;
+      78: invokevirtual #354                // Method java/awt/TextArea.setBackground:(Ljava/awt/Color;)V
+      81: new           #357                // class java/awt/ScrollPane
+      84: dup
+      85: iconst_0
+      86: invokespecial #359                // Method java/awt/ScrollPane."<init>":(I)V
+      89: astore_2
+      90: aload_0
+      91: aload_2
+      92: invokevirtual #361                // Method add:(Ljava/awt/Component;)Ljava/awt/Component;
+      95: pop
+      96: aload_0
+      97: getfield      #333                // Field panelAusgabe:Ljavax/swing/JPanel;
+     100: aload_0
+     101: getfield      #349                // Field textAusgabe:Ljava/awt/TextArea;
+     104: invokevirtual #218                // Method javax/swing/JPanel.add:(Ljava/awt/Component;)Ljava/awt/Component;
+     107: pop
+     108: aload_0
+     109: getfield      #349                // Field textAusgabe:Ljava/awt/TextArea;
+     112: iconst_0
+     113: invokevirtual #362                // Method java/awt/TextArea.setEditable:(Z)V
+     116: aload_0
+     117: new           #365                // class java/awt/TextField
+     120: dup
+     121: ldc_w         #367                // String Eingabefeld, Bitte rein klicken für die Eingabe
+     124: bipush        90
+     126: invokespecial #369                // Method java/awt/TextField."<init>":(Ljava/lang/String;I)V
+     129: putfield      #371                // Field eing:Ljava/awt/TextField;
+     132: aload_0
+     133: getfield      #333                // Field panelAusgabe:Ljavax/swing/JPanel;
+     136: aload_0
+     137: getfield      #371                // Field eing:Ljava/awt/TextField;
+     140: invokevirtual #218                // Method javax/swing/JPanel.add:(Ljava/awt/Component;)Ljava/awt/Component;
+     143: pop
+     144: aload_0
+     145: new           #373                // class java/awt/Button
+     148: dup
+     149: ldc_w         #375                // String Abschicken
+     152: invokespecial #377                // Method java/awt/Button."<init>":(Ljava/lang/String;)V
+     155: putfield      #378                // Field senden:Ljava/awt/Button;
+     158: aload_0
+     159: getfield      #333                // Field panelAusgabe:Ljavax/swing/JPanel;
+     162: aload_0
+     163: getfield      #378                // Field senden:Ljava/awt/Button;
+     166: ldc_w         #312                // String East
+     169: invokevirtual #380                // Method javax/swing/JPanel.add:(Ljava/awt/Component;Ljava/lang/Object;)V
+     172: aload_0
+     173: getfield      #378                // Field senden:Ljava/awt/Button;
+     176: aload_0
+     177: invokevirtual #381                // Method java/awt/Button.addActionListener:(Ljava/awt/event/ActionListener;)V
+     180: return
+
+  public void ausgabeNachricht(java.lang.String);
+    Code:
+       0: aload_1
+       1: ldc_w         #389                // String hat das Spiel gewonnen.
+       4: invokevirtual #391                // Method java/lang/String.endsWith:(Ljava/lang/String;)Z
+       7: ifeq          121
+      10: aload_0
+      11: new           #278                // class java/lang/StringBuilder
+      14: dup
+      15: ldc_w         #395                // String          GAME OVER\n
+      18: invokespecial #282                // Method java/lang/StringBuilder."<init>":(Ljava/lang/String;)V
+      21: aload_1
+      22: invokevirtual #283                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      25: invokevirtual #287                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      28: invokestatic  #397                // Method javax/swing/JOptionPane.showMessageDialog:(Ljava/awt/Component;Ljava/lang/Object;)V
+      31: aload_0
+      32: ldc           #68                 // String Spieler 2
+      34: putfield      #70                 // Field spielerName2:Ljava/lang/String;
+      37: aload_0
+      38: aload_0
+      39: getfield      #70                 // Field spielerName2:Ljava/lang/String;
+      42: putfield      #75                 // Field spielerZugeh2:Ljava/lang/String;
+      45: aload_0
+      46: getfield      #162                // Field spielArt:I
+      49: iconst_1
+      50: if_icmpeq     74
+      53: aload_0
+      54: getfield      #162                // Field spielArt:I
+      57: iconst_2
+      58: if_icmpeq     74
+      61: aload_0
+      62: ldc_w         #400                // String Spieler 1
+      65: putfield      #73                 // Field spielerZugeh1:Ljava/lang/String;
+      68: aload_0
+      69: ldc           #68                 // String Spieler 2
+      71: putfield      #75                 // Field spielerZugeh2:Ljava/lang/String;
+      74: aload_0
+      75: iconst_0
+      76: invokevirtual #402                // Method aendereSpieler2:(I)V
+      79: aload_0
+      80: iconst_0
+      81: invokevirtual #404                // Method aendereSpieler1:(I)V
+      84: aload_0
+      85: iconst_0
+      86: putfield      #162                // Field spielArt:I
+      89: aload_0
+      90: iconst_1
+      91: putfield      #87                 // Field spielSperreModus:Z
+      94: aload_0
+      95: getfield      #138                // Field ebeneM:Ljavax/swing/JLayeredPane;
+      98: iconst_0
+      99: invokevirtual #168                // Method javax/swing/JLayeredPane.setVisible:(Z)V
+     102: aload_0
+     103: invokevirtual #406                // Method temploeschenSteine:()V
+     106: aload_0
+     107: invokevirtual #261                // Method repaint:()V
+     110: aload_0
+     111: getfield      #138                // Field ebeneM:Ljavax/swing/JLayeredPane;
+     114: iconst_1
+     115: invokevirtual #168                // Method javax/swing/JLayeredPane.setVisible:(Z)V
+     118: goto          145
+     121: aload_0
+     122: getfield      #349                // Field textAusgabe:Ljava/awt/TextArea;
+     125: new           #278                // class java/lang/StringBuilder
+     128: dup
+     129: ldc_w         #409                // String \n
+     132: invokespecial #282                // Method java/lang/StringBuilder."<init>":(Ljava/lang/String;)V
+     135: aload_1
+     136: invokevirtual #283                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     139: invokevirtual #287                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     142: invokevirtual #411                // Method java/awt/TextArea.append:(Ljava/lang/String;)V
+     145: return
+
+  public java.lang.String eingabe();
+    Code:
+       0: aload_0
+       1: ldc_w         #414                // String 0
+       4: putfield      #416                // Field eingabe:Ljava/lang/String;
+       7: aload_0
+       8: getfield      #371                // Field eing:Ljava/awt/TextField;
+      11: aload_0
+      12: invokevirtual #418                // Method java/awt/TextField.addTextListener:(Ljava/awt/event/TextListener;)V
+      15: aload_0
+      16: getfield      #416                // Field eingabe:Ljava/lang/String;
+      19: ldc_w         #414                // String 0
+      22: if_acmpeq     15
+      25: aload_0
+      26: getfield      #416                // Field eingabe:Ljava/lang/String;
+      29: areturn
+
+  public void textValueChanged(java.awt.event.TextEvent);
+    Code:
+       0: return
+
+  public javax.swing.JMenuBar erzeugeMenu();
+    Code:
+       0: new           #426                // class javax/swing/JMenuBar
+       3: dup
+       4: invokespecial #428                // Method javax/swing/JMenuBar."<init>":()V
+       7: astore_1
+       8: new           #429                // class javax/swing/JMenu
+      11: dup
+      12: ldc_w         #431                // String Spiel
+      15: invokespecial #433                // Method javax/swing/JMenu."<init>":(Ljava/lang/String;)V
+      18: astore_2
+      19: aload_1
+      20: aload_2
+      21: invokevirtual #434                // Method javax/swing/JMenuBar.add:(Ljavax/swing/JMenu;)Ljavax/swing/JMenu;
+      24: pop
+      25: new           #429                // class javax/swing/JMenu
+      28: dup
+      29: ldc_w         #437                // String Singleplayer
+      32: invokespecial #433                // Method javax/swing/JMenu."<init>":(Ljava/lang/String;)V
+      35: astore_3
+      36: aload_2
+      37: aload_3
+      38: invokevirtual #439                // Method javax/swing/JMenu.add:(Ljavax/swing/JMenuItem;)Ljavax/swing/JMenuItem;
+      41: pop
+      42: new           #442                // class javax/swing/JMenuItem
+      45: dup
+      46: ldc_w         #444                // String Spieler vs Computer an einem PC
+      49: invokespecial #446                // Method javax/swing/JMenuItem."<init>":(Ljava/lang/String;)V
+      52: astore        4
+      54: aload_3
+      55: aload         4
+      57: invokevirtual #439                // Method javax/swing/JMenu.add:(Ljavax/swing/JMenuItem;)Ljavax/swing/JMenuItem;
+      60: pop
+      61: aload         4
+      63: aload_0
+      64: invokevirtual #447                // Method javax/swing/JMenuItem.addActionListener:(Ljava/awt/event/ActionListener;)V
+      67: new           #429                // class javax/swing/JMenu
+      70: dup
+      71: ldc_w         #448                // String Multiplayer
+      74: invokespecial #433                // Method javax/swing/JMenu."<init>":(Ljava/lang/String;)V
+      77: astore        5
+      79: aload_2
+      80: aload         5
+      82: invokevirtual #439                // Method javax/swing/JMenu.add:(Ljavax/swing/JMenuItem;)Ljavax/swing/JMenuItem;
+      85: pop
+      86: new           #442                // class javax/swing/JMenuItem
+      89: dup
+      90: ldc_w         #450                // String Spieler vs Spieler an einem PC
+      93: invokespecial #446                // Method javax/swing/JMenuItem."<init>":(Ljava/lang/String;)V
+      96: astore        6
+      98: aload         5
+     100: aload         6
+     102: invokevirtual #439                // Method javax/swing/JMenu.add:(Ljavax/swing/JMenuItem;)Ljavax/swing/JMenuItem;
+     105: pop
+     106: aload         6
+     108: aload_0
+     109: invokevirtual #447                // Method javax/swing/JMenuItem.addActionListener:(Ljava/awt/event/ActionListener;)V
+     112: new           #442                // class javax/swing/JMenuItem
+     115: dup
+     116: ldc_w         #452                // String Spieler vs Netzwerk
+     119: invokespecial #446                // Method javax/swing/JMenuItem."<init>":(Ljava/lang/String;)V
+     122: astore        7
+     124: aload         5
+     126: aload         7
+     128: invokevirtual #439                // Method javax/swing/JMenu.add:(Ljavax/swing/JMenuItem;)Ljavax/swing/JMenuItem;
+     131: pop
+     132: aload         7
+     134: aload_0
+     135: invokevirtual #447                // Method javax/swing/JMenuItem.addActionListener:(Ljava/awt/event/ActionListener;)V
+     138: new           #442                // class javax/swing/JMenuItem
+     141: dup
+     142: ldc_w         #454                // String Computer vs Netzwerk
+     145: invokespecial #446                // Method javax/swing/JMenuItem."<init>":(Ljava/lang/String;)V
+     148: astore        8
+     150: aload         5
+     152: aload         8
+     154: invokevirtual #439                // Method javax/swing/JMenu.add:(Ljavax/swing/JMenuItem;)Ljavax/swing/JMenuItem;
+     157: pop
+     158: aload         8
+     160: aload_0
+     161: invokevirtual #447                // Method javax/swing/JMenuItem.addActionListener:(Ljava/awt/event/ActionListener;)V
+     164: aload_2
+     165: invokevirtual #456                // Method javax/swing/JMenu.addSeparator:()V
+     168: new           #442                // class javax/swing/JMenuItem
+     171: dup
+     172: ldc_w         #459                // String Beenden
+     175: invokespecial #446                // Method javax/swing/JMenuItem."<init>":(Ljava/lang/String;)V
+     178: astore        9
+     180: aload         9
+     182: aload_0
+     183: invokevirtual #447                // Method javax/swing/JMenuItem.addActionListener:(Ljava/awt/event/ActionListener;)V
+     186: aload_2
+     187: aload         9
+     189: invokevirtual #439                // Method javax/swing/JMenu.add:(Ljavax/swing/JMenuItem;)Ljavax/swing/JMenuItem;
+     192: pop
+     193: new           #429                // class javax/swing/JMenu
+     196: dup
+     197: ldc_w         #461                // String Hilfe
+     200: invokespecial #433                // Method javax/swing/JMenu."<init>":(Ljava/lang/String;)V
+     203: astore        10
+     205: aload_1
+     206: aload         10
+     208: invokevirtual #434                // Method javax/swing/JMenuBar.add:(Ljavax/swing/JMenu;)Ljavax/swing/JMenu;
+     211: pop
+     212: new           #442                // class javax/swing/JMenuItem
+     215: dup
+     216: ldc_w         #463                // String Einleitung
+     219: invokespecial #446                // Method javax/swing/JMenuItem."<init>":(Ljava/lang/String;)V
+     222: astore        11
+     224: aload         10
+     226: aload         11
+     228: invokevirtual #439                // Method javax/swing/JMenu.add:(Ljavax/swing/JMenuItem;)Ljavax/swing/JMenuItem;
+     231: pop
+     232: aload         11
+     234: aload_0
+     235: invokevirtual #447                // Method javax/swing/JMenuItem.addActionListener:(Ljava/awt/event/ActionListener;)V
+     238: new           #429                // class javax/swing/JMenu
+     241: dup
+     242: ldc_w         #465                // String Wie man spielt
+     245: invokespecial #433                // Method javax/swing/JMenu."<init>":(Ljava/lang/String;)V
+     248: astore        12
+     250: aload         10
+     252: aload         12
+     254: invokevirtual #439                // Method javax/swing/JMenu.add:(Ljavax/swing/JMenuItem;)Ljavax/swing/JMenuItem;
+     257: pop
+     258: new           #442                // class javax/swing/JMenuItem
+     261: dup
+     262: ldc_w         #467                // String Wer ist am Zug?
+     265: invokespecial #446                // Method javax/swing/JMenuItem."<init>":(Ljava/lang/String;)V
+     268: astore        13
+     270: aload         13
+     272: aload_0
+     273: invokevirtual #447                // Method javax/swing/JMenuItem.addActionListener:(Ljava/awt/event/ActionListener;)V
+     276: aload         12
+     278: aload         13
+     280: invokevirtual #439                // Method javax/swing/JMenu.add:(Ljavax/swing/JMenuItem;)Ljavax/swing/JMenuItem;
+     283: pop
+     284: new           #442                // class javax/swing/JMenuItem
+     287: dup
+     288: ldc_w         #469                // String Bewegen von Steinen
+     291: invokespecial #446                // Method javax/swing/JMenuItem."<init>":(Ljava/lang/String;)V
+     294: astore        14
+     296: aload         14
+     298: aload_0
+     299: invokevirtual #447                // Method javax/swing/JMenuItem.addActionListener:(Ljava/awt/event/ActionListener;)V
+     302: aload         12
+     304: aload         14
+     306: invokevirtual #439                // Method javax/swing/JMenu.add:(Ljavax/swing/JMenuItem;)Ljavax/swing/JMenuItem;
+     309: pop
+     310: new           #442                // class javax/swing/JMenuItem
+     313: dup
+     314: ldc_w         #471                // String Siegbedingungen
+     317: invokespecial #446                // Method javax/swing/JMenuItem."<init>":(Ljava/lang/String;)V
+     320: astore        15
+     322: aload         15
+     324: aload_0
+     325: invokevirtual #447                // Method javax/swing/JMenuItem.addActionListener:(Ljava/awt/event/ActionListener;)V
+     328: aload         12
+     330: aload         15
+     332: invokevirtual #439                // Method javax/swing/JMenu.add:(Ljavax/swing/JMenuItem;)Ljavax/swing/JMenuItem;
+     335: pop
+     336: new           #442                // class javax/swing/JMenuItem
+     339: dup
+     340: ldc_w         #473                // String Multiplayerhilfe
+     343: invokespecial #446                // Method javax/swing/JMenuItem."<init>":(Ljava/lang/String;)V
+     346: astore        16
+     348: aload         16
+     350: aload_0
+     351: invokevirtual #447                // Method javax/swing/JMenuItem.addActionListener:(Ljava/awt/event/ActionListener;)V
+     354: aload         12
+     356: aload         16
+     358: invokevirtual #439                // Method javax/swing/JMenu.add:(Ljavax/swing/JMenuItem;)Ljavax/swing/JMenuItem;
+     361: pop
+     362: aload_1
+     363: areturn
+
+  public void actionPerformed(java.awt.event.ActionEvent);
+    Code:
+       0: aload_1
+       1: invokevirtual #496                // Method java/awt/event/ActionEvent.getActionCommand:()Ljava/lang/String;
+       4: astore_2
+       5: aload_2
+       6: ldc_w         #375                // String Abschicken
+       9: invokevirtual #501                // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+      12: ifeq          26
+      15: aload_0
+      16: aload_0
+      17: getfield      #371                // Field eing:Ljava/awt/TextField;
+      20: invokevirtual #505                // Method java/awt/TextField.getText:()Ljava/lang/String;
+      23: putfield      #416                // Field eingabe:Ljava/lang/String;
+      26: aload_2
+      27: ldc_w         #459                // String Beenden
+      30: invokevirtual #501                // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+      33: ifeq          40
+      36: iconst_0
+      37: invokestatic  #508                // Method java/lang/System.exit:(I)V
+      40: aload_2
+      41: ldc_w         #444                // String Spieler vs Computer an einem PC
+      44: invokevirtual #501                // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+      47: ifeq          109
+      50: aload_0
+      51: getfield      #87                 // Field spielSperreModus:Z
+      54: ifeq          102
+      57: aload_0
+      58: iconst_2
+      59: putfield      #162                // Field spielArt:I
+      62: aload_0
+      63: aload_0
+      64: getfield      #97                 // Field spielerName:Ljava/lang/String;
+      67: putfield      #73                 // Field spielerZugeh1:Ljava/lang/String;
+      70: aload_0
+      71: ldc_w         #511                // String KI BlackByte
+      74: putfield      #75                 // Field spielerZugeh2:Ljava/lang/String;
+      77: aload_0
+      78: iconst_0
+      79: invokevirtual #404                // Method aendereSpieler1:(I)V
+      82: aload_0
+      83: iconst_0
+      84: invokevirtual #402                // Method aendereSpieler2:(I)V
+      87: aload_0
+      88: iconst_0
+      89: putfield      #87                 // Field spielSperreModus:Z
+      92: aload_0
+      93: ldc_w         #513                // String Spiel VS Computer Startet
+      96: invokevirtual #515                // Method ausgabeNachricht:(Ljava/lang/String;)V
+      99: goto          109
+     102: aload_0
+     103: ldc_w         #517                // String Sie haben schon eine Spielauswahl getroffen!\nWarten sie bis das Spiel zu ende ist, um eine neues spiel anzufangen!
+     106: invokestatic  #397                // Method javax/swing/JOptionPane.showMessageDialog:(Ljava/awt/Component;Ljava/lang/Object;)V
+     109: aload_2
+     110: ldc_w         #450                // String Spieler vs Spieler an einem PC
+     113: invokevirtual #501                // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+     116: ifeq          153
+     119: aload_0
+     120: getfield      #87                 // Field spielSperreModus:Z
+     123: ifeq          146
+     126: aload_0
+     127: iconst_1
+     128: putfield      #162                // Field spielArt:I
+     131: aload_0
+     132: iconst_0
+     133: putfield      #87                 // Field spielSperreModus:Z
+     136: aload_0
+     137: ldc_w         #519                // String Spiel  zwischen 2 spieler Startet
+     140: invokevirtual #515                // Method ausgabeNachricht:(Ljava/lang/String;)V
+     143: goto          153
+     146: aload_0
+     147: ldc_w         #517                // String Sie haben schon eine Spielauswahl getroffen!\nWarten sie bis das Spiel zu ende ist, um eine neues spiel anzufangen!
+     150: invokestatic  #397                // Method javax/swing/JOptionPane.showMessageDialog:(Ljava/awt/Component;Ljava/lang/Object;)V
+     153: aload_2
+     154: ldc_w         #452                // String Spieler vs Netzwerk
+     157: invokevirtual #501                // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+     160: ifeq          197
+     163: aload_0
+     164: getfield      #87                 // Field spielSperreModus:Z
+     167: ifeq          190
+     170: aload_0
+     171: iconst_3
+     172: putfield      #162                // Field spielArt:I
+     175: aload_0
+     176: iconst_0
+     177: putfield      #87                 // Field spielSperreModus:Z
+     180: aload_0
+     181: ldc_w         #521                // String Spiel gegen das Netzwerk kann starten
+     184: invokevirtual #515                // Method ausgabeNachricht:(Ljava/lang/String;)V
+     187: goto          197
+     190: aload_0
+     191: ldc_w         #517                // String Sie haben schon eine Spielauswahl getroffen!\nWarten sie bis das Spiel zu ende ist, um eine neues spiel anzufangen!
+     194: invokestatic  #397                // Method javax/swing/JOptionPane.showMessageDialog:(Ljava/awt/Component;Ljava/lang/Object;)V
+     197: aload_2
+     198: ldc_w         #454                // String Computer vs Netzwerk
+     201: invokevirtual #501                // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+     204: ifeq          241
+     207: aload_0
+     208: getfield      #87                 // Field spielSperreModus:Z
+     211: ifeq          234
+     214: aload_0
+     215: iconst_4
+     216: putfield      #162                // Field spielArt:I
+     219: aload_0
+     220: iconst_0
+     221: putfield      #87                 // Field spielSperreModus:Z
+     224: aload_0
+     225: ldc_w         #523                // String Spiel gegen das Netzwerk startet
+     228: invokevirtual #515                // Method ausgabeNachricht:(Ljava/lang/String;)V
+     231: goto          241
+     234: aload_0
+     235: ldc_w         #517                // String Sie haben schon eine Spielauswahl getroffen!\nWarten sie bis das Spiel zu ende ist, um eine neues spiel anzufangen!
+     238: invokestatic  #397                // Method javax/swing/JOptionPane.showMessageDialog:(Ljava/awt/Component;Ljava/lang/Object;)V
+     241: aload_2
+     242: ldc_w         #463                // String Einleitung
+     245: invokevirtual #501                // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+     248: ifeq          258
+     251: aload_0
+     252: ldc_w         #525                // String \n\n\n\n„EinStein würfelt nicht“ ist ein Spiel für 2 Personen. Es wurde vom deutschen \nMathematiker XXXX entwickelt, der an der Uni ?Göttingen unterrichtet, \nentwickelt.\nDie sechs Spielsteine der beiden Spieler befinden sich in einem Raster von \nfünf mal fünf Spielfeldern in den Ecken, die sich gegenüberstehen. Jeder Stein \nkann sich immer nur 1 Feld bewegen, aber es ist möglich, sowohl eigene als \nauch gegnerische Spielsteine zu schlagen, in dem man auf sie drauf zieht. Die \nbeiden Spieler ziehen abwechselnd, ein Würfelergebnis bestimmt, welcher Stein \ngezogen werden darf. \n\nDie Besonderheit ist, dass es auch möglich ist, selbst zu entscheiden, welchen \nSpielstein man bewegen darf, wenn der Stein für das Würfelergebnis nicht mehr \nim Spiel ist. Wenn nur noch ein Stein bei einem Spieler im Spiel ist, wird das \nWürfelergebnis ignoriert, denn dieser Stein darf immer ziehen, denn „Ein Stein \nwürfelt nicht“.\n\nEin Beispiel:\nAuf dem Spielfeld existieren nur noch die Steine 1, 3 und sechs eines \nSpielers. Der Würfel gibt als Ergebnis eine 2 aus. Nun hat dieser Spieler die \nWahl, ob er den Stein Nr. 1 oder den Stein Nr 3 bewegen möchte.\n\nDieses Spiel wurde von der Entwicklergruppe BlackByte des 3. Semesters der\nFachhochschule Fulda im Rahmen des Programmieren-Praktikums entwickelt\nund getestet.
+     255: invokestatic  #397                // Method javax/swing/JOptionPane.showMessageDialog:(Ljava/awt/Component;Ljava/lang/Object;)V
+     258: aload_2
+     259: ldc_w         #467                // String Wer ist am Zug?
+     262: invokevirtual #501                // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+     265: ifeq          275
+     268: aload_0
+     269: ldc_w         #527                // String \n\n\nWer ist am Zug?\n\nEs wird abwechselnd gespielt. Jeder Spieler erhält ein Würfelergebnis, welches \ndie möglichen Steine bestimmt, die Sie ziehen können. Wenn Sie am Zug sind, \nwerden Sie aufgefordert ihren Zug zu machen.
+     272: invokestatic  #397                // Method javax/swing/JOptionPane.showMessageDialog:(Ljava/awt/Component;Ljava/lang/Object;)V
+     275: aload_2
+     276: ldc_w         #469                // String Bewegen von Steinen
+     279: invokevirtual #501                // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+     282: ifeq          292
+     285: aload_0
+     286: ldc_w         #529                // String \n\n\nBewegen von Steinen\n\nWährend des Spiels wird das Programm Ihnen alle Spielmöglichkeiten zeigen, die \nihnen jeweils zur Verfügung stehen. Sie werden dann z.B. aufgefordert, sich \nzwischen den Steinen 1 und 3 zu entscheiden, die Sie bewegen wollen. Nachdem \nsie diese Entscheidung durch die Eingabe der Spielsteinnummer getroffen haben, \nwird das Programm ihnen auch alle möglichen Züge vorgeben, aus der Sie \nwiederum auswählen dürfen. Dabei wird das Programm von Ihnen lediglich die \nneue Zielkoordinate des Steins verlangen. \n\nWenn sie während der Steinbewegungsphase eine Null statt der Spielsteinnummer \neingeben, wird das Spiel sofort beendet.
+     289: invokestatic  #397                // Method javax/swing/JOptionPane.showMessageDialog:(Ljava/awt/Component;Ljava/lang/Object;)V
+     292: aload_2
+     293: ldc_w         #471                // String Siegbedingungen
+     296: invokevirtual #501                // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+     299: ifeq          309
+     302: aload_0
+     303: ldc_w         #531                // String \n\n\nSiegbedingungen\n\nDas Ziel des Spiel ist es, einen der eigenen Steine in die gegnerische Ecke zu \nbewegen oder einfach alle gegnerischen Steine zu schlagen.
+     306: invokestatic  #397                // Method javax/swing/JOptionPane.showMessageDialog:(Ljava/awt/Component;Ljava/lang/Object;)V
+     309: aload_2
+     310: ldc_w         #473                // String Multiplayerhilfe
+     313: invokevirtual #501                // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+     316: ifeq          326
+     319: aload_0
+     320: ldc_w         #533                // String \n\n\nMultiplayerhilfe\n\nDie Auswahl des Multiplayerspiels ohne Netzwerk erlaubt Ihnen gegen einem \nFreund an einem Rechner zu spielen. Die Option Multiplayerspiel mit Netzwerk \ngestattet Ihnen über das Netzwerk gegen einen anderen Spieler an seinem \nComputer oder dessen Künstliche Intelligenz zu spielen.
+     323: invokestatic  #397                // Method javax/swing/JOptionPane.showMessageDialog:(Ljava/awt/Component;Ljava/lang/Object;)V
+     326: return
+
+  public void neuerSpielerName();
+    Code:
+       0: aload_0
+       1: ldc_w         #539                // String Bitte geben Sie einen anderen Spielernamen ein
+       4: invokestatic  #91                 // Method javax/swing/JOptionPane.showInputDialog:(Ljava/lang/Object;)Ljava/lang/String;
+       7: putfield      #97                 // Field spielerName:Ljava/lang/String;
+      10: return
+
+  public java.lang.String gibspielerName();
+    Code:
+       0: aload_0
+       1: getfield      #97                 // Field spielerName:Ljava/lang/String;
+       4: areturn
+
+  public java.lang.String spieler2EingabeName();
+    Code:
+       0: aload_0
+       1: ldc_w         #543                // String Bitte geben Sie einen Spielernamen ein
+       4: invokestatic  #91                 // Method javax/swing/JOptionPane.showInputDialog:(Ljava/lang/Object;)Ljava/lang/String;
+       7: putfield      #70                 // Field spielerName2:Ljava/lang/String;
+      10: aload_0
+      11: aload_0
+      12: getfield      #97                 // Field spielerName:Ljava/lang/String;
+      15: putfield      #73                 // Field spielerZugeh1:Ljava/lang/String;
+      18: aload_0
+      19: aload_0
+      20: getfield      #70                 // Field spielerName2:Ljava/lang/String;
+      23: putfield      #75                 // Field spielerZugeh2:Ljava/lang/String;
+      26: aload_0
+      27: iconst_0
+      28: invokevirtual #404                // Method aendereSpieler1:(I)V
+      31: aload_0
+      32: iconst_0
+      33: invokevirtual #402                // Method aendereSpieler2:(I)V
+      36: aload_0
+      37: getfield      #70                 // Field spielerName2:Ljava/lang/String;
+      40: areturn
+
+  public void brettinitialisierung(int[], java.lang.String, java.lang.String, int);
+    Code:
+       0: bipush        48
+       2: istore        5
+       4: iconst_0
+       5: istore        10
+       7: bipush        60
+       9: istore        11
+      11: bipush        94
+      13: istore        12
+      15: iload         4
+      17: iconst_1
+      18: if_icmpne     34
+      21: aload_0
+      22: aload_2
+      23: putfield      #73                 // Field spielerZugeh1:Ljava/lang/String;
+      26: aload_0
+      27: aload_3
+      28: putfield      #75                 // Field spielerZugeh2:Ljava/lang/String;
+      31: goto          49
+      34: iload         4
+      36: ifne          49
+      39: aload_0
+      40: aload_3
+      41: putfield      #73                 // Field spielerZugeh1:Ljava/lang/String;
+      44: aload_0
+      45: aload_2
+      46: putfield      #75                 // Field spielerZugeh2:Ljava/lang/String;
+      49: aload_0
+      50: iconst_0
+      51: invokevirtual #404                // Method aendereSpieler1:(I)V
+      54: aload_0
+      55: iconst_0
+      56: invokevirtual #402                // Method aendereSpieler2:(I)V
+      59: aload_0
+      60: getfield      #138                // Field ebeneM:Ljavax/swing/JLayeredPane;
+      63: iconst_0
+      64: invokevirtual #168                // Method javax/swing/JLayeredPane.setVisible:(Z)V
+      67: aload_0
+      68: invokevirtual #406                // Method temploeschenSteine:()V
+      71: iconst_0
+      72: istore        13
+      74: goto          1088
+      77: aload_1
+      78: iload         13
+      80: iconst_2
+      81: iadd
+      82: iaload
+      83: ifeq          1085
+      86: aload_1
+      87: iload         13
+      89: iaload
+      90: istore        7
+      92: aload_1
+      93: iload         13
+      95: iconst_1
+      96: iadd
+      97: iaload
+      98: istore        6
+     100: aload_1
+     101: iload         13
+     103: iconst_2
+     104: iadd
+     105: iaload
+     106: istore        8
+     108: aload_1
+     109: iload         13
+     111: iconst_3
+     112: iadd
+     113: iaload
+     114: istore        9
+     116: iload         7
+     118: iconst_1
+     119: if_icmpne     618
+     122: iload         6
+     124: tableswitch   { // 1 to 6
+                     1: 164
+                     2: 233
+                     3: 302
+                     4: 371
+                     5: 450
+                     6: 529
+               default: 608
+          }
+     164: aload_0
+     165: new           #181                // class javax/swing/JLabel
+     168: dup
+     169: new           #183                // class javax/swing/ImageIcon
+     172: dup
+     173: ldc_w         #547                // String images/Stein Seite1 Nr 1.gif
+     176: invokespecial #187                // Method javax/swing/ImageIcon."<init>":(Ljava/lang/String;)V
+     179: invokespecial #189                // Method javax/swing/JLabel."<init>":(Ljavax/swing/Icon;)V
+     182: putfield      #549                // Field s11:Ljavax/swing/JLabel;
+     185: aload_0
+     186: getfield      #549                // Field s11:Ljavax/swing/JLabel;
+     189: iload         11
+     191: iload         12
+     193: iload         9
+     195: iconst_1
+     196: isub
+     197: imul
+     198: iadd
+     199: iload         10
+     201: iload         12
+     203: iload         8
+     205: iconst_1
+     206: isub
+     207: imul
+     208: iadd
+     209: bipush        94
+     211: bipush        94
+     213: invokevirtual #192                // Method javax/swing/JLabel.setBounds:(IIII)V
+     216: aload_0
+     217: getfield      #138                // Field ebeneM:Ljavax/swing/JLayeredPane;
+     220: aload_0
+     221: getfield      #549                // Field s11:Ljavax/swing/JLabel;
+     224: getstatic     #551                // Field javax/swing/JLayeredPane.DRAG_LAYER:Ljava/lang/Integer;
+     227: invokevirtual #200                // Method javax/swing/JLayeredPane.add:(Ljava/awt/Component;Ljava/lang/Object;)V
+     230: goto          1085
+     233: aload_0
+     234: new           #181                // class javax/swing/JLabel
+     237: dup
+     238: new           #183                // class javax/swing/ImageIcon
+     241: dup
+     242: ldc_w         #554                // String images/Stein Seite1 Nr 2.gif
+     245: invokespecial #187                // Method javax/swing/ImageIcon."<init>":(Ljava/lang/String;)V
+     248: invokespecial #189                // Method javax/swing/JLabel."<init>":(Ljavax/swing/Icon;)V
+     251: putfield      #556                // Field s12:Ljavax/swing/JLabel;
+     254: aload_0
+     255: getfield      #556                // Field s12:Ljavax/swing/JLabel;
+     258: iload         11
+     260: iload         12
+     262: iload         9
+     264: iconst_1
+     265: isub
+     266: imul
+     267: iadd
+     268: iload         10
+     270: iload         12
+     272: iload         8
+     274: iconst_1
+     275: isub
+     276: imul
+     277: iadd
+     278: bipush        94
+     280: bipush        94
+     282: invokevirtual #192                // Method javax/swing/JLabel.setBounds:(IIII)V
+     285: aload_0
+     286: getfield      #138                // Field ebeneM:Ljavax/swing/JLayeredPane;
+     289: aload_0
+     290: getfield      #556                // Field s12:Ljavax/swing/JLabel;
+     293: getstatic     #551                // Field javax/swing/JLayeredPane.DRAG_LAYER:Ljava/lang/Integer;
+     296: invokevirtual #200                // Method javax/swing/JLayeredPane.add:(Ljava/awt/Component;Ljava/lang/Object;)V
+     299: goto          1085
+     302: aload_0
+     303: new           #181                // class javax/swing/JLabel
+     306: dup
+     307: new           #183                // class javax/swing/ImageIcon
+     310: dup
+     311: ldc_w         #558                // String images/Stein Seite1 Nr 3.gif
+     314: invokespecial #187                // Method javax/swing/ImageIcon."<init>":(Ljava/lang/String;)V
+     317: invokespecial #189                // Method javax/swing/JLabel."<init>":(Ljavax/swing/Icon;)V
+     320: putfield      #560                // Field s13:Ljavax/swing/JLabel;
+     323: aload_0
+     324: getfield      #560                // Field s13:Ljavax/swing/JLabel;
+     327: iload         11
+     329: iload         12
+     331: iload         9
+     333: iconst_1
+     334: isub
+     335: imul
+     336: iadd
+     337: iload         10
+     339: iload         12
+     341: iload         8
+     343: iconst_1
+     344: isub
+     345: imul
+     346: iadd
+     347: bipush        94
+     349: bipush        94
+     351: invokevirtual #192                // Method javax/swing/JLabel.setBounds:(IIII)V
+     354: aload_0
+     355: getfield      #138                // Field ebeneM:Ljavax/swing/JLayeredPane;
+     358: aload_0
+     359: getfield      #560                // Field s13:Ljavax/swing/JLabel;
+     362: getstatic     #551                // Field javax/swing/JLayeredPane.DRAG_LAYER:Ljava/lang/Integer;
+     365: invokevirtual #200                // Method javax/swing/JLayeredPane.add:(Ljava/awt/Component;Ljava/lang/Object;)V
+     368: goto          1085
+     371: aload_0
+     372: new           #181                // class javax/swing/JLabel
+     375: dup
+     376: new           #183                // class javax/swing/ImageIcon
+     379: dup
+     380: ldc_w         #562                // String images/Stein Seite1 Nr 4.gif
+     383: invokespecial #187                // Method javax/swing/ImageIcon."<init>":(Ljava/lang/String;)V
+     386: invokespecial #189                // Method javax/swing/JLabel."<init>":(Ljavax/swing/Icon;)V
+     389: putfield      #564                // Field s14:Ljavax/swing/JLabel;
+     392: aload_0
+     393: getfield      #564                // Field s14:Ljavax/swing/JLabel;
+     396: getstatic     #566                // Field java/awt/Color.pink:Ljava/awt/Color;
+     399: invokevirtual #569                // Method javax/swing/JLabel.setBackground:(Ljava/awt/Color;)V
+     402: aload_0
+     403: getfield      #564                // Field s14:Ljavax/swing/JLabel;
+     406: iload         11
+     408: iload         12
+     410: iload         9
+     412: iconst_1
+     413: isub
+     414: imul
+     415: iadd
+     416: iload         10
+     418: iload         12
+     420: iload         8
+     422: iconst_1
+     423: isub
+     424: imul
+     425: iadd
+     426: bipush        94
+     428: bipush        94
+     430: invokevirtual #192                // Method javax/swing/JLabel.setBounds:(IIII)V
+     433: aload_0
+     434: getfield      #138                // Field ebeneM:Ljavax/swing/JLayeredPane;
+     437: aload_0
+     438: getfield      #564                // Field s14:Ljavax/swing/JLabel;
+     441: getstatic     #551                // Field javax/swing/JLayeredPane.DRAG_LAYER:Ljava/lang/Integer;
+     444: invokevirtual #200                // Method javax/swing/JLayeredPane.add:(Ljava/awt/Component;Ljava/lang/Object;)V
+     447: goto          1085
+     450: aload_0
+     451: new           #181                // class javax/swing/JLabel
+     454: dup
+     455: new           #183                // class javax/swing/ImageIcon
+     458: dup
+     459: ldc_w         #570                // String images/Stein Seite1 Nr 5.gif
+     462: invokespecial #187                // Method javax/swing/ImageIcon."<init>":(Ljava/lang/String;)V
+     465: invokespecial #189                // Method javax/swing/JLabel."<init>":(Ljavax/swing/Icon;)V
+     468: putfield      #572                // Field s15:Ljavax/swing/JLabel;
+     471: aload_0
+     472: getfield      #572                // Field s15:Ljavax/swing/JLabel;
+     475: getstatic     #566                // Field java/awt/Color.pink:Ljava/awt/Color;
+     478: invokevirtual #569                // Method javax/swing/JLabel.setBackground:(Ljava/awt/Color;)V
+     481: aload_0
+     482: getfield      #572                // Field s15:Ljavax/swing/JLabel;
+     485: iload         11
+     487: iload         12
+     489: iload         9
+     491: iconst_1
+     492: isub
+     493: imul
+     494: iadd
+     495: iload         10
+     497: iload         12
+     499: iload         8
+     501: iconst_1
+     502: isub
+     503: imul
+     504: iadd
+     505: bipush        94
+     507: bipush        94
+     509: invokevirtual #192                // Method javax/swing/JLabel.setBounds:(IIII)V
+     512: aload_0
+     513: getfield      #138                // Field ebeneM:Ljavax/swing/JLayeredPane;
+     516: aload_0
+     517: getfield      #572                // Field s15:Ljavax/swing/JLabel;
+     520: getstatic     #551                // Field javax/swing/JLayeredPane.DRAG_LAYER:Ljava/lang/Integer;
+     523: invokevirtual #200                // Method javax/swing/JLayeredPane.add:(Ljava/awt/Component;Ljava/lang/Object;)V
+     526: goto          1085
+     529: aload_0
+     530: new           #181                // class javax/swing/JLabel
+     533: dup
+     534: new           #183                // class javax/swing/ImageIcon
+     537: dup
+     538: ldc_w         #574                // String images/Stein Seite1 Nr 6.gif
+     541: invokespecial #187                // Method javax/swing/ImageIcon."<init>":(Ljava/lang/String;)V
+     544: invokespecial #189                // Method javax/swing/JLabel."<init>":(Ljavax/swing/Icon;)V
+     547: putfield      #576                // Field s16:Ljavax/swing/JLabel;
+     550: aload_0
+     551: getfield      #576                // Field s16:Ljavax/swing/JLabel;
+     554: getstatic     #566                // Field java/awt/Color.pink:Ljava/awt/Color;
+     557: invokevirtual #569                // Method javax/swing/JLabel.setBackground:(Ljava/awt/Color;)V
+     560: aload_0
+     561: getfield      #576                // Field s16:Ljavax/swing/JLabel;
+     564: iload         11
+     566: iload         12
+     568: iload         9
+     570: iconst_1
+     571: isub
+     572: imul
+     573: iadd
+     574: iload         10
+     576: iload         12
+     578: iload         8
+     580: iconst_1
+     581: isub
+     582: imul
+     583: iadd
+     584: bipush        94
+     586: bipush        94
+     588: invokevirtual #192                // Method javax/swing/JLabel.setBounds:(IIII)V
+     591: aload_0
+     592: getfield      #138                // Field ebeneM:Ljavax/swing/JLayeredPane;
+     595: aload_0
+     596: getfield      #576                // Field s16:Ljavax/swing/JLabel;
+     599: getstatic     #551                // Field javax/swing/JLayeredPane.DRAG_LAYER:Ljava/lang/Integer;
+     602: invokevirtual #200                // Method javax/swing/JLayeredPane.add:(Ljava/awt/Component;Ljava/lang/Object;)V
+     605: goto          1085
+     608: aload_0
+     609: ldc_w         #578                // String Steingibt es nicht!
+     612: invokevirtual #515                // Method ausgabeNachricht:(Ljava/lang/String;)V
+     615: goto          1085
+     618: iload         7
+     620: ifne          1085
+     623: iload         6
+     625: tableswitch   { // 1 to 6
+                     1: 664
+                     2: 733
+                     3: 802
+                     4: 871
+                     5: 940
+                     6: 1009
+               default: 1078
+          }
+     664: aload_0
+     665: new           #181                // class javax/swing/JLabel
+     668: dup
+     669: new           #183                // class javax/swing/ImageIcon
+     672: dup
+     673: ldc_w         #580                // String images/Stein Seite2 Nr 1.gif
+     676: invokespecial #187                // Method javax/swing/ImageIcon."<init>":(Ljava/lang/String;)V
+     679: invokespecial #189                // Method javax/swing/JLabel."<init>":(Ljavax/swing/Icon;)V
+     682: putfield      #582                // Field s01:Ljavax/swing/JLabel;
+     685: aload_0
+     686: getfield      #582                // Field s01:Ljavax/swing/JLabel;
+     689: iload         11
+     691: iload         12
+     693: iload         9
+     695: iconst_1
+     696: isub
+     697: imul
+     698: iadd
+     699: iload         10
+     701: iload         12
+     703: iload         8
+     705: iconst_1
+     706: isub
+     707: imul
+     708: iadd
+     709: bipush        94
+     711: bipush        94
+     713: invokevirtual #192                // Method javax/swing/JLabel.setBounds:(IIII)V
+     716: aload_0
+     717: getfield      #138                // Field ebeneM:Ljavax/swing/JLayeredPane;
+     720: aload_0
+     721: getfield      #582                // Field s01:Ljavax/swing/JLabel;
+     724: getstatic     #551                // Field javax/swing/JLayeredPane.DRAG_LAYER:Ljava/lang/Integer;
+     727: invokevirtual #200                // Method javax/swing/JLayeredPane.add:(Ljava/awt/Component;Ljava/lang/Object;)V
+     730: goto          1085
+     733: aload_0
+     734: new           #181                // class javax/swing/JLabel
+     737: dup
+     738: new           #183                // class javax/swing/ImageIcon
+     741: dup
+     742: ldc_w         #584                // String images/Stein Seite2 Nr 2.gif
+     745: invokespecial #187                // Method javax/swing/ImageIcon."<init>":(Ljava/lang/String;)V
+     748: invokespecial #189                // Method javax/swing/JLabel."<init>":(Ljavax/swing/Icon;)V
+     751: putfield      #586                // Field s02:Ljavax/swing/JLabel;
+     754: aload_0
+     755: getfield      #586                // Field s02:Ljavax/swing/JLabel;
+     758: iload         11
+     760: iload         12
+     762: iload         9
+     764: iconst_1
+     765: isub
+     766: imul
+     767: iadd
+     768: iload         10
+     770: iload         12
+     772: iload         8
+     774: iconst_1
+     775: isub
+     776: imul
+     777: iadd
+     778: bipush        94
+     780: bipush        94
+     782: invokevirtual #192                // Method javax/swing/JLabel.setBounds:(IIII)V
+     785: aload_0
+     786: getfield      #138                // Field ebeneM:Ljavax/swing/JLayeredPane;
+     789: aload_0
+     790: getfield      #586                // Field s02:Ljavax/swing/JLabel;
+     793: getstatic     #551                // Field javax/swing/JLayeredPane.DRAG_LAYER:Ljava/lang/Integer;
+     796: invokevirtual #200                // Method javax/swing/JLayeredPane.add:(Ljava/awt/Component;Ljava/lang/Object;)V
+     799: goto          1085
+     802: aload_0
+     803: new           #181                // class javax/swing/JLabel
+     806: dup
+     807: new           #183                // class javax/swing/ImageIcon
+     810: dup
+     811: ldc_w         #588                // String images/Stein Seite2 Nr 3.gif
+     814: invokespecial #187                // Method javax/swing/ImageIcon."<init>":(Ljava/lang/String;)V
+     817: invokespecial #189                // Method javax/swing/JLabel."<init>":(Ljavax/swing/Icon;)V
+     820: putfield      #590                // Field s03:Ljavax/swing/JLabel;
+     823: aload_0
+     824: getfield      #590                // Field s03:Ljavax/swing/JLabel;
+     827: iload         11
+     829: iload         12
+     831: iload         9
+     833: iconst_1
+     834: isub
+     835: imul
+     836: iadd
+     837: iload         10
+     839: iload         12
+     841: iload         8
+     843: iconst_1
+     844: isub
+     845: imul
+     846: iadd
+     847: bipush        94
+     849: bipush        94
+     851: invokevirtual #192                // Method javax/swing/JLabel.setBounds:(IIII)V
+     854: aload_0
+     855: getfield      #138                // Field ebeneM:Ljavax/swing/JLayeredPane;
+     858: aload_0
+     859: getfield      #590                // Field s03:Ljavax/swing/JLabel;
+     862: getstatic     #551                // Field javax/swing/JLayeredPane.DRAG_LAYER:Ljava/lang/Integer;
+     865: invokevirtual #200                // Method javax/swing/JLayeredPane.add:(Ljava/awt/Component;Ljava/lang/Object;)V
+     868: goto          1085
+     871: aload_0
+     872: new           #181                // class javax/swing/JLabel
+     875: dup
+     876: new           #183                // class javax/swing/ImageIcon
+     879: dup
+     880: ldc_w         #592                // String images/Stein Seite2 Nr 4.gif
+     883: invokespecial #187                // Method javax/swing/ImageIcon."<init>":(Ljava/lang/String;)V
+     886: invokespecial #189                // Method javax/swing/JLabel."<init>":(Ljavax/swing/Icon;)V
+     889: putfield      #594                // Field s04:Ljavax/swing/JLabel;
+     892: aload_0
+     893: getfield      #594                // Field s04:Ljavax/swing/JLabel;
+     896: iload         11
+     898: iload         12
+     900: iload         9
+     902: iconst_1
+     903: isub
+     904: imul
+     905: iadd
+     906: iload         10
+     908: iload         12
+     910: iload         8
+     912: iconst_1
+     913: isub
+     914: imul
+     915: iadd
+     916: bipush        94
+     918: bipush        94
+     920: invokevirtual #192                // Method javax/swing/JLabel.setBounds:(IIII)V
+     923: aload_0
+     924: getfield      #138                // Field ebeneM:Ljavax/swing/JLayeredPane;
+     927: aload_0
+     928: getfield      #594                // Field s04:Ljavax/swing/JLabel;
+     931: getstatic     #551                // Field javax/swing/JLayeredPane.DRAG_LAYER:Ljava/lang/Integer;
+     934: invokevirtual #200                // Method javax/swing/JLayeredPane.add:(Ljava/awt/Component;Ljava/lang/Object;)V
+     937: goto          1085
+     940: aload_0
+     941: new           #181                // class javax/swing/JLabel
+     944: dup
+     945: new           #183                // class javax/swing/ImageIcon
+     948: dup
+     949: ldc_w         #596                // String images/Stein Seite2 Nr 5.gif
+     952: invokespecial #187                // Method javax/swing/ImageIcon."<init>":(Ljava/lang/String;)V
+     955: invokespecial #189                // Method javax/swing/JLabel."<init>":(Ljavax/swing/Icon;)V
+     958: putfield      #598                // Field s05:Ljavax/swing/JLabel;
+     961: aload_0
+     962: getfield      #598                // Field s05:Ljavax/swing/JLabel;
+     965: iload         11
+     967: iload         12
+     969: iload         9
+     971: iconst_1
+     972: isub
+     973: imul
+     974: iadd
+     975: iload         10
+     977: iload         12
+     979: iload         8
+     981: iconst_1
+     982: isub
+     983: imul
+     984: iadd
+     985: bipush        94
+     987: bipush        94
+     989: invokevirtual #192                // Method javax/swing/JLabel.setBounds:(IIII)V
+     992: aload_0
+     993: getfield      #138                // Field ebeneM:Ljavax/swing/JLayeredPane;
+     996: aload_0
+     997: getfield      #598                // Field s05:Ljavax/swing/JLabel;
+    1000: getstatic     #551                // Field javax/swing/JLayeredPane.DRAG_LAYER:Ljava/lang/Integer;
+    1003: invokevirtual #200                // Method javax/swing/JLayeredPane.add:(Ljava/awt/Component;Ljava/lang/Object;)V
+    1006: goto          1085
+    1009: aload_0
+    1010: new           #181                // class javax/swing/JLabel
+    1013: dup
+    1014: new           #183                // class javax/swing/ImageIcon
+    1017: dup
+    1018: ldc_w         #600                // String images/Stein Seite2 Nr 6.gif
+    1021: invokespecial #187                // Method javax/swing/ImageIcon."<init>":(Ljava/lang/String;)V
+    1024: invokespecial #189                // Method javax/swing/JLabel."<init>":(Ljavax/swing/Icon;)V
+    1027: putfield      #602                // Field s06:Ljavax/swing/JLabel;
+    1030: aload_0
+    1031: getfield      #602                // Field s06:Ljavax/swing/JLabel;
+    1034: iload         11
+    1036: iload         12
+    1038: iload         9
+    1040: iconst_1
+    1041: isub
+    1042: imul
+    1043: iadd
+    1044: iload         10
+    1046: iload         12
+    1048: iload         8
+    1050: iconst_1
+    1051: isub
+    1052: imul
+    1053: iadd
+    1054: bipush        94
+    1056: bipush        94
+    1058: invokevirtual #192                // Method javax/swing/JLabel.setBounds:(IIII)V
+    1061: aload_0
+    1062: getfield      #138                // Field ebeneM:Ljavax/swing/JLayeredPane;
+    1065: aload_0
+    1066: getfield      #602                // Field s06:Ljavax/swing/JLabel;
+    1069: getstatic     #551                // Field javax/swing/JLayeredPane.DRAG_LAYER:Ljava/lang/Integer;
+    1072: invokevirtual #200                // Method javax/swing/JLayeredPane.add:(Ljava/awt/Component;Ljava/lang/Object;)V
+    1075: goto          1085
+    1078: aload_0
+    1079: ldc_w         #578                // String Steingibt es nicht!
+    1082: invokevirtual #515                // Method ausgabeNachricht:(Ljava/lang/String;)V
+    1085: iinc          13, 4
+    1088: iload         13
+    1090: iload         5
+    1092: if_icmplt     77
+    1095: aload_0
+    1096: invokevirtual #261                // Method repaint:()V
+    1099: aload_0
+    1100: getfield      #138                // Field ebeneM:Ljavax/swing/JLayeredPane;
+    1103: iconst_1
+    1104: invokevirtual #168                // Method javax/swing/JLayeredPane.setVisible:(Z)V
+    1107: return
+
+  public void steinInitialisierung();
+    Code:
+       0: aload_0
+       1: new           #181                // class javax/swing/JLabel
+       4: dup
+       5: new           #183                // class javax/swing/ImageIcon
+       8: dup
+       9: ldc_w         #547                // String images/Stein Seite1 Nr 1.gif
+      12: invokespecial #187                // Method javax/swing/ImageIcon."<init>":(Ljava/lang/String;)V
+      15: invokespecial #189                // Method javax/swing/JLabel."<init>":(Ljavax/swing/Icon;)V
+      18: putfield      #549                // Field s11:Ljavax/swing/JLabel;
+      21: aload_0
+      22: new           #181                // class javax/swing/JLabel
+      25: dup
+      26: new           #183                // class javax/swing/ImageIcon
+      29: dup
+      30: ldc_w         #554                // String images/Stein Seite1 Nr 2.gif
+      33: invokespecial #187                // Method javax/swing/ImageIcon."<init>":(Ljava/lang/String;)V
+      36: invokespecial #189                // Method javax/swing/JLabel."<init>":(Ljavax/swing/Icon;)V
+      39: putfield      #556                // Field s12:Ljavax/swing/JLabel;
+      42: aload_0
+      43: new           #181                // class javax/swing/JLabel
+      46: dup
+      47: new           #183                // class javax/swing/ImageIcon
+      50: dup
+      51: ldc_w         #558                // String images/Stein Seite1 Nr 3.gif
+      54: invokespecial #187                // Method javax/swing/ImageIcon."<init>":(Ljava/lang/String;)V
+      57: invokespecial #189                // Method javax/swing/JLabel."<init>":(Ljavax/swing/Icon;)V
+      60: putfield      #560                // Field s13:Ljavax/swing/JLabel;
+      63: aload_0
+      64: new           #181                // class javax/swing/JLabel
+      67: dup
+      68: new           #183                // class javax/swing/ImageIcon
+      71: dup
+      72: ldc_w         #562                // String images/Stein Seite1 Nr 4.gif
+      75: invokespecial #187                // Method javax/swing/ImageIcon."<init>":(Ljava/lang/String;)V
+      78: invokespecial #189                // Method javax/swing/JLabel."<init>":(Ljavax/swing/Icon;)V
+      81: putfield      #564                // Field s14:Ljavax/swing/JLabel;
+      84: aload_0
+      85: new           #181                // class javax/swing/JLabel
+      88: dup
+      89: new           #183                // class javax/swing/ImageIcon
+      92: dup
+      93: ldc_w         #570                // String images/Stein Seite1 Nr 5.gif
+      96: invokespecial #187                // Method javax/swing/ImageIcon."<init>":(Ljava/lang/String;)V
+      99: invokespecial #189                // Method javax/swing/JLabel."<init>":(Ljavax/swing/Icon;)V
+     102: putfield      #572                // Field s15:Ljavax/swing/JLabel;
+     105: aload_0
+     106: new           #181                // class javax/swing/JLabel
+     109: dup
+     110: new           #183                // class javax/swing/ImageIcon
+     113: dup
+     114: ldc_w         #574                // String images/Stein Seite1 Nr 6.gif
+     117: invokespecial #187                // Method javax/swing/ImageIcon."<init>":(Ljava/lang/String;)V
+     120: invokespecial #189                // Method javax/swing/JLabel."<init>":(Ljavax/swing/Icon;)V
+     123: putfield      #576                // Field s16:Ljavax/swing/JLabel;
+     126: aload_0
+     127: new           #181                // class javax/swing/JLabel
+     130: dup
+     131: new           #183                // class javax/swing/ImageIcon
+     134: dup
+     135: ldc_w         #580                // String images/Stein Seite2 Nr 1.gif
+     138: invokespecial #187                // Method javax/swing/ImageIcon."<init>":(Ljava/lang/String;)V
+     141: invokespecial #189                // Method javax/swing/JLabel."<init>":(Ljavax/swing/Icon;)V
+     144: putfield      #582                // Field s01:Ljavax/swing/JLabel;
+     147: aload_0
+     148: new           #181                // class javax/swing/JLabel
+     151: dup
+     152: new           #183                // class javax/swing/ImageIcon
+     155: dup
+     156: ldc_w         #584                // String images/Stein Seite2 Nr 2.gif
+     159: invokespecial #187                // Method javax/swing/ImageIcon."<init>":(Ljava/lang/String;)V
+     162: invokespecial #189                // Method javax/swing/JLabel."<init>":(Ljavax/swing/Icon;)V
+     165: putfield      #586                // Field s02:Ljavax/swing/JLabel;
+     168: aload_0
+     169: new           #181                // class javax/swing/JLabel
+     172: dup
+     173: new           #183                // class javax/swing/ImageIcon
+     176: dup
+     177: ldc_w         #588                // String images/Stein Seite2 Nr 3.gif
+     180: invokespecial #187                // Method javax/swing/ImageIcon."<init>":(Ljava/lang/String;)V
+     183: invokespecial #189                // Method javax/swing/JLabel."<init>":(Ljavax/swing/Icon;)V
+     186: putfield      #590                // Field s03:Ljavax/swing/JLabel;
+     189: aload_0
+     190: new           #181                // class javax/swing/JLabel
+     193: dup
+     194: new           #183                // class javax/swing/ImageIcon
+     197: dup
+     198: ldc_w         #592                // String images/Stein Seite2 Nr 4.gif
+     201: invokespecial #187                // Method javax/swing/ImageIcon."<init>":(Ljava/lang/String;)V
+     204: invokespecial #189                // Method javax/swing/JLabel."<init>":(Ljavax/swing/Icon;)V
+     207: putfield      #594                // Field s04:Ljavax/swing/JLabel;
+     210: aload_0
+     211: new           #181                // class javax/swing/JLabel
+     214: dup
+     215: new           #183                // class javax/swing/ImageIcon
+     218: dup
+     219: ldc_w         #596                // String images/Stein Seite2 Nr 5.gif
+     222: invokespecial #187                // Method javax/swing/ImageIcon."<init>":(Ljava/lang/String;)V
+     225: invokespecial #189                // Method javax/swing/JLabel."<init>":(Ljavax/swing/Icon;)V
+     228: putfield      #598                // Field s05:Ljavax/swing/JLabel;
+     231: aload_0
+     232: new           #181                // class javax/swing/JLabel
+     235: dup
+     236: new           #183                // class javax/swing/ImageIcon
+     239: dup
+     240: ldc_w         #600                // String images/Stein Seite2 Nr 6.gif
+     243: invokespecial #187                // Method javax/swing/ImageIcon."<init>":(Ljava/lang/String;)V
+     246: invokespecial #189                // Method javax/swing/JLabel."<init>":(Ljavax/swing/Icon;)V
+     249: putfield      #602                // Field s06:Ljavax/swing/JLabel;
+     252: return
+
+  public void temploeschenSteine();
+    Code:
+       0: aload_0
+       1: getfield      #138                // Field ebeneM:Ljavax/swing/JLayeredPane;
+       4: aload_0
+       5: getfield      #549                // Field s11:Ljavax/swing/JLabel;
+       8: invokevirtual #618                // Method javax/swing/JLayeredPane.remove:(Ljava/awt/Component;)V
+      11: aload_0
+      12: getfield      #138                // Field ebeneM:Ljavax/swing/JLayeredPane;
+      15: aload_0
+      16: getfield      #556                // Field s12:Ljavax/swing/JLabel;
+      19: invokevirtual #618                // Method javax/swing/JLayeredPane.remove:(Ljava/awt/Component;)V
+      22: aload_0
+      23: getfield      #138                // Field ebeneM:Ljavax/swing/JLayeredPane;
+      26: aload_0
+      27: getfield      #560                // Field s13:Ljavax/swing/JLabel;
+      30: invokevirtual #618                // Method javax/swing/JLayeredPane.remove:(Ljava/awt/Component;)V
+      33: aload_0
+      34: getfield      #138                // Field ebeneM:Ljavax/swing/JLayeredPane;
+      37: aload_0
+      38: getfield      #564                // Field s14:Ljavax/swing/JLabel;
+      41: invokevirtual #618                // Method javax/swing/JLayeredPane.remove:(Ljava/awt/Component;)V
+      44: aload_0
+      45: getfield      #138                // Field ebeneM:Ljavax/swing/JLayeredPane;
+      48: aload_0
+      49: getfield      #572                // Field s15:Ljavax/swing/JLabel;
+      52: invokevirtual #618                // Method javax/swing/JLayeredPane.remove:(Ljava/awt/Component;)V
+      55: aload_0
+      56: getfield      #138                // Field ebeneM:Ljavax/swing/JLayeredPane;
+      59: aload_0
+      60: getfield      #576                // Field s16:Ljavax/swing/JLabel;
+      63: invokevirtual #618                // Method javax/swing/JLayeredPane.remove:(Ljava/awt/Component;)V
+      66: aload_0
+      67: getfield      #138                // Field ebeneM:Ljavax/swing/JLayeredPane;
+      70: aload_0
+      71: getfield      #582                // Field s01:Ljavax/swing/JLabel;
+      74: invokevirtual #618                // Method javax/swing/JLayeredPane.remove:(Ljava/awt/Component;)V
+      77: aload_0
+      78: getfield      #138                // Field ebeneM:Ljavax/swing/JLayeredPane;
+      81: aload_0
+      82: getfield      #586                // Field s02:Ljavax/swing/JLabel;
+      85: invokevirtual #618                // Method javax/swing/JLayeredPane.remove:(Ljava/awt/Component;)V
+      88: aload_0
+      89: getfield      #138                // Field ebeneM:Ljavax/swing/JLayeredPane;
+      92: aload_0
+      93: getfield      #590                // Field s03:Ljavax/swing/JLabel;
+      96: invokevirtual #618                // Method javax/swing/JLayeredPane.remove:(Ljava/awt/Component;)V
+      99: aload_0
+     100: getfield      #138                // Field ebeneM:Ljavax/swing/JLayeredPane;
+     103: aload_0
+     104: getfield      #594                // Field s04:Ljavax/swing/JLabel;
+     107: invokevirtual #618                // Method javax/swing/JLayeredPane.remove:(Ljava/awt/Component;)V
+     110: aload_0
+     111: getfield      #138                // Field ebeneM:Ljavax/swing/JLayeredPane;
+     114: aload_0
+     115: getfield      #598                // Field s05:Ljavax/swing/JLabel;
+     118: invokevirtual #618                // Method javax/swing/JLayeredPane.remove:(Ljava/awt/Component;)V
+     121: aload_0
+     122: getfield      #138                // Field ebeneM:Ljavax/swing/JLayeredPane;
+     125: aload_0
+     126: getfield      #602                // Field s06:Ljavax/swing/JLabel;
+     129: invokevirtual #618                // Method javax/swing/JLayeredPane.remove:(Ljava/awt/Component;)V
+     132: return
+
+  public java.lang.String eingabeIP();
+    Code:
+       0: ldc_w         #620                // String Bitte geben Sie eine IP Nummer ein:
+       3: invokestatic  #91                 // Method javax/swing/JOptionPane.showInputDialog:(Ljava/lang/Object;)Ljava/lang/String;
+       6: astore_1
+       7: aload_1
+       8: areturn
+
+  public int naechsterZug(int[], int, int[]);
+    Code:
+       0: aload_0
+       1: iconst_1
+       2: putfield      #83                 // Field spielSperreAuswahlStein:Z
+       5: aload_0
+       6: iconst_1
+       7: putfield      #85                 // Field spielSperreAuswahlZug:Z
+      10: iconst_0
+      11: istore        4
+      13: iconst_2
+      14: newarray       int
+      16: astore        5
+      18: iconst_2
+      19: newarray       int
+      21: astore        6
+      23: iconst_0
+      24: istore        7
+      26: iconst_0
+      27: istore        8
+      29: iconst_0
+      30: istore        9
+      32: aload_0
+      33: new           #278                // class java/lang/StringBuilder
+      36: dup
+      37: ldc_w         #625                // String Gewürfelt wurde eine:
+      40: invokespecial #282                // Method java/lang/StringBuilder."<init>":(Ljava/lang/String;)V
+      43: iload_2
+      44: invokevirtual #627                // Method java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;
+      47: invokevirtual #287                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      50: invokevirtual #515                // Method ausgabeNachricht:(Ljava/lang/String;)V
+      53: aload_0
+      54: iload_2
+      55: invokevirtual #630                // Method wuerfel:(I)V
+      58: aload_1
+      59: iconst_0
+      60: iaload
+      61: iconst_1
+      62: if_icmpne     108
+      65: aload_0
+      66: new           #278                // class java/lang/StringBuilder
+      69: dup
+      70: ldc_w         #632                // String Spieler
+      73: invokespecial #282                // Method java/lang/StringBuilder."<init>":(Ljava/lang/String;)V
+      76: aload_0
+      77: getfield      #97                 // Field spielerName:Ljava/lang/String;
+      80: invokevirtual #283                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      83: ldc_w         #634                // String  ist dran!
+      86: invokevirtual #283                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      89: invokevirtual #287                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      92: invokevirtual #515                // Method ausgabeNachricht:(Ljava/lang/String;)V
+      95: aload_0
+      96: iconst_1
+      97: invokevirtual #404                // Method aendereSpieler1:(I)V
+     100: aload_0
+     101: iconst_0
+     102: invokevirtual #402                // Method aendereSpieler2:(I)V
+     105: goto          154
+     108: aload_1
+     109: iconst_0
+     110: iaload
+     111: ifne          154
+     114: aload_0
+     115: new           #278                // class java/lang/StringBuilder
+     118: dup
+     119: ldc_w         #632                // String Spieler
+     122: invokespecial #282                // Method java/lang/StringBuilder."<init>":(Ljava/lang/String;)V
+     125: aload_0
+     126: getfield      #70                 // Field spielerName2:Ljava/lang/String;
+     129: invokevirtual #283                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     132: ldc_w         #634                // String  ist dran!
+     135: invokevirtual #283                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     138: invokevirtual #287                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     141: invokevirtual #515                // Method ausgabeNachricht:(Ljava/lang/String;)V
+     144: aload_0
+     145: iconst_0
+     146: invokevirtual #404                // Method aendereSpieler1:(I)V
+     149: aload_0
+     150: iconst_1
+     151: invokevirtual #402                // Method aendereSpieler2:(I)V
+     154: iconst_0
+     155: istore        10
+     157: iconst_0
+     158: istore        11
+     160: aload_0
+     161: invokevirtual #636                // Method gibtAuswahlZug:()[I
+     164: astore        6
+     166: aload_0
+     167: invokevirtual #640                // Method gibAuswahlStein:()[I
+     170: astore        5
+     172: aload         6
+     174: iconst_0
+     175: iaload
+     176: ifeq          160
+     179: aload_0
+     180: new           #278                // class java/lang/StringBuilder
+     183: dup
+     184: ldc_w         #643                // String gewählter Stein:
+     187: invokespecial #282                // Method java/lang/StringBuilder."<init>":(Ljava/lang/String;)V
+     190: aload         5
+     192: iconst_0
+     193: iaload
+     194: invokevirtual #627                // Method java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;
+     197: aload         5
+     199: iconst_1
+     200: iaload
+     201: invokevirtual #627                // Method java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;
+     204: invokevirtual #287                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     207: invokevirtual #515                // Method ausgabeNachricht:(Ljava/lang/String;)V
+     210: aload_0
+     211: new           #278                // class java/lang/StringBuilder
+     214: dup
+     215: ldc_w         #645                // String gewählter Zug  :
+     218: invokespecial #282                // Method java/lang/StringBuilder."<init>":(Ljava/lang/String;)V
+     221: aload         6
+     223: iconst_0
+     224: iaload
+     225: invokevirtual #627                // Method java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;
+     228: aload         6
+     230: iconst_1
+     231: iaload
+     232: invokevirtual #627                // Method java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;
+     235: invokevirtual #287                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     238: invokevirtual #515                // Method ausgabeNachricht:(Ljava/lang/String;)V
+     241: iconst_0
+     242: istore        12
+     244: goto          284
+     247: aload_3
+     248: iload         12
+     250: iconst_2
+     251: iadd
+     252: iaload
+     253: aload         5
+     255: iconst_0
+     256: iaload
+     257: if_icmpne     281
+     260: aload_3
+     261: iload         12
+     263: iconst_3
+     264: iadd
+     265: iaload
+     266: aload         5
+     268: iconst_1
+     269: iaload
+     270: if_icmpne     281
+     273: aload_3
+     274: iload         12
+     276: iconst_1
+     277: iadd
+     278: iaload
+     279: istore        7
+     281: iinc          12, 4
+     284: iload         12
+     286: bipush        48
+     288: if_icmplt     247
+     291: iconst_0
+     292: istore        12
+     294: goto          323
+     297: aload_1
+     298: iload         12
+     300: iconst_2
+     301: iadd
+     302: iaload
+     303: ifeq          320
+     306: iload         7
+     308: aload_1
+     309: iload         12
+     311: iconst_1
+     312: iadd
+     313: iaload
+     314: if_icmpne     320
+     317: iconst_1
+     318: istore        10
+     320: iinc          12, 4
+     323: iload         12
+     325: bipush        24
+     327: if_icmplt     297
+     330: iconst_0
+     331: istore        12
+     333: goto          377
+     336: aload_1
+     337: iload         12
+     339: iconst_2
+     340: iadd
+     341: iaload
+     342: ifeq          374
+     345: aload         6
+     347: iconst_0
+     348: iaload
+     349: aload_1
+     350: iload         12
+     352: iconst_2
+     353: iadd
+     354: iaload
+     355: if_icmpne     374
+     358: aload         6
+     360: iconst_1
+     361: iaload
+     362: aload_1
+     363: iload         12
+     365: iconst_3
+     366: iadd
+     367: iaload
+     368: if_icmpne     374
+     371: iconst_1
+     372: istore        11
+     374: iinc          12, 4
+     377: iload         12
+     379: bipush        24
+     381: if_icmplt     336
+     384: iconst_0
+     385: istore        12
+     387: goto          434
+     390: iload         7
+     392: aload_1
+     393: iload         12
+     395: iconst_1
+     396: iadd
+     397: iaload
+     398: if_icmpne     431
+     401: aload         6
+     403: iconst_0
+     404: iaload
+     405: aload_1
+     406: iload         12
+     408: iconst_2
+     409: iadd
+     410: iaload
+     411: if_icmpne     431
+     414: aload         6
+     416: iconst_1
+     417: iaload
+     418: aload_1
+     419: iload         12
+     421: iconst_3
+     422: iadd
+     423: iaload
+     424: if_icmpne     431
+     427: iload         12
+     429: istore        9
+     431: iinc          12, 4
+     434: iload         12
+     436: bipush        24
+     438: if_icmplt     390
+     441: iload         10
+     443: ifeq          512
+     446: iload         11
+     448: ifeq          512
+     451: aload_0
+     452: ldc_w         #647                // String Richtige Auswahl
+     455: invokevirtual #515                // Method ausgabeNachricht:(Ljava/lang/String;)V
+     458: iconst_1
+     459: istore        4
+     461: aload         6
+     463: iconst_0
+     464: iconst_0
+     465: iastore
+     466: aload         6
+     468: iconst_1
+     469: iconst_0
+     470: iastore
+     471: aload         5
+     473: iconst_0
+     474: iconst_0
+     475: iastore
+     476: aload         5
+     478: iconst_1
+     479: iconst_0
+     480: iastore
+     481: aload_0
+     482: getfield      #77                 // Field steinKoordinate:[I
+     485: iconst_0
+     486: iconst_0
+     487: iastore
+     488: aload_0
+     489: getfield      #77                 // Field steinKoordinate:[I
+     492: iconst_1
+     493: iconst_0
+     494: iastore
+     495: aload_0
+     496: getfield      #79                 // Field zugKoordinate:[I
+     499: iconst_0
+     500: iconst_0
+     501: iastore
+     502: aload_0
+     503: getfield      #79                 // Field zugKoordinate:[I
+     506: iconst_1
+     507: iconst_0
+     508: iastore
+     509: goto          577
+     512: aload_0
+     513: ldc_w         #649                // String Falsche Auswahl
+     516: invokevirtual #515                // Method ausgabeNachricht:(Ljava/lang/String;)V
+     519: aload         6
+     521: iconst_0
+     522: iconst_0
+     523: iastore
+     524: aload         6
+     526: iconst_1
+     527: iconst_0
+     528: iastore
+     529: aload         5
+     531: iconst_0
+     532: iconst_0
+     533: iastore
+     534: aload         5
+     536: iconst_1
+     537: iconst_0
+     538: iastore
+     539: aload_0
+     540: getfield      #77                 // Field steinKoordinate:[I
+     543: iconst_0
+     544: iconst_0
+     545: iastore
+     546: aload_0
+     547: getfield      #77                 // Field steinKoordinate:[I
+     550: iconst_1
+     551: iconst_0
+     552: iastore
+     553: aload_0
+     554: getfield      #79                 // Field zugKoordinate:[I
+     557: iconst_0
+     558: iconst_0
+     559: iastore
+     560: aload_0
+     561: getfield      #79                 // Field zugKoordinate:[I
+     564: iconst_1
+     565: iconst_0
+     566: iastore
+     567: aload_0
+     568: iconst_1
+     569: putfield      #83                 // Field spielSperreAuswahlStein:Z
+     572: aload_0
+     573: iconst_1
+     574: putfield      #85                 // Field spielSperreAuswahlZug:Z
+     577: iload         4
+     579: ifeq          154
+     582: iload         9
+     584: lookupswitch  { // 6
+                     0: 644
+                     4: 650
+                     8: 656
+                    12: 662
+                    16: 668
+                    20: 674
+               default: 681
+          }
+     644: iconst_1
+     645: istore        8
+     647: goto          688
+     650: iconst_2
+     651: istore        8
+     653: goto          688
+     656: iconst_3
+     657: istore        8
+     659: goto          688
+     662: iconst_4
+     663: istore        8
+     665: goto          688
+     668: iconst_5
+     669: istore        8
+     671: goto          688
+     674: bipush        6
+     676: istore        8
+     678: goto          688
+     681: aload_0
+     682: ldc_w         #651                // String FEHLER, Ausgewählter Zug gibt es nicht
+     685: invokevirtual #515                // Method ausgabeNachricht:(Ljava/lang/String;)V
+     688: iload         8
+     690: ireturn
+
+  public void mouseClicked(java.awt.event.MouseEvent);
+    Code:
+       0: iconst_2
+       1: newarray       int
+       3: astore        4
+       5: aload_1
+       6: invokevirtual #665                // Method java/awt/event/MouseEvent.getX:()I
+       9: istore_3
+      10: aload_1
+      11: invokevirtual #670                // Method java/awt/event/MouseEvent.getY:()I
+      14: istore_2
+      15: aload         4
+      17: iconst_0
+      18: iload_2
+      19: iastore
+      20: aload         4
+      22: iconst_1
+      23: iload_3
+      24: iastore
+      25: aload_0
+      26: aload         4
+      28: invokevirtual #673                // Method mausKlickKonvertierung:([I)[I
+      31: astore        5
+      33: aload_0
+      34: getfield      #83                 // Field spielSperreAuswahlStein:Z
+      37: ifeq          85
+      40: aload_0
+      41: aload         5
+      43: putfield      #77                 // Field steinKoordinate:[I
+      46: aload_0
+      47: iconst_0
+      48: putfield      #83                 // Field spielSperreAuswahlStein:Z
+      51: aload_0
+      52: new           #278                // class java/lang/StringBuilder
+      55: dup
+      56: ldc_w         #677                // String 1.Geklicktes Feld:
+      59: invokespecial #282                // Method java/lang/StringBuilder."<init>":(Ljava/lang/String;)V
+      62: aload         5
+      64: iconst_0
+      65: iaload
+      66: invokevirtual #627                // Method java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;
+      69: aload         5
+      71: iconst_1
+      72: iaload
+      73: invokevirtual #627                // Method java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;
+      76: invokevirtual #287                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      79: invokevirtual #515                // Method ausgabeNachricht:(Ljava/lang/String;)V
+      82: goto          134
+      85: aload_0
+      86: getfield      #85                 // Field spielSperreAuswahlZug:Z
+      89: ifeq          134
+      92: aload_0
+      93: aload         5
+      95: putfield      #79                 // Field zugKoordinate:[I
+      98: aload_0
+      99: iconst_0
+     100: putfield      #85                 // Field spielSperreAuswahlZug:Z
+     103: aload_0
+     104: new           #278                // class java/lang/StringBuilder
+     107: dup
+     108: ldc_w         #679                // String 2.Geklicktes Feld:
+     111: invokespecial #282                // Method java/lang/StringBuilder."<init>":(Ljava/lang/String;)V
+     114: aload         5
+     116: iconst_0
+     117: iaload
+     118: invokevirtual #627                // Method java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;
+     121: aload         5
+     123: iconst_1
+     124: iaload
+     125: invokevirtual #627                // Method java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;
+     128: invokevirtual #287                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     131: invokevirtual #515                // Method ausgabeNachricht:(Ljava/lang/String;)V
+     134: return
+
+  public int[] mausKlickKonvertierung(int[]);
+    Code:
+       0: iconst_2
+       1: newarray       int
+       3: astore_2
+       4: bipush        94
+       6: istore        5
+       8: aload_1
+       9: iconst_0
+      10: iaload
+      11: iload         5
+      13: idiv
+      14: i2f
+      15: invokestatic  #687                // Method java/lang/Math.round:(F)I
+      18: istore_3
+      19: aload_1
+      20: iconst_1
+      21: iaload
+      22: bipush        60
+      24: isub
+      25: iload         5
+      27: idiv
+      28: i2f
+      29: invokestatic  #687                // Method java/lang/Math.round:(F)I
+      32: istore        4
+      34: aload_2
+      35: iconst_0
+      36: iload_3
+      37: iconst_1
+      38: iadd
+      39: iastore
+      40: aload_2
+      41: iconst_1
+      42: iload         4
+      44: iconst_1
+      45: iadd
+      46: iastore
+      47: aload_2
+      48: areturn
+
+  public int[] gibAuswahlStein();
+    Code:
+       0: aload_0
+       1: getfield      #77                 // Field steinKoordinate:[I
+       4: areturn
+
+  public int[] gibtAuswahlZug();
+    Code:
+       0: aload_0
+       1: getfield      #79                 // Field zugKoordinate:[I
+       4: areturn
+
+  public void mousePressed(java.awt.event.MouseEvent);
+    Code:
+       0: return
+
+  public void mouseReleased(java.awt.event.MouseEvent);
+    Code:
+       0: return
+
+  public void mouseEntered(java.awt.event.MouseEvent);
+    Code:
+       0: return
+
+  public void mouseExited(java.awt.event.MouseEvent);
+    Code:
+       0: return
+}

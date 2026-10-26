@@ -6,10 +6,10 @@ package spiel;
  * Erstellt am:  16.11.2005 
  * Erstellt von: Maria Pidiktaki, Arne Meier
  * 
- * Änderungen: 
+ * Ã„nderungen: 
  * 26.11.2005 Patrick Schwarzer, Arne Meier:  Methode bewegeStein() wurde um die 
  * 											  Ausgabebewegung erweitert.
- * 12.12.2005, Patrick Schwarzer, Arne Meier: Hinzufügung von JavaDocs
+ * 12.12.2005, Patrick Schwarzer, Arne Meier: HinzufÃ¼gung von JavaDocs
  * 17.12.2005, Patrick Schwarzer, Sebastian Horchler: Methoden geloescht bewegeStein()
  * 
  * 
@@ -31,7 +31,7 @@ public class Stein {
  	} 	
 /*-----------------------------------------------------------------------------------------------------------------*/
  	/**
- 	 * Methode gibt Zugehoerigkeit des entsprechenden Steins zurück  
+ 	 * Methode gibt Zugehoerigkeit des entsprechenden Steins zurÃ¼ck  
  	 * @return Boolean-Wert, der die Zugehoerigkeit des entsprechenden Steins darstellt
  	 */
  	public int gibZugehoerigkeit(){

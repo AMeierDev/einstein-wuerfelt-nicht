@@ -5,9 +5,9 @@ package Interfaces;
  * Erstellt am:  24.11.2005 
  * Erstellt von: Arne Meier, Patrick Schwarzer
  * 
- * Änderungen:
- * 26.11.2005, Maria Pidiktaki: Methode bewegeStein wurde hinzugefügt
- * 12.12.2005, Patrick Schwarzer, Arne Meier: Hinzufügung von JavaDocs 
+ * Ã„nderungen:
+ * 26.11.2005, Maria Pidiktaki: Methode bewegeStein wurde hinzugefÃ¼gt
+ * 12.12.2005, Patrick Schwarzer, Arne Meier: HinzufÃ¼gung von JavaDocs 
  * 18.01.2006, Arne Meier,Maria Pidiktaki: eindeutschung eng. Bezeichner
  */
 

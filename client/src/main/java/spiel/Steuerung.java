@@ -11,14 +11,14 @@ import client.*;
  * Erstellt am:  10.12.2005 
  * Erstellt von: Sebastian Horchler, Maria Pidiktaki
  * 
- * Änderungen: 
+ * Ã„nderungen: 
  * 10.12.2005, Sebastian Horchler, Maria Pidiktaki: Vorherige Funktionen der Spiel Main in extra 
  * 												    Klasse verlagert			    
- * 12.12.2005, Patrick Schwarzer, Arne Meier: Hinzufügung von JavaDocs    
+ * 12.12.2005, Patrick Schwarzer, Arne Meier: HinzufÃ¼gung von JavaDocs    
  * 17.12.2005, Patrick Schwarzer, Sebastian Horchler: Refactoring, da neuer Ablauf der SteinInitialisierung durch Felder
  * 													  neue Methoden: ausgabeForm(),     
  * 04.01.2006, Arne Meier, Patrick Schwarzer: logdatei eingebaut.
- * 07.01.2006, Arne Meier, Patrick Schwarzer: "setzte Zug" hinzugefügt, für KI. messageReceived modularisiert. 
+ * 07.01.2006, Arne Meier, Patrick Schwarzer: "setzte Zug" hinzugefÃ¼gt, fÃ¼r KI. messageReceived modularisiert. 
  * 10.01.2006, Arne Meier, Patrick Schwarzer: logdatei um Spielfeld-Intarray erweitert. 
  * 11.01.2006, Patrick Schwarzer, Arne Meier: Kommentare aktualisiert  
  * 18.01.2006, Arne Meier,Maria Pidiktaki: eindeutschung eng. Bezeichner  
@@ -90,7 +90,7 @@ public class Steuerung implements AntwortEmpfaenger{
 
 /*-----------------------------------------------------------------------------------------------------------------*/	
 	/**
-	 * Ausgabeform wählen:
+	 * Ausgabeform wÃ¤hlen:
 	 * Auswahl zwischen Konsole(1) und GUI(2)
 	 * default liefert eine Fehlermeldung
 	 */
@@ -113,9 +113,9 @@ public class Steuerung implements AntwortEmpfaenger{
 	 */
 	public void spielmenue(){
 		spielArt = bildschirm.spielerEingabeMenue();	/*ruft die Menues in der Konsole auf, in welchem Name,
-														 *Spieltyp etc. ausgewählt werden muessen */
+														 *Spieltyp etc. ausgewÃ¤hlt werden muessen */
 
-		/* Prüfung der ausgewählten Werte und Ereignisausloesung */
+		/* PrÃ¼fung der ausgewÃ¤hlten Werte und Ereignisausloesung */
 		switch (spielArt){
 		case 1: /*Spieler vs Spieler an einem PC*/
 			    spieler1 = new Spieler(zugehoerigkeit+1, bildschirm.gibspielerName(), bildschirm);
@@ -255,7 +255,7 @@ public class Steuerung implements AntwortEmpfaenger{
 				}
 				spieler2 = new Spieler(1, spieler2Name, bildschirm);//Gegener wurde herausgefordert und ist somit "oben links" -> 1
 				
-				//Arrays fürs Spiel vorbereiten
+				//Arrays fÃ¼rs Spiel vorbereiten
 				/* Spieler1 StartSteinPosition abholen*/
 				initSteinPosSpieler1 = spieler1.initSteinPos(spieler1.gibZugehoerigkeit());
 			
@@ -272,7 +272,7 @@ public class Steuerung implements AntwortEmpfaenger{
 				}
 				spieler2 = new Spieler(0, spieler2Name,bildschirm);//Gegener hat uns herausgefordert und ist somit "unten rechts" -> 0
 				
-				//Arrays fürs Spiel vorbereiten
+				//Arrays fÃ¼rs Spiel vorbereiten
 				/* Spieler 1 StartSteinPosition abholen*/
 				initSteinPosSpieler1 = spieler1.initSteinPos(spieler1.gibZugehoerigkeit());
 								
@@ -337,7 +337,7 @@ public class Steuerung implements AntwortEmpfaenger{
 				}
 				
 				if(nachricht.startsWith("Server E206")){//Server E206> Sie werden bereits angefragt
-					bildschirm.ausgabeNachricht("Ihnen wurde eine Frage gestellt da wir sie für hoeflich halten \n erwarten wir darauf bitte eine Antwort.");
+					bildschirm.ausgabeNachricht("Ihnen wurde eine Frage gestellt da wir sie fÃ¼r hoeflich halten \n erwarten wir darauf bitte eine Antwort.");
 				}
 				
 				if(nachricht.startsWith("Server E207")){//Server E207> Sie haben bereits angefragt
@@ -384,7 +384,7 @@ public class Steuerung implements AntwortEmpfaenger{
 			
 			if(nachricht.endsWith("weitergegeben")){//Server M> Ablehnung an "partnerName" weitergegeben
 				bildschirm.ausgabeNachricht(nachricht);
-				//spieler2Name = null;               // Spieler2Name wird wieder auf Null gesetzt weil der Name aus zeitgründen schon vorher erfasst wurde.
+				//spieler2Name = null;               // Spieler2Name wird wieder auf Null gesetzt weil der Name aus zeitgrÃ¼nden schon vorher erfasst wurde.
 			}
 			
 			if(nachricht.endsWith("Spielende")){//Server M> Spielende
@@ -414,11 +414,11 @@ public class Steuerung implements AntwortEmpfaenger{
 			bildschirm.ausgabeNachricht(nachricht);
 			}
 			
-			if(nachricht.startsWith("Server Z> W")){//Server Z> Würfel: #würfelzahl
+			if(nachricht.startsWith("Server Z> W")){//Server Z> WÃ¼rfel: #wÃ¼rfelzahl
 				if(wuerfelZahlZaehler == -1){
 					//hier passiert nichts weil das Spiel zu Ende ist
 				}
-			    else if(wuerfelZahlZaehler == 1){       // wenn das die 1. würfelzahl ist werden dem 
+			    else if(wuerfelZahlZaehler == 1){       // wenn das die 1. wÃ¼rfelzahl ist werden dem 
 					wuerfelZahlZaehler -= 1;      //Gegener die startpositionen geschickt
 			        
 					/* Spieler 1 StartSteinPosition abholen*/
@@ -427,7 +427,7 @@ public class Steuerung implements AntwortEmpfaenger{
 				}
 				else{        //wenn nicht wird die Zahl heraus geschnitten und weitergeleitet
 					String stringWuerfel;
-					int anfang = 18; //der WürfelZahl beginnt bei position 19 des Strings
+					int anfang = 18; //der WÃ¼rfelZahl beginnt bei position 19 des Strings
 					int ende = 19; // Ende des Strings
 				   
 					stringWuerfel = nachricht.substring(anfang,ende);
@@ -443,7 +443,7 @@ public class Steuerung implements AntwortEmpfaenger{
 					
 					spielen(spieler1.gibZugehoerigkeit());
 					netzSch.zumServerSchicken(""+zug[1]+zug[2]+zug[3]);
-					siegbedingungPrüfenNetzwerk();
+					siegbedingungPrÃ¼fenNetzwerk();
 					
 					
 					
@@ -461,8 +461,8 @@ public class Steuerung implements AntwortEmpfaenger{
 				spielEndeNetzwerk(nachricht);
 			}
             
-			else{                            ////"partnerName" (Würfel: #würfelzahlGegner)Z> Botschaft
-				int anfang, //soll die länge des Gegnernamens werden
+			else{                            ////"partnerName" (WÃ¼rfel: #wÃ¼rfelzahlGegner)Z> Botschaft
+				int anfang, //soll die lÃ¤nge des Gegnernamens werden
 				    mitte = 16, //KONSTANT Mitte ist die Anzahl der Zeichen zwischen Gegner und Botschaft
 				    mitteBisWuerfel = 11, //KONSTANT MitteBisWuerfel ist die Anzahl der Zeichen vom Gegner bis zur Position des Wuerfels
 				    anfangBotschaft,
@@ -491,7 +491,7 @@ public class Steuerung implements AntwortEmpfaenger{
 					bildschirm.ausgabeNachricht("Er zieht nach: " + botschaft);
 					int []gegnerZug=logik.gibIntFeld(botschaft, spieler2.gibZugehoerigkeit());
 					
-					/*wenn der Zug gültig ist, dann wird der Zug ausgeführt*/
+					/*wenn der Zug gÃ¼ltig ist, dann wird der Zug ausgefÃ¼hrt*/
 					if(logik.pruefeGegnerZug(intWuerfel, gegnerZug,spieler2.gibZugehoerigkeit(), SpielerSteinPos )){
 					
 						SpielerSteinPos = logik.bewegeStein(SpielerSteinPos, gegnerZug);
@@ -501,7 +501,7 @@ public class Steuerung implements AntwortEmpfaenger{
 						gegnerSchummelReaktion();
 					}
 						
-					siegbedingungPrüfenNetzwerk();
+					siegbedingungPrÃ¼fenNetzwerk();
 				}
 				
 				if(botschaft.length() == 23){
@@ -551,7 +551,7 @@ public class Steuerung implements AntwortEmpfaenger{
 		netzSch.zumServerSchicken("quit");
 	}
 	
-	public void siegbedingungPrüfenNetzwerk(){
+	public void siegbedingungPrÃ¼fenNetzwerk(){
 		if (logik.siegBedingungen(SpielerSteinPos)==true){
 			if(logik.gibSieger()==spieler1.gibZugehoerigkeit()){
 				bildschirm.ausgabeNachricht(spieler1.gibName()+" hat das Spiel gewonnen.");
@@ -568,7 +568,7 @@ public class Steuerung implements AntwortEmpfaenger{
 			spieler2 = null;                  //auf null gesetzt damit man sie neu initialisieren kann
 			//spieler2Name = null;
 			
-			quit.startAbfrage();              /* der während des Spiels gestoppte Thread wird wieder reaktiviert
+			quit.startAbfrage();              /* der wÃ¤hrend des Spiels gestoppte Thread wird wieder reaktiviert
 		                                     damit der User wieder direkt mit dem Server kommunizieren kann*/
 			//System.out.println("Spielende erfolgreich.");
 		}
@@ -631,7 +631,7 @@ public class Steuerung implements AntwortEmpfaenger{
 				                   "\n Auf dem Server vor dem Spiel: " +
 				                   "\n logout(von Server disconnect, wieder ins Menue), quit(Spiel komplett verlassen), " +
 				                   "\n werBinlch(falls se vergessen haben wie sie heissen); spiel Gegner(damit fangen Sie an zu spielen) " +
-				                   "\n Während des Spiels: " +
+				                   "\n WÃ¤hrend des Spiels: " +
 				                   "\n NUR quit(komplettes Spiel verlassen)");
 
 		

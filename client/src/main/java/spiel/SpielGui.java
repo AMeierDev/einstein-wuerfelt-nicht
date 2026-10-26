@@ -23,26 +23,26 @@ import Interfaces.Bildschirmanzeige;
 
 /*
  *Erstellt am 27.12.2005 von Sebastian Horchler, Pidiktaki Maria
- *Änderungen immer von Pidiktaki Maria, Sebastian Horchler
- *Änderungen: 28.12.2005  2 Weitere JPanles eingefüg, Methode spieldrann (aendereSpieler2, aendereSpieler1), verbesserungen in Methoden SpielAufbau, spielerEingabeMenue, brettInit
- *			  29.12.2005  Panels für die Spielernamen in Methoden gepackt (initPanelSpieler1, initPanelSpieler2) um abwechlend sie je nach dem
+ *Ã„nderungen immer von Pidiktaki Maria, Sebastian Horchler
+ *Ã„nderungen: 28.12.2005  2 Weitere JPanles eingefÃ¼g, Methode spieldrann (aendereSpieler2, aendereSpieler1), verbesserungen in Methoden SpielAufbau, spielerEingabeMenue, brettInit
+ *			  29.12.2005  Panels fÃ¼r die Spielernamen in Methoden gepackt (initPanelSpieler1, initPanelSpieler2) um abwechlend sie je nach dem
  *						  wer drann ist den Spielernamen einblenden
- *						  Menubar entworfen, Methode erzeugeMenu hinzugefügt, ausarbeitung der Methode actionPerformed
- *						  Methode wuerfel, für die Anzeige des  Würfelergebnis 
- *			  30.12.3005  Hinzufügen der Methode nachrichtenAnzeige
+ *						  Menubar entworfen, Methode erzeugeMenu hinzugefÃ¼gt, ausarbeitung der Methode actionPerformed
+ *						  Methode wuerfel, fÃ¼r die Anzeige des  WÃ¼rfelergebnis 
+ *			  30.12.3005  HinzufÃ¼gen der Methode nachrichtenAnzeige
  *			  02.01.2006  ausarbeitung der Methoden:neuerSpielerName, gibspielerName, spieler2EingabeName. 
- *						  Hinzufügen der Methode erSpielerName, gibspielerName, spieler2EingabeName.	  			
- *			  05.01.2006  Hinzugefügen der Methoden: ausgabenachricht,eingabe,textValueChanged. 
+ *						  HinzufÃ¼gen der Methode erSpielerName, gibspielerName, spieler2EingabeName.	  			
+ *			  05.01.2006  HinzugefÃ¼gen der Methoden: ausgabenachricht,eingabe,textValueChanged. 
  *							Abbarbeitung der Methode nachrichtenAnzeige.
- *			  07.01.2006  Überarbeitung der Methoden brettintialisierung,ausgabeMessages,brettinit,wuerfel.
- *						  Hinzugefügen labels für die Steine und methode wuerfelinit
- *			  10.01.2006  Hinzugfügen der Methoden: steinInitialisierung, temploeschenSteine und bearbeitung der Methode brettinitialisierung
- *			  11.01.2006  Hinzugfügen der Methoden: eingabeIP, mouseClicked, konvertiere[...]ZuKoordinate(x2),
- *												    getAuswahlStein, getAuswahlZug und abarbeitung der Methode nächsterZug
- *			 			 Änderungen in der Klassen: BildschirmAnzeige, Spieler und Konsole für das hinzufügen des spielerSteinPosArray in der 
+ *			  07.01.2006  Ãœberarbeitung der Methoden brettintialisierung,ausgabeMessages,brettinit,wuerfel.
+ *						  HinzugefÃ¼gen labels fÃ¼r die Steine und methode wuerfelinit
+ *			  10.01.2006  HinzugfÃ¼gen der Methoden: steinInitialisierung, temploeschenSteine und bearbeitung der Methode brettinitialisierung
+ *			  11.01.2006  HinzugfÃ¼gen der Methoden: eingabeIP, mouseClicked, konvertiere[...]ZuKoordinate(x2),
+ *												    getAuswahlStein, getAuswahlZug und abarbeitung der Methode nÃ¤chsterZug
+ *			 			 Ã„nderungen in der Klassen: BildschirmAnzeige, Spieler und Konsole fÃ¼r das hinzufÃ¼gen des spielerSteinPosArray in der 
  *						 Methode naechsterZug.
  *			 12.01.2006 Verbesserungen in der Methode naechsterZug
- *			 14.01.2006 änderungen in der Methoden: eingabe und actionperformed(einfuegen des Buttons senden)
+ *			 14.01.2006 Ã¤nderungen in der Methoden: eingabe und actionperformed(einfuegen des Buttons senden)
  *                                                  eindeutschung der eng. Bezeichner
  */
 /**
@@ -63,21 +63,21 @@ public class SpielGui extends JFrame implements ActionListener,
 
 
 	private JLayeredPane ebeneM; /* Spielbrett Ebende in der Mitte */
-	private JPanel panelW; // West für Spieler mit Zugehöri
-	private JPanel panelE; // Ost für Spieler mit Zugehörigkeit 0
-	private JPanel panelWuerfel;// Nord Ost für Würfelergebniss
+	private JPanel panelW; // West fÃ¼r Spieler mit ZugehÃ¶ri
+	private JPanel panelE; // Ost fÃ¼r Spieler mit ZugehÃ¶rigkeit 0
+	private JPanel panelWuerfel;// Nord Ost fÃ¼r WÃ¼rfelergebniss
 	private JPanel panelAusgabe; // Zeigt jeder Art von Nachricht
 																// an(Ausgabe,
 	// Eingabe)
-	private JLabel wuerfel; // Label für das Bild für den ensprechenden
-	// Würfelergebnis
-	private Font schrift1; // Schriftart für den Label l1
-	private Font schrift2;// Schriftart für den Label l2
-	private JLabel l1; // Label für die Anzeige des SpielerNames mit der
-	// Zugehörigeit 1
-	private JLabel l2; // Label für die Anzeige des SpielerNames mit der
-	// Zugehörigeit 0
-	private volatile int spielArt; // Hier wird die Auswahl für den
+	private JLabel wuerfel; // Label fÃ¼r das Bild fÃ¼r den ensprechenden
+	// WÃ¼rfelergebnis
+	private Font schrift1; // Schriftart fÃ¼r den Label l1
+	private Font schrift2;// Schriftart fÃ¼r den Label l2
+	private JLabel l1; // Label fÃ¼r die Anzeige des SpielerNames mit der
+	// ZugehÃ¶rigeit 1
+	private JLabel l2; // Label fÃ¼r die Anzeige des SpielerNames mit der
+	// ZugehÃ¶rigeit 0
+	private volatile int spielArt; // Hier wird die Auswahl fÃ¼r den
 	/**
 	 * @uml.property  name="wnd"
 	 * @uml.associationEnd  
@@ -92,8 +92,8 @@ public class SpielGui extends JFrame implements ActionListener,
 	// falls man Netzwerkspiel
 	// spielen will
 	private String spielerZugeh2 = spielerName2;
-	private TextArea textAusgabe; // Textfeld für Ausgabenachrichten
-	private TextField eing; // TextFeld für die Eingabe
+	private TextArea textAusgabe; // Textfeld fÃ¼r Ausgabenachrichten
+	private TextField eing; // TextFeld fÃ¼r die Eingabe
 	private volatile String eingabe;// Speichert den eingegebenen Text
 	private Button senden;
 	private JLabel s11; // labels
@@ -108,7 +108,7 @@ public class SpielGui extends JFrame implements ActionListener,
 	private JLabel s04;
 	private JLabel s05;
 	private JLabel s06;
-	// für
+	// fÃ¼r
 	// die
 	// Steine
 	private int [] steinKoordinate = new int [2]; // Hier soll das Array
@@ -120,7 +120,7 @@ public class SpielGui extends JFrame implements ActionListener,
 	// gespeichert werden ,falls vom
 	// zweiten Mausklick
 
-	private boolean mouseListenerSperre = true; // Ist nützlich um zu
+	private boolean mouseListenerSperre = true; // Ist nÃ¼tzlich um zu
 																							// erkennen
 	// wenn einen 2. oder 3. Spiel
 	// ge spiel Wird so dass: 1.
@@ -137,7 +137,7 @@ public class SpielGui extends JFrame implements ActionListener,
 	private volatile boolean spielSperreModus = true; /*
 																						 * False: man darf nichts
 																						 * mehr an der Spielauswahl
-																						 * ändern
+																						 * Ã¤ndern
 																						 */
 
 	/*
@@ -152,8 +152,8 @@ public class SpielGui extends JFrame implements ActionListener,
 	}
 
 	/*
-	 * Initialisiert den Inhalt von dem Gesammtfenster, für die Anzeige der
-	 * Menüs, Spielernamen, Brettfeld, Würfel und Textfelder
+	 * Initialisiert den Inhalt von dem Gesammtfenster, fÃ¼r die Anzeige der
+	 * MenÃ¼s, Spielernamen, Brettfeld, WÃ¼rfel und Textfelder
 	 */
 	public void spielAufbau ()
 	{
@@ -178,8 +178,8 @@ public class SpielGui extends JFrame implements ActionListener,
 	}
 
 	/*
-	 * Wird von der Steuerung aufgerufen und übergibt die Auswahl des
-	 * Spielers für ein bestimmtes Spiel
+	 * Wird von der Steuerung aufgerufen und Ã¼bergibt die Auswahl des
+	 * Spielers fÃ¼r ein bestimmtes Spiel
 	 */
 	public int spielerEingabeMenue ()
 	{
@@ -201,7 +201,7 @@ public class SpielGui extends JFrame implements ActionListener,
 
 	/* kriegt die werte vom Actionlistener aus dem Menu */
 
-	/* übergibt den Aktuellen Stand für die Auswahl */
+	/* Ã¼bergibt den Aktuellen Stand fÃ¼r die Auswahl */
 	public int auswahlMenue ()
 	{
 
@@ -221,7 +221,7 @@ public class SpielGui extends JFrame implements ActionListener,
 		ebeneM.setOpaque (false);
 	}
 
-	/* initialisiert das Panel für das Würfelergebnis */
+	/* initialisiert das Panel fÃ¼r das WÃ¼rfelergebnis */
 	public void wuerfelInit ()
 	{
 		panelWuerfel = new JPanel ();
@@ -233,7 +233,7 @@ public class SpielGui extends JFrame implements ActionListener,
 
 	}
 
-	/* Für das wechseln der Würfelergebnisse */
+	/* FÃ¼r das wechseln der WÃ¼rfelergebnisse */
 	public void wuerfel (int wuerfelErgebnis)
 	{
 		panelWuerfel.remove (wuerfel);
@@ -276,7 +276,7 @@ public class SpielGui extends JFrame implements ActionListener,
 			break;
 		}
 		default:
-			System.out.println ("FEHLER CASE WÜRFELAUSGABE GIF");
+			System.out.println ("FEHLER CASE WÃœRFELAUSGABE GIF");
 		}
 		panelWuerfel.setVisible (false);
 
@@ -284,7 +284,7 @@ public class SpielGui extends JFrame implements ActionListener,
 		panelWuerfel.setVisible (true);
 	}// ENDE wuerfel
 
-	/* initialisiert das Panel für den Namen für den ersten Spieler */
+	/* initialisiert das Panel fÃ¼r den Namen fÃ¼r den ersten Spieler */
 	public void initPanelSpieler1 (String spielerName1, int dran)
 	{
 		panelW = new JPanel ();
@@ -299,7 +299,7 @@ public class SpielGui extends JFrame implements ActionListener,
 
 	}// ENDE initPanelSpieler1
 
-	/* initialisiert das Panel für den Namen für den zweiten Spieler */
+	/* initialisiert das Panel fÃ¼r den Namen fÃ¼r den zweiten Spieler */
 	public void initPanelSpieler2 ()
 	{
 		panelE = new JPanel ();
@@ -316,7 +316,7 @@ public class SpielGui extends JFrame implements ActionListener,
 
 	/*
 	 * Das Label l2 in PanelE, bekommt Namen vom Spieler mit der
-	 * Zugehörigkeit 0
+	 * ZugehÃ¶rigkeit 0
 	 */
 	public void aendereSpieler2 (int dran)
 	{
@@ -343,7 +343,7 @@ public class SpielGui extends JFrame implements ActionListener,
 
 	/*
 	 * Das Label l1 in PanelW, bekommt Namen vom Spieler mit der
-	 * Zugehörigkeit 0
+	 * ZugehÃ¶rigkeit 0
 	 */
 	public void aendereSpieler1 (int dran)
 	{
@@ -369,10 +369,10 @@ public class SpielGui extends JFrame implements ActionListener,
 
 	}// ENDE aendereSpieler1
 
-	/* Initialisiert die Felder für die Ein- und Ausgabnachrichten */
+	/* Initialisiert die Felder fÃ¼r die Ein- und Ausgabnachrichten */
 	public void nachrichtenAnzeige (String nachricht)
 	{
-		/* Feld für die Ausgabe erzeugen */
+		/* Feld fÃ¼r die Ausgabe erzeugen */
 		panelAusgabe = new JPanel ();
 		panelAusgabe.setPreferredSize (new Dimension (472, 100));
 
@@ -386,12 +386,12 @@ public class SpielGui extends JFrame implements ActionListener,
 		panelAusgabe.add (textAusgabe);
 		textAusgabe.setEditable (false);
 
-		/* Feld für die Eingabe erzeuge */
+		/* Feld fÃ¼r die Eingabe erzeuge */
 		eing = new TextField (
-				"Eingabefeld, Bitte rein klicken für die Eingabe", 90);
+				"Eingabefeld, Bitte rein klicken fÃ¼r die Eingabe", 90);
 		panelAusgabe.add (eing);
 
-		/* zusätzliches Button für die eingabe */
+		/* zusÃ¤tzliches Button fÃ¼r die eingabe */
 		senden = new Button ("Abschicken");
 		panelAusgabe.add (senden, BorderLayout.EAST);
 		senden.addActionListener (this);
@@ -401,7 +401,7 @@ public class SpielGui extends JFrame implements ActionListener,
 	/* Zeigt die Nachricht in die TextArea: textAusgabe */
 	public void ausgabeNachricht (String ausgabe)
 	{
-		/* Bestimmter Spielablauf muss hier berücksichtig werden */
+		/* Bestimmter Spielablauf muss hier berÃ¼cksichtig werden */
 		if (ausgabe.endsWith ("hat das Spiel gewonnen."))
 		{
 			JOptionPane.showMessageDialog (this, "         GAME OVER" + "\n"
@@ -411,7 +411,7 @@ public class SpielGui extends JFrame implements ActionListener,
 
 			if (! (spielArt == 1 || spielArt == 2))
 			{ /*
-				 * Zurücksetung falls man ein Netzwerkspiel gespielt hat
+				 * ZurÃ¼cksetung falls man ein Netzwerkspiel gespielt hat
 				 */
 				spielerZugeh1 = "Spieler 1";
 				spielerZugeh2 = "Spieler 2";
@@ -432,7 +432,7 @@ public class SpielGui extends JFrame implements ActionListener,
 	}// ENDE Ausgabemessages
 
 	/*
-	 * wird für bestimmte Situation vom Stuerung auf eine spielArt
+	 * wird fÃ¼r bestimmte Situation vom Stuerung auf eine spielArt
 	 * gewartet, die hier erzeugt wird
 	 */
 	public String eingabe ()
@@ -445,7 +445,7 @@ public class SpielGui extends JFrame implements ActionListener,
 		{
 			/*
 			 * Man wartet solange bis die eingabe einen Text bekommen hat.Das
-			 * passiert wenn man den Button "abschicken" drückt.
+			 * passiert wenn man den Button "abschicken" drÃ¼ckt.
 			 */
 			pause ();
 		} while ("0".equals (eingabe));
@@ -453,18 +453,18 @@ public class SpielGui extends JFrame implements ActionListener,
 		return eingabe;
 	}
 
-	/* benötigte Methode für den TextListener */
+	/* benÃ¶tigte Methode fÃ¼r den TextListener */
 	public void textValueChanged (TextEvent black)
 	{
 
 	}
 
-	/* Menü erzeugen */
+	/* MenÃ¼ erzeugen */
 	public JMenuBar erzeugeMenu ()
 	{
 		JMenuBar menubar = new JMenuBar ();
 
-		// Das Spielmöglickeiten-Menue
+		// Das SpielmÃ¶glickeiten-Menue
 		JMenu menu = new JMenu ("Spiel");
 		menubar.add (menu);
 		JMenu single = new JMenu ("Singleplayer");
@@ -475,7 +475,7 @@ public class SpielGui extends JFrame implements ActionListener,
 
 		JMenu multi = new JMenu ("Multiplayer");
 		menu.add (multi);
-		/* Unterpunkte für die Option Multiplayer */
+		/* Unterpunkte fÃ¼r die Option Multiplayer */
 		JMenuItem item2 = new JMenuItem ("Spieler vs Spieler an einem PC");
 		multi.add (item2);
 		item2.addActionListener (this);
@@ -505,7 +505,7 @@ public class SpielGui extends JFrame implements ActionListener,
 		JMenu wms = new JMenu ("Wie man spielt");
 		hilfe.add (wms);
 
-		/* Unterpunkte für die Option Wie man Spielt */
+		/* Unterpunkte fÃ¼r die Option Wie man Spielt */
 		JMenuItem hilfe1 = new JMenuItem ("Wer ist am Zug?");
 		hilfe1.addActionListener (this);
 		wms.add (hilfe1);
@@ -524,11 +524,11 @@ public class SpielGui extends JFrame implements ActionListener,
 		return menubar;
 	}// ENDE erzeugemenu
 
-	/* initialisierungen für den ActionListener */
+	/* initialisierungen fÃ¼r den ActionListener */
 	public void actionPerformed (ActionEvent blackByte)
 	{
 		String command = blackByte.getActionCommand ();
-		/* Aktionen für das Menu Spiel */
+		/* Aktionen fÃ¼r das Menu Spiel */
 		if (command.equals ("Abschicken"))
 		{
 
@@ -607,29 +607,29 @@ public class SpielGui extends JFrame implements ActionListener,
 										+ "\nWarten sie bis das Spiel zu ende ist, um eine neues spiel anzufangen!");
 		}
 
-		/* Aktionen für das Menu Hilfe */
+		/* Aktionen fÃ¼r das Menu Hilfe */
 		if (command.equals ("Einleitung"))
 			JOptionPane
 					.showMessageDialog (
 							this,
-							"\n\n\n\n„EinStein würfelt nicht“ ist ein Spiel für 2 Personen. Es wurde vom deutschen "
-									+ "\nMathematiker XXXX entwickelt, der an der Uni ?Göttingen unterrichtet, "
+							"\n\n\n\nâ€žEinStein wÃ¼rfelt nichtâ€œ ist ein Spiel fÃ¼r 2 Personen. Es wurde vom deutschen "
+									+ "\nMathematiker XXXX entwickelt, der an der Uni ?GÃ¶ttingen unterrichtet, "
 									+ "\nentwickelt."
 									+ "\nDie sechs Spielsteine der beiden Spieler befinden sich in einem Raster von "
-									+ "\nfünf mal fünf Spielfeldern in den Ecken, die sich gegenüberstehen. Jeder Stein "
-									+ "\nkann sich immer nur 1 Feld bewegen, aber es ist möglich, sowohl eigene als "
+									+ "\nfÃ¼nf mal fÃ¼nf Spielfeldern in den Ecken, die sich gegenÃ¼berstehen. Jeder Stein "
+									+ "\nkann sich immer nur 1 Feld bewegen, aber es ist mÃ¶glich, sowohl eigene als "
 									+ "\nauch gegnerische Spielsteine zu schlagen, in dem man auf sie drauf zieht. Die "
-									+ "\nbeiden Spieler ziehen abwechselnd, ein Würfelergebnis bestimmt, welcher Stein "
+									+ "\nbeiden Spieler ziehen abwechselnd, ein WÃ¼rfelergebnis bestimmt, welcher Stein "
 									+ "\ngezogen werden darf. \n"
-									+ "\nDie Besonderheit ist, dass es auch möglich ist, selbst zu entscheiden, welchen "
-									+ "\nSpielstein man bewegen darf, wenn der Stein für das Würfelergebnis nicht mehr "
+									+ "\nDie Besonderheit ist, dass es auch mÃ¶glich ist, selbst zu entscheiden, welchen "
+									+ "\nSpielstein man bewegen darf, wenn der Stein fÃ¼r das WÃ¼rfelergebnis nicht mehr "
 									+ "\nim Spiel ist. Wenn nur noch ein Stein bei einem Spieler im Spiel ist, wird das "
-									+ "\nWürfelergebnis ignoriert, denn dieser Stein darf immer ziehen, denn „Ein Stein "
-									+ "\nwürfelt nicht“.\n"
+									+ "\nWÃ¼rfelergebnis ignoriert, denn dieser Stein darf immer ziehen, denn â€žEin Stein "
+									+ "\nwÃ¼rfelt nichtâ€œ.\n"
 									+ "\nEin Beispiel:"
 									+ "\nAuf dem Spielfeld existieren nur noch die Steine 1, 3 und sechs eines "
-									+ "\nSpielers. Der Würfel gibt als Ergebnis eine 2 aus. Nun hat dieser Spieler die "
-									+ "\nWahl, ob er den Stein Nr. 1 oder den Stein Nr 3 bewegen möchte.\n"
+									+ "\nSpielers. Der WÃ¼rfel gibt als Ergebnis eine 2 aus. Nun hat dieser Spieler die "
+									+ "\nWahl, ob er den Stein Nr. 1 oder den Stein Nr 3 bewegen mÃ¶chte.\n"
 									+ "\nDieses Spiel wurde von der Entwicklergruppe BlackByte des 3. Semesters der"
 									+ "\nFachhochschule Fulda im Rahmen des Programmieren-Praktikums entwickelt"
 									+ "\nund getestet.");
@@ -639,22 +639,22 @@ public class SpielGui extends JFrame implements ActionListener,
 					.showMessageDialog (
 							this,
 							"\n\n\nWer ist am Zug?\n"
-									+ "\nEs wird abwechselnd gespielt. Jeder Spieler erhält ein Würfelergebnis, welches "
-									+ "\ndie möglichen Steine bestimmt, die Sie ziehen können. Wenn Sie am Zug sind, "
+									+ "\nEs wird abwechselnd gespielt. Jeder Spieler erhÃ¤lt ein WÃ¼rfelergebnis, welches "
+									+ "\ndie mÃ¶glichen Steine bestimmt, die Sie ziehen kÃ¶nnen. Wenn Sie am Zug sind, "
 									+ "\nwerden Sie aufgefordert ihren Zug zu machen. ");
 		if (command.equals ("Bewegen von Steinen"))
 			JOptionPane
 					.showMessageDialog (
 							this,
 							"\n\n\nBewegen von Steinen\n"
-									+ "\nWährend des Spiels wird das Programm Ihnen alle Spielmöglichkeiten zeigen, die "
-									+ "\nihnen jeweils zur Verfügung stehen. Sie werden dann z.B. aufgefordert, sich "
+									+ "\nWÃ¤hrend des Spiels wird das Programm Ihnen alle SpielmÃ¶glichkeiten zeigen, die "
+									+ "\nihnen jeweils zur VerfÃ¼gung stehen. Sie werden dann z.B. aufgefordert, sich "
 									+ "\nzwischen den Steinen 1 und 3 zu entscheiden, die Sie bewegen wollen. Nachdem "
 									+ "\nsie diese Entscheidung durch die Eingabe der Spielsteinnummer getroffen haben, "
-									+ "\nwird das Programm ihnen auch alle möglichen Züge vorgeben, aus der Sie "
-									+ "\nwiederum auswählen dürfen. Dabei wird das Programm von Ihnen lediglich die "
+									+ "\nwird das Programm ihnen auch alle mÃ¶glichen ZÃ¼ge vorgeben, aus der Sie "
+									+ "\nwiederum auswÃ¤hlen dÃ¼rfen. Dabei wird das Programm von Ihnen lediglich die "
 									+ "\nneue Zielkoordinate des Steins verlangen. \n"
-									+ "\nWenn sie während der Steinbewegungsphase eine Null statt der Spielsteinnummer "
+									+ "\nWenn sie wÃ¤hrend der Steinbewegungsphase eine Null statt der Spielsteinnummer "
 									+ "\neingeben, wird das Spiel sofort beendet.");
 		if (command.equals ("Siegbedingungen"))
 			JOptionPane
@@ -670,8 +670,8 @@ public class SpielGui extends JFrame implements ActionListener,
 							"\n\n\nMultiplayerhilfe\n"
 									+ "\nDie Auswahl des Multiplayerspiels ohne Netzwerk erlaubt Ihnen gegen einem "
 									+ "\nFreund an einem Rechner zu spielen. Die Option Multiplayerspiel mit Netzwerk "
-									+ "\ngestattet Ihnen über das Netzwerk gegen einen anderen Spieler an seinem "
-									+ "\nComputer oder dessen Künstliche Intelligenz zu spielen.");
+									+ "\ngestattet Ihnen Ã¼ber das Netzwerk gegen einen anderen Spieler an seinem "
+									+ "\nComputer oder dessen KÃ¼nstliche Intelligenz zu spielen.");
 
 	}// ENDE actionPerformed
 
@@ -684,14 +684,14 @@ public class SpielGui extends JFrame implements ActionListener,
 
 	}
 
-	/* Liefert SpielerName(erster Spieler) zurück */
+	/* Liefert SpielerName(erster Spieler) zurÃ¼ck */
 	public String gibspielerName ()
 	{
 
 		return spielerName;
 	}
 
-	/* Name Abfrage, für den Fall das 2 Spieler auf einen Pc spielen wollen */
+	/* Name Abfrage, fÃ¼r den Fall das 2 Spieler auf einen Pc spielen wollen */
 	public String spieler2EingabeName ()
 	{
 		spielerName2 = JOptionPane
@@ -705,7 +705,7 @@ public class SpielGui extends JFrame implements ActionListener,
 	}
 
 	/*
-	 * Zeichnet das gesamte Spielfeld(Brett und Steine) wärend des Spiels
+	 * Zeichnet das gesamte Spielfeld(Brett und Steine) wÃ¤rend des Spiels
 	 * neu, nach jedem Zug
 	 */
 	public void brettinitialisierung (int [] steinArray, String Spieler1,
@@ -719,17 +719,17 @@ public class SpielGui extends JFrame implements ActionListener,
 		zeile, // zeilenPosition des Steins (Werte: 1 bis 5)
 		spalte; // spaltenPosition des Steins (Werte: 1 bis 5)
 
-		int zeileKonstante = 0; // Konstante für die Pixelkorrdinaten. Diese
-		// Dient für die Positionierung der Steine auf
+		int zeileKonstante = 0; // Konstante fÃ¼r die Pixelkorrdinaten. Diese
+		// Dient fÃ¼r die Positionierung der Steine auf
 		// dem Spielbrett.
 		int spaltenKonstante = 60;// wie oben.
-		int steinGroesse = 94; // ist die Pixelgroesse (breite u. höhe) jedes
+		int steinGroesse = 94; // ist die Pixelgroesse (breite u. hÃ¶he) jedes
 		// Steinbildes.
 
 		/*
-		 * Diese Zusätzliche Initialisierung ist notwenidig für Spiele gegen
-		 * Netzwerk wo wir nicht wissen können welcher Spielername welche
-		 * Zugehörigkeit hat, damit es an der Richtige Brettseite angezeigt
+		 * Diese ZusÃ¤tzliche Initialisierung ist notwenidig fÃ¼r Spiele gegen
+		 * Netzwerk wo wir nicht wissen kÃ¶nnen welcher Spielername welche
+		 * ZugehÃ¶rigkeit hat, damit es an der Richtige Brettseite angezeigt
 		 * werden kann
 		 */
 		if (spieler1Zugehoerigkeit == 1)
@@ -751,8 +751,8 @@ public class SpielGui extends JFrame implements ActionListener,
 
 		/*
 		 * Diese Schliefe erzeugt eine neues SteinArray welches die Steine
-		 * die Zeile und Spalte 0 haben vernachlässigt, so dass im nächsten
-		 * schritt nur die notwendigen Steine für die Darstellung der
+		 * die Zeile und Spalte 0 haben vernachlÃ¤ssigt, so dass im nÃ¤chsten
+		 * schritt nur die notwendigen Steine fÃ¼r die Darstellung der
 		 * aktuelle Situation sind, auch erzeugt werden
 		 */
 		for (int i = 0; i < attributeAllerSteine; i += 4)
@@ -942,7 +942,7 @@ public class SpielGui extends JFrame implements ActionListener,
 	/*
 	 * hier werden die Labels der Steine Initialisiert, damit die Brett
 	 * initialisierungsmethode keine Probleme hat, wenn sie die Labels
-	 * löscht
+	 * lÃ¶scht
 	 */
 	public void steinInitialisierung ()
 	{
@@ -963,8 +963,8 @@ public class SpielGui extends JFrame implements ActionListener,
 
 	/*
 	 * Entfernd die Labels von der Ebene des Spielbrettes, damit die
-	 * Brettinitialisierung nur die wieder erzeugt die auch tatsächlich
-	 * noch existieren wärend des Spielablaufs
+	 * Brettinitialisierung nur die wieder erzeugt die auch tatsÃ¤chlich
+	 * noch existieren wÃ¤rend des Spielablaufs
 	 */
 	public void temploeschenSteine ()
 	{
@@ -995,7 +995,7 @@ public class SpielGui extends JFrame implements ActionListener,
 	}
 
 	/**
-	 * Methode, die von dem Spieler einen gültigen Zugauswahl erwartet
+	 * Methode, die von dem Spieler einen gÃ¼ltigen Zugauswahl erwartet
 	 * anhand seiner Mousecklicks.
 	 * 
 	 * @param moeglicheZuege
@@ -1004,7 +1004,7 @@ public class SpielGui extends JFrame implements ActionListener,
 	 * @param wuerfelzahl
 	 *          = wuerfezahlergebnis entweder Server oder Intern je nach
 	 *          SpielArt
-	 * @return zug[] = intArray mit dem Zug, den der Spieler schließlich
+	 * @return zug[] = intArray mit dem Zug, den der Spieler schlieÃŸlich
 	 *         machen will
 	 */
 	public int naechsterZug (int [] moeglicheZuege, int wuerfelzahl,
@@ -1020,29 +1020,29 @@ public class SpielGui extends JFrame implements ActionListener,
 
 		/*
 		 * Abbruchbedingung, falls die 2 Mausklicks hinter einander, (1.
-		 * klick für Stein Auswahl, 2. klick für Zugauswahl) mit den
-		 * Möglichkeiten in den moeglicheZuegeArray, übereinstimmen
+		 * klick fÃ¼r Stein Auswahl, 2. klick fÃ¼r Zugauswahl) mit den
+		 * MÃ¶glichkeiten in den moeglicheZuegeArray, Ã¼bereinstimmen
 		 */
 		boolean ergebnis = false;
 		int [] gewaelterStein = new int [2]; /*
-																					 * übernimmt die Werte für die
+																					 * Ã¼bernimmt die Werte fÃ¼r die
 																					 * Steinkoordinate
 																					 */
 		int [] gewaelterzug = new int [2]; /*
-																				 * übernimmt die Werte für
+																				 * Ã¼bernimmt die Werte fÃ¼r
 																				 * zugKoordinate
 																				 */
 		int steinNummer = 0; /*
-													 * Speicher die Nummer des Steins der für die
-													 * Auswahl angeklickt wurde auch gültig ist
+													 * Speicher die Nummer des Steins der fÃ¼r die
+													 * Auswahl angeklickt wurde auch gÃ¼ltig ist
 													 */
-		int zug = 0; /* kann 1-6 Werte einnehmen, je nach Zugmöglichkeiten */
+		int zug = 0; /* kann 1-6 Werte einnehmen, je nach ZugmÃ¶glichkeiten */
 		int auswahlmoeglickeit = 0; /*
 																 * Ist die Position im moeglicheZuege wo
-																 * alles übereinstimmt
+																 * alles Ã¼bereinstimmt
 																 */
 
-		ausgabeNachricht ("Gewürfelt wurde eine: " + wuerfelzahl);
+		ausgabeNachricht ("GewÃ¼rfelt wurde eine: " + wuerfelzahl);
 		wuerfel (wuerfelzahl);
 
 		/*
@@ -1063,7 +1063,7 @@ public class SpielGui extends JFrame implements ActionListener,
 		}
 
 		/*
-		 * Hier findet die Prüfung statt´.Hier wird erlaubt so lange auf dem
+		 * Hier findet die PrÃ¼fung stattÂ´.Hier wird erlaubt so lange auf dem
 		 * Spielbrett draufzuklicken,bis ein richtiger Zug erkannt wird
 		 */
 		do
@@ -1072,7 +1072,7 @@ public class SpielGui extends JFrame implements ActionListener,
 			boolean obVorhandenerZug = false;
 
 			/*
-			 * hier wird gewartet auf einen vollständigen mouseClick für
+			 * hier wird gewartet auf einen vollstÃ¤ndigen mouseClick fÃ¼r
 			 * Zugauswahl und Steinauswahl
 			 */
 			do
@@ -1083,14 +1083,14 @@ public class SpielGui extends JFrame implements ActionListener,
 
 			} while (gewaelterzug[0] == 0);
 
-			ausgabeNachricht ("gewählter Stein:" + gewaelterStein[0] + ""
+			ausgabeNachricht ("gewÃ¤hlter Stein:" + gewaelterStein[0] + ""
 					+ gewaelterStein[1]);
-			ausgabeNachricht ("gewählter Zug  :" + gewaelterzug[0] + ""
+			ausgabeNachricht ("gewÃ¤hlter Zug  :" + gewaelterzug[0] + ""
 					+ gewaelterzug[1]);
 
 			/*
-			 * Hier wird geprüft, ob dort wo für einen ausgewählten Stein
-			 * gedrückt wurde, auch wirklich ein Stein existiert.Wenn ja wird
+			 * Hier wird geprÃ¼ft, ob dort wo fÃ¼r einen ausgewÃ¤hlten Stein
+			 * gedrÃ¼ckt wurde, auch wirklich ein Stein existiert.Wenn ja wird
 			 * dieser gespeichert, um ihn nachher mit dem Array,
 			 * moeglicheZuege, zu vergleichen
 			 */
@@ -1111,8 +1111,8 @@ public class SpielGui extends JFrame implements ActionListener,
 				if (moeglicheZuege[i + 2] != 0)
 				{/*
 					 * verhindert das obvorhandenerStein=true, wenn die gefundene
-					 * steinNummer=0 und die andere Hälfte des arrays nur 0'en
-					 * enthält
+					 * steinNummer=0 und die andere HÃ¤lfte des arrays nur 0'en
+					 * enthÃ¤lt
 					 */
 
 					if (steinNummer == moeglicheZuege[i + 1])
@@ -1138,8 +1138,8 @@ public class SpielGui extends JFrame implements ActionListener,
 
 			/*
 			 * Sucht die Position an der die steinNummer und der gewaelterZug
-			 * in moeglicheZuege übereinstimmen und speichert dies in
-			 * auswahlmöglickeit
+			 * in moeglicheZuege Ã¼bereinstimmen und speichert dies in
+			 * auswahlmÃ¶glickeit
 			 */
 			for (int i = 0/* j=1 */; i < 24; i += 4)
 			{
@@ -1157,8 +1157,8 @@ public class SpielGui extends JFrame implements ActionListener,
 			}// For
 
 			/*
-			 * Entscheidung ob der Zug gültig ist oder nichtEs war nötig diese
-			 * Prüfung in 2 schleifen zu teilen, und nicht alles auf ein Mal.
+			 * Entscheidung ob der Zug gÃ¼ltig ist oder nichtEs war nÃ¶tig diese
+			 * PrÃ¼fung in 2 schleifen zu teilen, und nicht alles auf ein Mal.
 			 */
 			if (obVorhandenerStein && obVorhandenerZug)
 			{
@@ -1166,14 +1166,14 @@ public class SpielGui extends JFrame implements ActionListener,
 				ergebnis = true;
 				/*
 				 * bei ergebnis=true erste do while schleife kann jetzt
-				 * abgebrochen werden, da der Mausklick für steinund zug Gültig
-				 * ist mit den vorhandenen Möglickeiten
+				 * abgebrochen werden, da der Mausklick fÃ¼r steinund zug GÃ¼ltig
+				 * ist mit den vorhandenen MÃ¶glickeiten
 				 */
 
 				/*
-				 * Alle Koordinaten müssen zurückgesetzt werden auf 0, damit für
-				 * den nächsten aufruf der Methode nächsterZug, die Prüfungen in
-				 * den do while schleifen mit richtigen Werten beginnen können.
+				 * Alle Koordinaten mÃ¼ssen zurÃ¼ckgesetzt werden auf 0, damit fÃ¼r
+				 * den nÃ¤chsten aufruf der Methode nÃ¤chsterZug, die PrÃ¼fungen in
+				 * den do while schleifen mit richtigen Werten beginnen kÃ¶nnen.
 				 */
 				gewaelterzug[0] = 0;
 				gewaelterzug[1] = 0;
@@ -1189,8 +1189,8 @@ public class SpielGui extends JFrame implements ActionListener,
 			{
 				ausgabeNachricht ("Falsche Auswahl");
 				/*
-				 * Alle Koordinaten müssen zurückgesetzt werden auf 0, damit die
-				 * kleine do while schleife innerhalb der große do while Schleife
+				 * Alle Koordinaten mÃ¼ssen zurÃ¼ckgesetzt werden auf 0, damit die
+				 * kleine do while schleife innerhalb der groÃŸe do while Schleife
 				 * in dieser Methode richtige neue Werte bekommt
 				 */
 				gewaelterzug[0] = 0;
@@ -1204,8 +1204,8 @@ public class SpielGui extends JFrame implements ActionListener,
 				zugKoordinate[1] = 0;
 
 				/*
-				 * Methode mouseClicked kann wieder neue Werte für die
-				 * steinKoordinate und zugKoordinate übernehmen
+				 * Methode mouseClicked kann wieder neue Werte fÃ¼r die
+				 * steinKoordinate und zugKoordinate Ã¼bernehmen
 				 */
 				spielSperreAuswahlStein = true;
 				spielSperreAuswahlZug = true;
@@ -1250,7 +1250,7 @@ public class SpielGui extends JFrame implements ActionListener,
 		}
 
 		default:
-			ausgabeNachricht ("FEHLER, Ausgewählter Zug gibt es nicht");
+			ausgabeNachricht ("FEHLER, AusgewÃ¤hlter Zug gibt es nicht");
 			break;
 		}// switch
 
@@ -1310,19 +1310,19 @@ public class SpielGui extends JFrame implements ActionListener,
 		return koordinatenArray;
 	}
 
-	/* gibt den Array zurück für die geklickte steinKoordinate zurück */
+	/* gibt den Array zurÃ¼ck fÃ¼r die geklickte steinKoordinate zurÃ¼ck */
 	public int [] gibAuswahlStein ()
 	{
 		return steinKoordinate;
 	}
 
-	/* gibt den Array zurück für die geklickte zugKoordinate zurück */
+	/* gibt den Array zurÃ¼ck fÃ¼r die geklickte zugKoordinate zurÃ¼ck */
 	public int [] gibtAuswahlZug ()
 	{
 		return zugKoordinate;
 	}
 
-	/* benötigte Methode für den MouseListener */
+	/* benÃ¶tigte Methode fÃ¼r den MouseListener */
 	public void mousePressed (MouseEvent arg0)
 	{
 		// TODO Auto-generated method stub

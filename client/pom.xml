@@ -15,6 +15,12 @@
   <name>Einstein wuerfelt nicht - Client (Vaadin Flow)</name>
 
   <dependencies>
+    <!-- Shared Module (Spiellogik) -->
+    <dependency>
+      <groupId>de.blackbyte</groupId>
+      <artifactId>einstein-wuerfelt-nicht-shared</artifactId>
+      <version>${project.version}</version>
+    </dependency>
     <!-- Vaadin Flow Starter -->
     <dependency>
       <groupId>com.vaadin</groupId>

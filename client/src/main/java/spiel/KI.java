@@ -38,8 +38,8 @@ public class KI implements SpielerInterface{
 	 * Methode, die je Spieler, die Anfangsposition der Steine, auf dem Spielbrett,
 	 * initialisiert
 	 * @param zugehoerigkeit = int Wert, der die Spielerzugehoerigkeit der Steine darstellt
-	 * @return = int Array, welches für einen Spieler die Steineigenschaften (zugehoerigkeit,
-	 * 			 nummer,zeile,spalte) enthält
+	 * @return = int Array, welches fÃ¼r einen Spieler die Steineigenschaften (zugehoerigkeit,
+	 * 			 nummer,zeile,spalte) enthÃ¤lt
 	 */
 	public Stein[] initSteinPos(int zugehoerigkeit){
 		int feldgroesse = 6;
@@ -100,7 +100,7 @@ public class KI implements SpielerInterface{
 			steinArray[i+3] = initSteinPosSpieler2[j].gibSpalte();
 			j++;
 			}
-		//Array mit allen Eigenschaften der Steine beider Spieler zurückgeben
+		//Array mit allen Eigenschaften der Steine beider Spieler zurÃ¼ckgeben
 		return steinArray;
 	}//gibSteinEigenschaftenArray
 /*-----------------------------------------------------------------------------------------------------------------*/
@@ -157,15 +157,15 @@ public class KI implements SpielerInterface{
 	} //initSteinPos
 /*-----------------------------------------------------------------------------------------------------------------*/			
 	/**
-	 * Methode, die den Spielernamen zurückgibt
-	 * @return name = String, der den jeweiligen Namen des Spielers zurückgibt
+	 * Methode, die den Spielernamen zurÃ¼ckgibt
+	 * @return name = String, der den jeweiligen Namen des Spielers zurÃ¼ckgibt
 	 */
 	public String gibName(){
 		return name;
 	 } 	
 /*-----------------------------------------------------------------------------------------------------------------*/		
 	/**
-	 * Methode, die die Spielerzugehoerigkeit (brettseite) zurückgibt
+	 * Methode, die die Spielerzugehoerigkeit (brettseite) zurÃ¼ckgibt
 	 * @return brettSeite = int Wert, der die Brettseite des Spielers charakterisiert
 	 */
 	public int gibZugehoerigkeit(){
@@ -181,7 +181,7 @@ public class KI implements SpielerInterface{
 	 */
 	public int setzeZug(int[] moeglicheZuege, int[] steinPosArray, int wuerfelzahl){
 		int kurzEntferungZumZiel = 1;
-		int entferungsWertNeu = 100 // strtet mit der höchsten entferung damit beim vergleichen jeder eine Chance hat
+		int entferungsWertNeu = 100 // strtet mit der hÃ¶chsten entferung damit beim vergleichen jeder eine Chance hat
 		    , entfernungsWertAlt = 100;
 		int siegWert = 100;
 		int[][] strategieArrayUntenRechts = {{100,90,65,60,0},{90,85,75,55,50},{70,75,70,50,47},{75,60,55,45,40},{0,50,47,40,0}};//alt
@@ -193,10 +193,10 @@ public class KI implements SpielerInterface{
 		int feldgroesse = 24;
 		int positionZuege = 0;			//ermittelte Position, wieviele Zuege existieren
 		int anzahlGegner = 0;           // Anzahl der Gegner in der Zone
-		int[] positionGegner = new int[12];// maximal 6 Steine á 2 Positionsdaten
+		int[] positionGegner = new int[12];// maximal 6 Steine Ã¡ 2 Positionsdaten
 		boolean kannGegnerGeschlagenwerden = false;
 		
-		//Test für uns
+		//Test fÃ¼r uns
 		//System.out.println("Moegliche Zuege: ");
 		//for(int i = 0; i < moeglicheZuege.length; i++){
 		//	System.out.print(moeglicheZuege[i]);
@@ -212,15 +212,15 @@ public class KI implements SpielerInterface{
 				positionZuege++;	//Anzahl moeglicher Zuege zaehlen (1, 3, 4 oder 6)
 		}
 		
-		//System.out.println("anzahl der möglichkeiten; " + positionZuege);
+		//System.out.println("anzahl der mÃ¶glichkeiten; " + positionZuege);
 		
-		//Prüfen Ob Gegner in gefaehrlicher Zone ist
+		//PrÃ¼fen Ob Gegner in gefaehrlicher Zone ist
 		if(moeglicheZuege[0]==0){
-			//Prüfen wo Gegner sind Gegner = 1
+			//PrÃ¼fen wo Gegner sind Gegner = 1
 			for(int i = 0, k = 0; i < steinPosArray.length; i+=4){ // i= SteinPosArray-Zaehler, k = PositionGegner-Array-Zaehler, j-ZonenArray-Zaehler
 				if(steinPosArray[i] == 1 && steinPosArray[i+2]!=0 && steinPosArray[i+3] != 0){ // Suchte die Steine des Gegners die noch nicht geloescht sind
 					for(int j = 0; j < 8; j++){   // 8 ist die Anzahl der Zeilen des 2d-ZonenArrays
-//						Hier wird verglichen welche der nichtgeloeschten Steine mit den Positionen des ZonesArrays übereinstimmen
+//						Hier wird verglichen welche der nichtgeloeschten Steine mit den Positionen des ZonesArrays Ã¼bereinstimmen
 						if(steinPosArray[i+2] == verteidigungsZoneUnten[j][0] && steinPosArray[i+3] == verteidigungsZoneUnten[j][1]){
 							//System.out.println("Gegner 1 in Zone");
 							anzahlGegner++;
@@ -232,11 +232,11 @@ public class KI implements SpielerInterface{
 				}
 			}
 		}else if(moeglicheZuege[0]==1){
-//			    Prüfen wo Gegner sind Gegner = 0
+//			    PrÃ¼fen wo Gegner sind Gegner = 0
 				for(int i = 0, k = 0; i < steinPosArray.length; i+=4){ // i= SteinPosArray-Zaehler, k = PositionGegner-Array-Zaehler, j-ZonenArray-Zaehler
 					if(steinPosArray[i] == 0 && steinPosArray[i+2]!=0 && steinPosArray[i+3] != 0){
 						for(int j = 0; j < 8; j++){   // 8 ist die Anzahl der Zeilen des 2d-ZonenArrays
-//							Hier wird verglichen welche der nichtgeloeschten Steine mit den Positionen des ZonesArrays übereinstimmen
+//							Hier wird verglichen welche der nichtgeloeschten Steine mit den Positionen des ZonesArrays Ã¼bereinstimmen
 							if(steinPosArray[i+2] == verteidigungsZoneOben[j][0] && steinPosArray[i+3] == verteidigungsZoneOben[j][1]){
 								//System.out.println("Gegner 0 in Zone");
 								anzahlGegner++;
@@ -267,7 +267,7 @@ public class KI implements SpielerInterface{
 					}
 					
 				}	
-				k++; // in der i+=4Schleife das k für die nächste Zug-Moeglichkeit rauf setzten
+				k++; // in der i+=4Schleife das k fÃ¼r die nÃ¤chste Zug-Moeglichkeit rauf setzten
 			}
 		}
 		if(anzahlGegner  == 0 || kannGegnerGeschlagenwerden == false){//Kein Gegner in Zone ODER kann nicht geschlagen werden
@@ -312,7 +312,7 @@ public class KI implements SpielerInterface{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		/* das kurzEntferungZumZiel sagt aus welcher der bis zu 6 möglichen Zuege die KI ausgwählt
+		/* das kurzEntferungZumZiel sagt aus welcher der bis zu 6 mÃ¶glichen Zuege die KI ausgwÃ¤hlt
 		 *hat die zahl kann aber nur mit Kenntnis der Uebergabewerte an einen Menschlichen Spieler 
 		 *interpretiert werden.
 		 */

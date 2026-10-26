@@ -5,10 +5,10 @@ package client;
  * Erstellt am:  07.10.2005 
  * Erstellt von: HHPaul
  * 
- * Änderungen:
+ * Ã„nderungen:
  * 09.10.2005  HHPaul: remove message storage buffer and ingrate callback functionality.
  * 10.12.2005, Maria Pidiktaki, Sebastian Horchler: Anpassung an bereits entworfenes Programm
- * 12.12.2005, Patrick Schwarzer, Arne Meier: Hinzufügung von JavaDocs
+ * 12.12.2005, Patrick Schwarzer, Arne Meier: HinzufÃ¼gung von JavaDocs
  * 18.01.2006, Arne Meier,Maria Pidiktaki: eindeutschung eng. Bezeichner 
  */
 
@@ -73,7 +73,7 @@ public class NetzwerkSchnittstelle {
 
 	/**
 	 * wurde modifiziert, damit es mit dem Programm spiel zusammenarbeitet und die
-	 * gewünschte Funktionen des Datenaustauschs zwischen Server und Client erfüllt
+	 * gewÃ¼nschte Funktionen des Datenaustauschs zwischen Server und Client erfÃ¼llt
 	 */
 	public void run() {
 			// Wait for incoming commands

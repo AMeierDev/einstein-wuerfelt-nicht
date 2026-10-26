@@ -1,0 +1,85 @@
+Compiled from "SpielMain.java"
+public class spiel.SpielMain {
+  public spiel.SpielMain();
+    Code:
+       0: aload_0
+       1: invokespecial #8                  // Method java/lang/Object."<init>":()V
+       4: return
+
+  public static void main(java.lang.String[]);
+    Code:
+       0: new           #16                 // class spiel/Steuerung
+       3: dup
+       4: invokespecial #18                 // Method spiel/Steuerung."<init>":()V
+       7: astore_1
+       8: iconst_0
+       9: istore_2
+      10: new           #19                 // class java/io/BufferedReader
+      13: dup
+      14: new           #21                 // class java/io/InputStreamReader
+      17: dup
+      18: getstatic     #23                 // Field java/lang/System.in:Ljava/io/InputStream;
+      21: invokespecial #29                 // Method java/io/InputStreamReader."<init>":(Ljava/io/InputStream;)V
+      24: invokespecial #32                 // Method java/io/BufferedReader."<init>":(Ljava/io/Reader;)V
+      27: astore_3
+      28: getstatic     #35                 // Field java/lang/System.out:Ljava/io/PrintStream;
+      31: ldc           #39                 // String PC Spiel: EINSTEIN WUERFELT NICHT!
+      33: invokevirtual #41                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      36: getstatic     #35                 // Field java/lang/System.out:Ljava/io/PrintStream;
+      39: ldc           #47                 // String ==================================
+      41: invokevirtual #41                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      44: getstatic     #35                 // Field java/lang/System.out:Ljava/io/PrintStream;
+      47: ldc           #49                 // String \n \nAuswahl der graphischen Ausgabeform:
+      49: invokevirtual #41                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      52: getstatic     #35                 // Field java/lang/System.out:Ljava/io/PrintStream;
+      55: ldc           #51                 // String \n \n 1  Konsole
+      57: invokevirtual #41                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      60: getstatic     #35                 // Field java/lang/System.out:Ljava/io/PrintStream;
+      63: ldc           #53                 // String \n 2  GUI
+      65: invokevirtual #41                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+      68: getstatic     #35                 // Field java/lang/System.out:Ljava/io/PrintStream;
+      71: ldc           #55                 // String \nBitte geben sie eine der Nummern ein:
+      73: invokevirtual #57                 // Method java/io/PrintStream.print:(Ljava/lang/String;)V
+      76: aload_3
+      77: invokevirtual #60                 // Method java/io/BufferedReader.readLine:()Ljava/lang/String;
+      80: invokestatic  #64                 // Method java/lang/Integer.parseInt:(Ljava/lang/String;)I
+      83: istore_2
+      84: goto          112
+      87: astore        4
+      89: getstatic     #35                 // Field java/lang/System.out:Ljava/io/PrintStream;
+      92: new           #70                 // class java/lang/StringBuilder
+      95: dup
+      96: ldc           #72                 // String Eingabefehler
+      98: invokespecial #74                 // Method java/lang/StringBuilder."<init>":(Ljava/lang/String;)V
+     101: aload         4
+     103: invokevirtual #76                 // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+     106: invokevirtual #80                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     109: invokevirtual #41                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+     112: iload_2
+     113: iconst_2
+     114: if_icmpgt     122
+     117: iload_2
+     118: iconst_1
+     119: if_icmpge     138
+     122: getstatic     #35                 // Field java/lang/System.out:Ljava/io/PrintStream;
+     125: ldc           #83                 // String Eingabefehler! Nur die Zahlen 1 und 2 zulaessig!
+     127: invokevirtual #41                 // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+     130: getstatic     #35                 // Field java/lang/System.out:Ljava/io/PrintStream;
+     133: ldc           #85                 // String Bitte erneut eingeben:
+     135: invokevirtual #57                 // Method java/io/PrintStream.print:(Ljava/lang/String;)V
+     138: iload_2
+     139: iconst_2
+     140: if_icmpgt     76
+     143: iload_2
+     144: iconst_1
+     145: if_icmplt     76
+     148: aload_1
+     149: iload_2
+     150: invokevirtual #87                 // Method spiel/Steuerung.ausgabeForm:(I)V
+     153: aload_1
+     154: invokevirtual #91                 // Method spiel/Steuerung.spielmenue:()V
+     157: return
+    Exception table:
+       from    to  target type
+          76    84    87   Class java/lang/Exception
+}

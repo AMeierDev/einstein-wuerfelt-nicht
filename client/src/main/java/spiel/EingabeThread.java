@@ -7,8 +7,8 @@ import client.*;
  * Erstellt am:  10.12.2005 
  * Erstellt von: Maria Pidiktaki, Sebastian Horchler	
  * 
- * Änderungen: 			    
- * 12.12.2005, Patrick Schwarzer, Arne Meier: Hinzufügung von JavaDocs  
+ * Ã„nderungen: 			    
+ * 12.12.2005, Patrick Schwarzer, Arne Meier: HinzufÃ¼gung von JavaDocs  
  * 18.01.2006, Arne Meier,Maria Pidiktaki: eindeutschung eng. Bezeichner          
  */
 
@@ -57,7 +57,7 @@ public class EingabeThread extends Thread {
 	 * bidschirm = Instanz von Bildschirmanzeige
 	 */
 	public void run(){
-		/* Schleide die dauerhaft ausgeführt wird - Thread*/
+		/* Schleide die dauerhaft ausgefÃ¼hrt wird - Thread*/
 		
 		
 		

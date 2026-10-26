@@ -13,18 +13,18 @@ import Interfaces.Bildschirmanzeige;
  * Menue war vorher eine Einzelklasse die von Patrick Schwarzer und Sebastian Horchler 
  * erstellt wurde welches am 16.11.2005 fertig war
  * 
- * Änderungen: 
+ * Ã„nderungen: 
  * 26.11.2005, Maria Pidiktaki, Arne Meier: 		Funktionskopplung in der Menuausgabe
- * 26.11.2005, Patrick Schwarzer, Sebastian Horchler : while Bedingungen überarbeitet, die
- * 													   vor Falscheingaben schützen
+ * 26.11.2005, Patrick Schwarzer, Sebastian Horchler : while Bedingungen Ã¼berarbeitet, die
+ * 													   vor Falscheingaben schÃ¼tzen
  * 26.11.2005, Patrick Schwarzer, Maria Pidiktaki : neue Funktionen steinAuswahl(), naechsterZugXAchse() 
  * 													naechsterZugYAchse()
  * 26.11.2005, Patrick Schwarzer, Maria Pidiktaki:  Designverbesserungen, neue Hinweismeldungen bei 
  * 													Falscheingaben im jeweiligen Menue
  * 30.11.2005, Sebastian Horchler, Maria Pidiktaki: HilfeMenu ausgebaut 			    
- * 12.12.2005, Patrick Schwarzer, Arne Meier: Hinzufügung von JavaDocs  
+ * 12.12.2005, Patrick Schwarzer, Arne Meier: HinzufÃ¼gung von JavaDocs  
  * 17.12.2005, Patrick Schwarzer, Sebastian Horchler: Hinzufuegung der Methode naechsterZug()
- * 11.01.2206, Patrick Schwarzer, Arne Meier: Hinzufügen der Methode, eingabeIP
+ * 11.01.2206, Patrick Schwarzer, Arne Meier: HinzufÃ¼gen der Methode, eingabeIP
  * 18.01.2006, Arne Meier,Maria Pidiktaki: eindeutschung eng. Bezeichner
  * 													            
  */
@@ -38,13 +38,13 @@ public class Konsole implements Bildschirmanzeige{
 ///   ZUGAUSWAHL   ///
 ////////////////////// 	
 	/**
-	 * Methode, die den Spieler zur Auswahl der ermittelten moeglichen Züge, bezügliches
-	 * der gewürfelten Steinnumer, auffordert
+	 * Methode, die den Spieler zur Auswahl der ermittelten moeglichen ZÃ¼ge, bezÃ¼gliches
+	 * der gewÃ¼rfelten Steinnumer, auffordert
 	 * 
 	 * @param moeglicheZuege = int Array, welches die Zuege enthaelt, die der Stein (wuerfelzahl)
 	 * 						   machen kann
 	 * @param wuerfelzahl	 = wuerfezahlergebnis entweder Server oder Intern je nach SpielArt
-	 * @return zug[]		 = intArray mit dem Zug, den der Spieler schließlich machen will
+	 * @return zug[]		 = intArray mit dem Zug, den der Spieler schlieÃŸlich machen will
 	 */
 	public int naechsterZug(int moeglicheZuege[], int wuerfelzahl,int SpielerSteinPos[]){
 		/* Initialisierung */
@@ -111,8 +111,8 @@ public class Konsole implements Bildschirmanzeige{
 	public void brettinitialisierung (int[] steinArray, String Spieler1, String Spieler2,int spieler1Zugehoerigkeit)
 	{	
 	    int attributeAllerSteine = 48; 	//groesse des Feldes wenn beide SpielerSteine + Eigenschaften enthalten sind
-		int maxzeilen 			 = 6,  	//maxzeilen-1  = 5 = groeße des Spielbretts (5x5)
-			maxspalten 			 = 6,  	//maxspalten-1 = 5 = groeße des Spielbretts (5x5)			
+		int maxzeilen 			 = 6,  	//maxzeilen-1  = 5 = groeÃŸe des Spielbretts (5x5)
+			maxspalten 			 = 6,  	//maxspalten-1 = 5 = groeÃŸe des Spielbretts (5x5)			
 			steinNummer,			   	//Nummer des Steins (Werte 1 bis 6)
 			zugehoerigkeit,				//Zugehoerigkeit der Steine zu welchem Spieler
 			zeile,                     	//zeilenPosition des Steins (Werte: 1 bis 5)
@@ -122,7 +122,7 @@ public class Konsole implements Bildschirmanzeige{
 		
 		/*StringArray: erstmal leer anlegen */
 		for(int k = 0 ; k < maxspalten; k++){ 	// 6 ist die Zeilen- als auch die Spaltenzahl des Spielbretts
-			for(int j = 0;j < maxzeilen; j++){	// siehe eine zeile drüber 
+			for(int j = 0;j < maxzeilen; j++){	// siehe eine zeile drÃ¼ber 
 				spielBrett[k][j] ="       ";	// 5 Leerzeichen weil das genau die Breite eines Spielfeldes ist
 			}
 		}
@@ -177,15 +177,15 @@ public class Konsole implements Bildschirmanzeige{
 			for (int ii = 0; ii < 5; ii++){				
 				System.out.print("|" +"-------" );
 			}
-			/*letzter Abschlussstrich extra, da sonst ---- noch hinzu käme*/
+			/*letzter Abschlussstrich extra, da sonst ---- noch hinzu kÃ¤me*/
 			System.out.print("|");
 			if (i==1)
 				System.out.print("X");							//Bezeichner der ZeilenAchse
 			System.out.print("\n");
 ///////////////////////////////////////////////////////////////////////////////////////////			
 			/*stellt das Feld mit Werten da (Feldinnereien)*/
-			for (int ii=0; ii < 3; ii++){							//zählt in die Tiefe \|/
-				for (int iii = 1; iii < 6; iii++){					//zählt in die Länge -->
+			for (int ii=0; ii < 3; ii++){							//zÃ¤hlt in die Tiefe \|/
+				for (int iii = 1; iii < 6; iii++){					//zÃ¤hlt in die LÃ¤nge -->
 					if (ii == 1)
 						System.out.print("|" + spielBrett[i][iii]);		//Ausgabe der Spielsteinposition + Felddesign |    |
 					else
@@ -206,7 +206,7 @@ public class Konsole implements Bildschirmanzeige{
 		System.out.println("|");								//letztes Abschlusszeichen
 
 		System.out.print("Y   "+"1");							//Bezeichner der SpaltenAchse
-		for (int iiiii = 1; iiiii < 5; iiiii++){				//Bezeichnung für y-Achse   1 2 3 4 5
+		for (int iiiii = 1; iiiii < 5; iiiii++){				//Bezeichnung fÃ¼r y-Achse   1 2 3 4 5
 			System.out.print("       " +(iiiii+1));
 		}
 		/*Spielername 2 - Herausgeforderte*/
@@ -249,7 +249,7 @@ public class Konsole implements Bildschirmanzeige{
 	}
 /*-----------------------------------------------------------------------------------------------------------------*/
 	/** 
-	 * diese Methode übergibt der Steuerung-Klasse den Spielername
+	 * diese Methode Ã¼bergibt der Steuerung-Klasse den Spielername
 	 */
 	public String gibspielerName() {		
 		return spielerName;
@@ -385,7 +385,7 @@ public class Konsole implements Bildschirmanzeige{
 						System.out.println("Danke das Sie unser Programm genutzt haben!"); 
 						System.exit(-1); break;						
 					}
-			default: System.out.println("Eingabefehler!"); break; 		/*dürfte nie eintreten*/
+			default: System.out.println("Eingabefehler!"); break; 		/*dÃ¼rfte nie eintreten*/
 		}
 		return eingabe;	//rueckgabe der Eingabewerte der Untermenues, die aufgerufen werden
 	}//auswahlMenue
@@ -493,8 +493,8 @@ public class Konsole implements Bildschirmanzeige{
 		
 		//Auswertung der Eingabe
 		switch (eingabe){
-		case 1: eingabe=3; break; // Ist der Schlüssel im Hauptmenu für Spieler vs Netzwerk
-		case 2: eingabe=4; break; // Ist der Schlüssel im Hauptmenu für Computer vs Netzwerk
+		case 1: eingabe=3; break; // Ist der SchlÃ¼ssel im Hauptmenu fÃ¼r Spieler vs Netzwerk
+		case 2: eingabe=4; break; // Ist der SchlÃ¼ssel im Hauptmenu fÃ¼r Computer vs Netzwerk
 		case 3: eingabe = auswahlMenue();break;//zurueckspringen zum Auswahlmenue
 		}
 		return eingabe;
@@ -525,7 +525,7 @@ public class Konsole implements Bildschirmanzeige{
 		System.out.println("             4            Siegbedingungen");
 		System.out.println("             5            Multiplayerspiel");
 		System.out.println("             6            Tipps & Tricks");
-		System.out.println("             7            Zurück zum Hauptmenu");
+		System.out.println("             7            ZurÃ¼ck zum Hauptmenu");
 		
 		System.out.println("\n \n");
 		System.out.print("Bitte Auswahl treffen: ");
@@ -554,7 +554,7 @@ public class Konsole implements Bildschirmanzeige{
 			case 4: konsolenHilfeSiegebedingung(); break; 	// Siegbedingungen Untermenue aufrufen
 			case 5: konsolenHilfeMultiplayerSpiel(); break;	// Multiplayerspiel Hilfe
 			case 6: konsolenHilfeTippsUndTricks(); break; 	// Tipps & Tricks anzeigen
-			case 7: eingabe = auswahlMenue();break; 		// Zurück zum Hauptmenu springen		
+			case 7: eingabe = auswahlMenue();break; 		// ZurÃ¼ck zum Hauptmenu springen		
 		}
 		return eingabe;
 	}//hilfeMenue
@@ -568,23 +568,23 @@ public class Konsole implements Bildschirmanzeige{
 	 * @return: ruft das HauptHilfeMenue auf
 	 */
 	public int konsolenHilfeEinleitung(){
-		System.out.println("\n\n\n\n„EinStein würfelt nicht“ ist ein Spiel für 2 Personen. Es wurde vom deutschen " 
-				+ "\nProf. Ingo Althöfer entwickelt."
+		System.out.println("\n\n\n\nâ€žEinStein wÃ¼rfelt nichtâ€œ ist ein Spiel fÃ¼r 2 Personen. Es wurde vom deutschen " 
+				+ "\nProf. Ingo AlthÃ¶fer entwickelt."
 				+ "\nDie sechs Spielsteine der beiden Spieler befinden sich in einem Raster von "
-				+ "\nfünf mal fünf Spielfeldern in den Ecken, die sich gegenüberstehen. Jeder Stein "
-				+ "\nkann sich immer nur 1 Feld bewegen, aber es ist möglich, sowohl eigene als "
+				+ "\nfÃ¼nf mal fÃ¼nf Spielfeldern in den Ecken, die sich gegenÃ¼berstehen. Jeder Stein "
+				+ "\nkann sich immer nur 1 Feld bewegen, aber es ist mÃ¶glich, sowohl eigene als "
 				+ "\nauch gegnerische Spielsteine zu schlagen, in dem man auf sie drauf zieht. Die "
-				+ "\nbeiden Spieler ziehen abwechselnd, ein Würfelergebnis bestimmt, welcher Stein "
+				+ "\nbeiden Spieler ziehen abwechselnd, ein WÃ¼rfelergebnis bestimmt, welcher Stein "
 				+ "\ngezogen werden darf. \n"
-				+ "\nDie Besonderheit ist, dass es auch möglich ist, selbst zu entscheiden, welchen "
-				+ "\nSpielstein man bewegen darf, wenn der Stein für das Würfelergebnis nicht mehr "
+				+ "\nDie Besonderheit ist, dass es auch mÃ¶glich ist, selbst zu entscheiden, welchen "
+				+ "\nSpielstein man bewegen darf, wenn der Stein fÃ¼r das WÃ¼rfelergebnis nicht mehr "
 				+ "\nim Spiel ist. Wenn nur noch ein Stein bei einem Spieler im Spiel ist, wird das "
-				+ "\nWürfelergebnis ignoriert, denn dieser Stein darf immer ziehen, denn „Ein Stein "
-				+ "\nwürfelt nicht“.\n"
+				+ "\nWÃ¼rfelergebnis ignoriert, denn dieser Stein darf immer ziehen, denn â€žEin Stein "
+				+ "\nwÃ¼rfelt nichtâ€œ.\n"
 				+ "\nEin Beispiel:"
 				+ "\nAuf dem Spielfeld existieren nur noch die Steine 1, 3 und sechs eines "
-				+ "\nSpielers. Der Würfel gibt als Ergebnis eine 2 aus. Nun hat dieser Spieler die "
-				+ "\nWahl, ob er den Stein Nr. 1 oder den Stein Nr 3 bewegen möchte.\n"
+				+ "\nSpielers. Der WÃ¼rfel gibt als Ergebnis eine 2 aus. Nun hat dieser Spieler die "
+				+ "\nWahl, ob er den Stein Nr. 1 oder den Stein Nr 3 bewegen mÃ¶chte.\n"
 				+ "\nDieses Spiel wurde von der Entwicklergruppe BlackByte des 3. Semesters der"
 				+ "\nFachhochschule Fulda im Rahmen des Programmieren-Praktikums entwickelt"
 				+ "\nund getestet.");
@@ -619,8 +619,8 @@ public class Konsole implements Bildschirmanzeige{
 	 */
 	private int konsolenHilfeZug(){
 		System.out.println("\n\n\nWer ist am Zug?\n" 
-				+ "\nEs wird abwechselnd gespielt. Jeder Spieler erhält ein Würfelergebnis, welches " 
-				+ "\ndie möglichen Steine bestimmt, die Sie ziehen können. Wenn Sie am Zug sind, " 
+				+ "\nEs wird abwechselnd gespielt. Jeder Spieler erhÃ¤lt ein WÃ¼rfelergebnis, welches " 
+				+ "\ndie mÃ¶glichen Steine bestimmt, die Sie ziehen kÃ¶nnen. Wenn Sie am Zug sind, " 
 				+ "\nwerden Sie aufgefordert ihren Zug zu machen. " );
 		        
 		return hilfeMenue();	//zurueck zum Hilfemenue
@@ -632,14 +632,14 @@ public class Konsole implements Bildschirmanzeige{
 	 */
 	private int konsolenHilfeSteinBewegen(){
 		System.out.println("\n\n\nBewegen von Steinen\n" 
-				+ "\nWährend des Spiels wird das Programm Ihnen alle Spielmöglichkeiten zeigen, die " 
-				+ "\nihnen jeweils zur Verfügung stehen. Sie werden dann z.B. aufgefordert, sich " 
+				+ "\nWÃ¤hrend des Spiels wird das Programm Ihnen alle SpielmÃ¶glichkeiten zeigen, die " 
+				+ "\nihnen jeweils zur VerfÃ¼gung stehen. Sie werden dann z.B. aufgefordert, sich " 
 				+ "\nzwischen den Steinen 1 und 3 zu entscheiden, die Sie bewegen wollen. Nachdem " 
 				+ "\nsie diese Entscheidung durch die Eingabe der Spielsteinnummer getroffen haben, " 
-				+ "\nwird das Programm ihnen auch alle möglichen Züge vorgeben, aus der Sie " 
-				+ "\nwiederum auswählen dürfen. Dabei wird das Programm von Ihnen lediglich die " 
+				+ "\nwird das Programm ihnen auch alle mÃ¶glichen ZÃ¼ge vorgeben, aus der Sie " 
+				+ "\nwiederum auswÃ¤hlen dÃ¼rfen. Dabei wird das Programm von Ihnen lediglich die " 
 				+ "\nneue Zielkoordinate des Steins verlangen. \n" 
-				+ "\nWenn sie während der Steinbewegungsphase eine Null statt der Spielsteinnummer " 
+				+ "\nWenn sie wÃ¤hrend der Steinbewegungsphase eine Null statt der Spielsteinnummer " 
 				+ "\neingeben, wird das Spiel sofort beendet.");
 		return hilfeMenue(); 	//zurueck zum Hilfemenue
 	}//konsolenHilfeSteinBewegen
@@ -663,8 +663,8 @@ public class Konsole implements Bildschirmanzeige{
 		System.out.println("\n\n\nMultiplayerhilfe\n"
 				+ "\nDie Auswahl des Multiplayerspiels ohne Netzwerk erlaubt Ihnen gegen einem " 
 				+ "\nFreund an einem Rechner zu spielen. Die Option Multiplayerspiel mit Netzwerk " 
-				+ "\ngestattet Ihnen über das Netzwerk gegen einen anderen Spieler an seinem " 
-				+ "\nComputer oder dessen Künstliche Intelligenz zu spielen.");
+				+ "\ngestattet Ihnen Ã¼ber das Netzwerk gegen einen anderen Spieler an seinem " 
+				+ "\nComputer oder dessen KÃ¼nstliche Intelligenz zu spielen.");
 		return hilfeMenue(); 	//zurueck zum Hilfemenue
 	}//konsolenHilfeMultiplayerSpiel
 /*-----------------------------------------------------------------------------------------------------------------*/
@@ -674,10 +674,10 @@ public class Konsole implements Bildschirmanzeige{
 	 */
 	private int konsolenHilfeTippsUndTricks(){
 		System.out.println("\n\n\nTipps & Tricks\n" 
-				+ "\n-  Sie haben es einfacher, wenn Sie Ihre Steine früh dezimieren, um zwischen " 
-				+ "\n   weniger Steinen wählen zu müssen und damit sich schneller bewegen zu können" 
+				+ "\n-  Sie haben es einfacher, wenn Sie Ihre Steine frÃ¼h dezimieren, um zwischen " 
+				+ "\n   weniger Steinen wÃ¤hlen zu mÃ¼ssen und damit sich schneller bewegen zu kÃ¶nnen" 
 				+ "\n-  Wenn Sie Ihre Steine am Rand des Spielfelds bewegen, haben Sie zwar einen " 
-				+ "\n   längeren Weg zur gegnerischen Ecke, allerdings reduziert sich dadurch auch " 
+				+ "\n   lÃ¤ngeren Weg zur gegnerischen Ecke, allerdings reduziert sich dadurch auch " 
 				+ "\n   das Risiko von anderen Steinen geschlagen zu werden.");
 		return hilfeMenue();	//zurueck zum Hilfemenue
 	}//konsolenHilfeTippsUndTricks

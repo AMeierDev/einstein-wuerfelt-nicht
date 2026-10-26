@@ -3,11 +3,11 @@
  * Erstellt am:  23.11.2005 
  * Erstellt von: Arne Meier, Sebastian Horchler
  * 
- * Änderungen: 
- * 26.11.2005, Maria Pidiktaki, Arne Meier: Menuauswahl wurde hinzugefügt und die 
+ * Ã„nderungen: 
+ * 26.11.2005, Maria Pidiktaki, Arne Meier: Menuauswahl wurde hinzugefÃ¼gt und die 
  * 											Initialisierungen entsprechend der Caseanweisung
  * 10.12.2005, Maria Pidiktaki, Arne Meier: komplette Ueberarbeitung, Kuerzung		
- * 12.12.2005, Patrick Schwarzer, Arne Meier: Hinzufügung von JavaDocs
+ * 12.12.2005, Patrick Schwarzer, Arne Meier: HinzufÃ¼gung von JavaDocs
  */
 
 package spiel;
