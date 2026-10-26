@@ -12,9 +12,15 @@
 
   <artifactId>client</artifactId>
   <packaging>jar</packaging>
-  <name>Einstein wuerfelt nicht - Client</name>
+  <name>Einstein wuerfelt nicht - Client (Vaadin Flow)</name>
 
   <dependencies>
+    <!-- Vaadin Flow Starter -->
+    <dependency>
+      <groupId>com.vaadin</groupId>
+      <artifactId>vaadin-spring-boot-starter</artifactId>
+    </dependency>
+    <!-- JUnit -->
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>

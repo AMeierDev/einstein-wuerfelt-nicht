@@ -11,19 +11,32 @@
   <name>Einstein wuerfelt nicht (Parent)</name>
 
   <modules>
+    <module>shared</module>
     <module>client</module>
     <module>server</module>
   </modules>
 
   <properties>
-    <!-- Quellen sind ISO-8859-1/Cp1252 kodiert (Umlaute in Kommentaren) -->
-    <project.build.sourceEncoding>windows-1252</project.build.sourceEncoding>
+    <!-- Quellen sind UTF-8 kodiert -->
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <!-- Original: Java 1.5. Aktuelle JDKs (ab 20) unterstuetzen mindestens Java 8. -->
-    <maven.compiler.release>8</maven.compiler.release>
+    <maven.compiler.release>21</maven.compiler.release>
+    <!-- Vaadin BOM Version - aktuellste auf Maven Central (Jan 2026).
+         Bei Bedarf auf neuere Version aktualisieren oder auf Vaadin 25 warten. -->
+    <vaadin.version>24.6.13</vaadin.version>
   </properties>
 
   <dependencyManagement>
     <dependencies>
+      <!-- Vaadin BOM für alle Vaadin-Abhängigkeiten -->
+      <dependency>
+        <groupId>com.vaadin</groupId>
+        <artifactId>vaadin-bom</artifactId>
+        <version>${vaadin.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <!-- JUnit -->
       <dependency>
         <groupId>junit</groupId>
         <artifactId>junit</artifactId>

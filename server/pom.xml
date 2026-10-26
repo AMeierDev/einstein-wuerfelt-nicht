@@ -4,32 +4,69 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
+  <!-- Spring Boot Parent für Server -->
   <parent>
-    <groupId>de.blackbyte</groupId>
-    <artifactId>einstein-wuerfelt-nicht-parent</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>3.4.5</version>
+    <relativePath/>
   </parent>
 
-  <artifactId>server</artifactId>
+  <groupId>de.blackbyte</groupId>
+  <artifactId>einstein-wuerfelt-nicht-server</artifactId>
   <packaging>jar</packaging>
-  <name>Einstein wuerfelt nicht - Server</name>
+  <name>Einstein wuerfelt nicht - Server (Spring Boot + Vaadin)</name>
+
+  <properties>
+    <!-- Quellen sind UTF-8 kodiert -->
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <!-- Vaadin BOM Version (wird von Root-POM dependencyManagement verwaltet) -->
+    <vaadin.version>24.6.13</vaadin.version>
+  </properties>
 
   <dependencies>
+    <!-- Spring Boot Web + WebSocket -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-websocket</artifactId>
+    </dependency>
+    <!-- Vaadin Flow -->
+    <dependency>
+      <groupId>com.vaadin</groupId>
+      <artifactId>vaadin-spring-boot-starter</artifactId>
+      <version>${vaadin.version}</version>
+    </dependency>
+    <!-- Shared Module (Spiellogik) -->
+    <dependency>
+      <groupId>de.blackbyte</groupId>
+      <artifactId>einstein-wuerfelt-nicht-shared</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <!-- JUnit -->
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
+      <scope>test</scope>
     </dependency>
   </dependencies>
 
   <build>
     <plugins>
       <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+      </plugin>
+      <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jar-plugin</artifactId>
         <configuration>
           <archive>
             <manifest>
-              <mainClass>server.GameServer</mainClass>
+              <mainClass>server.EinsteinServerApplication</mainClass>
             </manifest>
           </archive>
         </configuration>
